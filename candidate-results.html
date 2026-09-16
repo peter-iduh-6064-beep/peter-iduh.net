@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Candidate Results | Pharm. Peter Yakubu Iduh</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#f5f7f6;
+  color:#222;
+  line-height:1.6;
+}
+
+/* HEADER */
+
+header{
+  background:#006b3f;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  border-bottom:4px solid #e30613;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.adc{
+  background:white;
+  color:#006b3f;
+  font-weight:bold;
+  padding:8px 12px;
+  border-radius:6px;
+}
+
+.logo h1{
+  font-size:20px;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:10px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:5px;
+  font-weight:bold;
+}
+
+nav a:hover{
+  background:#e30613;
+}
+
+/* MOVING BAR */
+
+.welcome-bar{
+  width:100%;
+  overflow:hidden;
+  background:#006b3f;
+  border-bottom:3px solid #e30613;
+  white-space:nowrap;
+  padding:12px 0;
+}
+
+.welcome-track{
+  display:inline-flex;
+  align-items:center;
+  gap:25px;
+  padding-left:100%;
+  animation:moveWelcome 24s linear infinite;
+}
+
+.welcome-track span{
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.welcome-track .gold{
+  color:#ffd700;
+  font-size:21px;
+}
+
+.welcome-track .red{
+  color:#e30613;
+  background:white;
+  padding:3px 8px;
+  border-radius:4px;
+}
+
+@keyframes moveWelcome{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-100%);
+  }
+
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(135deg,#006b3f,#003d25);
+  color:white;
+  padding:70px 6%;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  max-width:850px;
+  margin:auto;
+  font-size:18px;
+}
+
+/* CONTAINER */
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:45px auto;
+}
+
+/* NOTICE */
+
+.notice{
+  background:white;
+  border-left:6px solid #006b3f;
+  padding:22px;
+  margin-bottom:30px;
+  border-radius:8px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.notice h3{
+  color:#006b3f;
+  margin-bottom:8px;
+}
+
+/* FILTER */
+
+.filter-box{
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  margin-bottom:30px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.filter-box h3{
+  color:#006b3f;
+  margin-bottom:15px;
+}
+
+.filter{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.filter select{
+  padding:12px;
+  min-width:240px;
+  border:1px solid #ccc;
+  border-radius:5px;
+  font-size:15px;
+}
+
+/* RESULTS */
+
+.results-box{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.results-box h2{
+  color:#006b3f;
+  margin-bottom:8px;
+}
+
+.table-wrapper{
+  overflow-x:auto;
+  margin-top:20px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:750px;
+}
+
+th{
+  background:#006b3f;
+  color:white;
+  padding:14px;
+  text-align:left;
+}
+
+td{
+  padding:14px;
+  border-bottom:1px solid #ddd;
+}
+
+.empty{
+  text-align:center;
+  padding:40px;
+  color:#666;
+  background:#f8f8f8;
+}
+
+/* CANDIDATE INFO */
+
+.candidate-info{
+  margin-top:35px;
+  background:#f1f7f4;
+  border-radius:10px;
+  padding:25px;
+}
+
+.candidate-info h3{
+  color:#006b3f;
+  margin-bottom:10px;
+}
+
+/* CONSTITUENCY */
+
+.constituency{
+  margin-top:40px;
+}
+
+.constituency h2{
+  text-align:center;
+  color:#006b3f;
+  margin-bottom:25px;
+}
+
+.const-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.const-card{
+  background:white;
+  padding:25px;
+  text-align:center;
+  border-radius:10px;
+  border-top:5px solid #006b3f;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.const-card h3{
+  color:#006b3f;
+  margin-bottom:8px;
+}
+
+/* BACK */
+
+.back{
+  text-align:center;
+  margin:40px 0;
+}
+
+.back a{
+  display:inline-block;
+  background:#e30613;
+  color:white;
+  text-decoration:none;
+  padding:12px 22px;
+  border-radius:5px;
+  font-weight:bold;
+}
+
+.back a:hover{
+  background:#006b3f;
+}
+
+/* FOOTER */
+
+footer{
+  background:#003d25;
+  color:white;
+  text-align:center;
+  padding:30px 5%;
+  margin-top:50px;
+}
+
+footer a{
+  color:#ffd700;
+  text-decoration:none;
+  margin:0 8px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .const-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:650px){
+
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  nav a{
+    font-size:13px;
+  }
+
+  .hero h2{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .const-grid{
+    grid-template-columns:1fr;
+  }
+
+  .results-box{
+    padding:20px 12px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="logo">
+
+    <div class="adc">
+      ADC
+    </div>
+
+    <h1>
+      PHARM. PETER YAKUBU IDUH
+    </h1>
+
+  </div>
+
+
+  <nav>
+
+    <a href="index.html">Home</a>
+
+    <a href="about.html">About</a>
+
+    <a href="priorities.html">Priorities</a>
+
+    <a href="constituency.html">Constituency</a>
+
+    <a href="vision.html">Vision</a>
+
+    <a href="gallery.html">Gallery</a>
+
+    <a href="news.html">News</a>
+
+    <a href="events.html">Events</a>
+
+    <a href="press.html">Press</a>
+
+    <a href="faq.html">FAQ</a>
+
+    <a href="election-results.html">Results</a>
+
+    <a href="contact.html">Contact</a>
+
+  </nav>
+
+</header>
+
+
+<!-- MOVING WELCOME BAR -->
+
+<div class="welcome-bar">
+
+  <div class="welcome-track">
+
+    <span>CANDIDATE RESULTS</span>
+
+    <span class="gold">•</span>
+
+    <span>HOUSE OF REPRESENTATIVES</span>
+
+    <span class="gold">•</span>
+
+    <span>IDAH FEDERAL CONSTITUENCY</span>
+
+    <span class="gold">•</span>
+
+    <span>IDAH • IBAJI • IGALAMELA-ODOLU • OFU</span>
+
+    <span class="gold">•</span>
+
+    <span class="red">PUBLIC RESULTS INFORMATION</span>
+
+  </div>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <h2>Candidate Results</h2>
+
+  <p>
+    Public candidate-by-candidate election-result information
+    for Idah Federal Constituency.
+  </p>
+
+</section>
+
+
+<div class="container">
+
+
+  <!-- NOTICE -->
+
+  <div class="notice">
+
+    <h3>Results Verification Notice</h3>
+
+    <p>
+      This page is intended to display verified public election
+      results. Figures should only be entered after checking the
+      relevant official result records.
+    </p>
+
+    <p style="margin-top:10px;">
+
+      The page does not collect voter names, VINs, voter preferences,
+      phone numbers or other individual voter information.
+
+    </p>
+
+  </div>
+
+
+  <!-- FILTER -->
+
+  <div class="filter-box">
+
+    <h3>Select Result Area</h3>
+
+    <div class="filter">
+
+      <select id="lgaSelect" onchange="changeLGA()">
+
+        <option value="All">
+          All LGAs
+        </option>
+
+        <option value="Idah">
+          Idah
+        </option>
+
+        <option value="Ibaji">
+          Ibaji
+        </option>
+
+        <option value="Igalamela-Odolu">
+          Igalamela-Odolu
+        </option>
+
+        <option value="Ofu">
+          Ofu
+        </option>
+
+      </select>
+
+
+      <select id="electionSelect">
+
+        <option>
+          House of Representatives
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+
+  <!-- RESULTS TABLE -->
+
+  <section class="results-box">
+
+    <h2>Candidate Vote Records</h2>
+
+    <p>
+      Candidate results will appear here when verified public
+      result records are added.
+    </p>
+
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Candidate</th>
+
+            <th>Party</th>
+
+            <th>LGA</th>
+
+            <th>Votes</th>
+
+            <th>Status</th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody id="candidateBody">
+
+          <tr>
+
+            <td colspan="5" class="empty">
+
+              No verified candidate result data has been
+              published on this page yet.
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- CANDIDATE INFORMATION -->
+
+    <div class="candidate-info">
+
+      <h3>Candidate Information</h3>
+
+      <p>
+        Candidate: <strong>Pharm. Peter Yakubu Iduh</strong>
+      </p>
+
+      <p>
+        Party: <strong>African Democratic Congress (ADC)</strong>
+      </p>
+
+      <p>
+        Election: <strong>House of Representatives</strong>
+      </p>
+
+      <p>
+        Constituency: <strong>Idah Federal Constituency</strong>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONSTITUENCY -->
+
+  <section class="constituency">
+
+    <h2>
+      Constituency Result Areas
+    </h2>
+
+
+    <div class="const-grid">
+
+
+      <div class="const-card">
+
+        <h3>Idah</h3>
+
+        <p>
+          Public result records
+        </p>
+
+      </div>
+
+
+      <div class="const-card">
+
+        <h3>Ibaji</h3>
+
+        <p>
+          Public result records
+        </p>
+
+      </div>
+
+
+      <div class="const-card">
+
+        <h3>Igalamela-Odolu</h3>
+
+        <p>
+          Public result records
+        </p>
+
+      </div>
+
+
+      <div class="const-card">
+
+        <h3>Ofu</h3>
+
+        <p>
+          Public result records
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- INFORMATION -->
+
+  <div class="notice" style="margin-top:40px;">
+
+    <h3>How Results Are Used</h3>
+
+    <p>
+      Results shown here are intended for public information and
+      should be based on verified records. The official electoral
+      authority remains responsible for the formal collation and
+      declaration of election results.
+    </p>
+
+  </div>
+
+
+  <!-- BACK -->
+
+  <div class="back">
+
+    <a href="election-results.html">
+
+      ← Back to Election Results
+
+    </a>
+
+  </div>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+    © 2026 Pharm. Peter Yakubu Iduh
+  </p>
+
+  <p>
+    House of Representatives Candidate • Idah Federal Constituency
+  </p>
+
+
+  <p style="margin-top:10px;">
+
+    <a href="privacy-policy.html">
+      Privacy Policy
+    </a>
+
+    |
+
+    <a href="terms.html">
+      Terms
+    </a>
+
+    |
+
+    <a href="election-results.html">
+      Election Results
+    </a>
+
+  </p>
+
+
+  <p style="margin-top:15px;">
+    Powered by IBAJI TV CHANNEL 📺
+  </p>
+
+</footer>
+
+
+<script>
+
+function changeLGA(){
+
+  const lga =
+    document.getElementById("lgaSelect").value;
+
+  const body =
+    document.getElementById("candidateBody");
+
+
+  if(lga === "All"){
+
+    body.innerHTML = `
+
+      <tr>
+
+        <td colspan="5" class="empty">
+
+          No verified candidate result data has
+          been published on this page yet.
+
+        </td>
+
+      </tr>
+
+    `;
+
+  }else{
+
+    body.innerHTML = `
+
+      <tr>
+
+        <td colspan="5" class="empty">
+
+          No verified candidate result data is
+          currently published for ${lga}.
+
+        </td>
+
+      </tr>
+
+    `;
+
+  }
+
+}
+
+</script>
+
+
+</body>
+</html>
