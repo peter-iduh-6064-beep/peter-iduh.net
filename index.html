@@ -7,7 +7,7 @@
   <title>Pharm. Chief Peter Yakubu Iduh | Idah Federal Constituency</title>
 
   <meta name="description"
-        content="Official information website for Pharm. Chief Peter Yakubu Iduh, House of Representatives candidate for Idah Federal Constituency under the African Democratic Congress (ADC).">
+    content="Official information website for Pharm. Chief Peter Yakubu Iduh, House of Representatives candidate for Idah Federal Constituency under the African Democratic Congress (ADC).">
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -24,6 +24,8 @@
       color:#222;
       line-height:1.6;
     }
+
+    /* ================= HEADER ================= */
 
     header{
       background:#006b3f;
@@ -93,8 +95,44 @@
     nav a:hover,
     nav a.active{
       background:#e30613;
-      color:#fff;
     }
+
+    /* ================= MOVING WELCOME MESSAGE ================= */
+
+    .welcome-bar{
+      background:#e30613;
+      color:#fff;
+      overflow:hidden;
+      white-space:nowrap;
+      border-bottom:3px solid #ffd700;
+      position:relative;
+      z-index:900;
+    }
+
+    .welcome-track{
+      display:inline-block;
+      padding:10px 0;
+      padding-left:100%;
+      animation:welcomeMove 25s linear infinite;
+      font-size:15px;
+      font-weight:bold;
+    }
+
+    .welcome-track span{
+      margin-right:80px;
+    }
+
+    @keyframes welcomeMove{
+      0%{
+        transform:translateX(0);
+      }
+
+      100%{
+        transform:translateX(-100%);
+      }
+    }
+
+    /* ================= HERO ================= */
 
     .hero{
       min-height:540px;
@@ -104,7 +142,10 @@
       text-align:center;
       padding:60px 20px;
       background:
-        linear-gradient(rgba(0,70,40,.78),rgba(0,70,40,.78)),
+        linear-gradient(
+          rgba(0,70,40,.78),
+          rgba(0,70,40,.78)
+        ),
         url("https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg")
         center/cover no-repeat;
       color:#fff;
@@ -151,6 +192,8 @@
       font-weight:bold;
     }
 
+    /* ================= GENERAL ================= */
+
     .section{
       max-width:1150px;
       margin:auto;
@@ -171,6 +214,8 @@
     .section-title p{
       color:#666;
     }
+
+    /* ================= ABOUT ================= */
 
     .about-grid{
       display:grid;
@@ -212,6 +257,8 @@
       background:#006b3f;
     }
 
+    /* ================= NEWS ================= */
+
     .cards{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -247,6 +294,18 @@
       margin-bottom:8px;
     }
 
+    .loading,
+    .empty{
+      text-align:center;
+      padding:25px;
+      background:#fff;
+      border-radius:10px;
+      color:#666;
+      grid-column:1/-1;
+    }
+
+    /* ================= KEY AREAS ================= */
+
     .areas{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -265,6 +324,8 @@
       color:#006b3f;
       margin-bottom:10px;
     }
+
+    /* ================= CONSTITUENCY ================= */
 
     .constituency{
       background:#006b3f;
@@ -295,6 +356,8 @@
       font-size:18px;
     }
 
+    /* ================= VISION ================= */
+
     .vision-box{
       background:#fff;
       padding:35px;
@@ -307,6 +370,8 @@
     .vision-box p{
       font-size:20px;
     }
+
+    /* ================= CONTACT ================= */
 
     .contact-box{
       background:#006b3f;
@@ -327,6 +392,8 @@
       text-decoration:none;
     }
 
+    /* ================= FOOTER ================= */
+
     footer{
       background:#003d27;
       color:#fff;
@@ -343,67 +410,10 @@
       color:#ffd700;
     }
 
-    .welcome-card{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      width:290px;
-      background:#fff;
-      border-radius:12px;
-      box-shadow:0 5px 25px rgba(0,0,0,.25);
-      overflow:hidden;
-      z-index:999;
-    }
-
-    .welcome-card img{
-      width:100%;
-      height:130px;
-      object-fit:cover;
-    }
-
-    .welcome-content{
-      padding:15px;
-    }
-
-    .welcome-content h3{
-      color:#006b3f;
-      margin-bottom:5px;
-    }
-
-    .welcome-content p{
-      font-size:13px;
-      color:#555;
-    }
-
-    .close-welcome{
-      position:absolute;
-      top:7px;
-      right:7px;
-      width:28px;
-      height:28px;
-      border:0;
-      border-radius:50%;
-      background:#e30613;
-      color:#fff;
-      font-weight:bold;
-      cursor:pointer;
-    }
-
-    .loading{
-      text-align:center;
-      padding:25px;
-      color:#666;
-    }
-
-    .empty{
-      text-align:center;
-      padding:25px;
-      background:#fff;
-      border-radius:10px;
-      color:#666;
-    }
+    /* ================= MOBILE ================= */
 
     @media(max-width:900px){
+
       .cards{
         grid-template-columns:repeat(2,1fr);
       }
@@ -422,6 +432,7 @@
     }
 
     @media(max-width:800px){
+
       .header-inner{
         padding:12px 15px;
       }
@@ -466,14 +477,14 @@
         font-size:16px;
       }
 
-      .welcome-card{
-        width:calc(100% - 30px);
-        right:15px;
-        bottom:15px;
+      .welcome-track{
+        font-size:14px;
+        animation-duration:22s;
       }
     }
 
     @media(max-width:600px){
+
       .cards,
       .areas,
       .constituency-grid{
@@ -496,13 +507,21 @@
       .hero h1{
         font-size:27px;
       }
+
+      .welcome-track{
+        font-size:13px;
+        animation-duration:20s;
+      }
     }
   </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
+
   <div class="header-inner">
 
     <div class="logo">
@@ -510,7 +529,9 @@
       <span>Idah Federal Constituency</span>
     </div>
 
-    <button class="menu-button" onclick="toggleMenu()">
+    <button
+      class="menu-button"
+      onclick="toggleMenu()">
       ☰ MENU
     </button>
 
@@ -538,17 +559,46 @@
     <a href="result-details.html">Result Details</a>
     <a href="admin-results.html">Admin Results</a>
 
-    <!-- NEWS ADMIN ADDED -->
+    <!-- NEWS ADMIN -->
     <a href="news-admin.html">News Admin</a>
 
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="terms.html">Terms</a>
 
   </nav>
+
 </header>
 
 
-<!-- HERO -->
+<!-- ================= MOVING WELCOME MESSAGE ================= -->
+
+<div class="welcome-bar">
+
+  <div class="welcome-track">
+
+    <span>
+      👋 WELCOME TO THE OFFICIAL INFORMATION WEBSITE OF PHARM. CHIEF PETER YAKUBU IDUH
+    </span>
+
+    <span>
+      📰 Stay informed with the latest news, events and constituency updates.
+    </span>
+
+    <span>
+      📍 Idah Federal Constituency — Idah • Ibaji • Igalamela-Odolu • Ofu
+    </span>
+
+    <span>
+      🌐 Thank you for visiting this website.
+    </span>
+
+  </div>
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
 <section class="hero">
 
   <div class="hero-content">
@@ -557,9 +607,13 @@
       src="https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg"
       alt="Pharm. Peter Yakubu Iduh">
 
-    <h1>Pharm. Chief Peter Yakubu Iduh</h1>
+    <h1>
+      Pharm. Chief Peter Yakubu Iduh
+    </h1>
 
-    <h2>House of Representatives Candidate</h2>
+    <h2>
+      House of Representatives Candidate
+    </h2>
 
     <p>
       Idah Federal Constituency:
@@ -575,44 +629,66 @@
 </section>
 
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
+
 <section class="section">
 
   <div class="section-title">
-    <h2>About Pharm. Chief Peter Yakubu Iduh</h2>
-    <p>Professional, community and public profile</p>
+
+    <h2>
+      About Pharm. Chief Peter Yakubu Iduh
+    </h2>
+
+    <p>
+      Professional, community and public profile
+    </p>
+
   </div>
+
 
   <div class="about-grid">
 
     <div>
+
       <img
         src="https://i.ibb.co/4RTnqS9J/IMG-20260916-WA0092.jpg"
         alt="Pharm. Chief Peter Yakubu Iduh">
+
     </div>
+
 
     <div class="about-text">
 
-      <h3>Pharmacist • Entrepreneur • Community Figure</h3>
+      <h3>
+        Pharmacist • Entrepreneur • Community Figure
+      </h3>
 
       <p>
-        Pharm. Chief Peter Yakubu Iduh is a pharmacist and businessman
-        associated with pharmaceutical and distribution activities.
-        Public profiles also describe his involvement in community and
-        grassroots activities in Kogi East.
+        Pharm. Chief Peter Yakubu Iduh is a pharmacist and
+        businessman associated with pharmaceutical and
+        distribution activities.
+      </p>
+
+      <p>
+        Public profiles also describe his involvement in
+        community and grassroots activities in Kogi East.
       </p>
 
       <p>
         He is associated with the Idah Federal Constituency,
-        comprising Idah, Ibaji, Igalamela-Odolu and Ofu Local Government Areas.
+        comprising Idah, Ibaji, Igalamela-Odolu and Ofu
+        Local Government Areas.
       </p>
 
       <p>
-        His professional background includes pharmacy, pharmaceutical
-        distribution, business administration and community engagement.
+        His professional background includes pharmacy,
+        pharmaceutical distribution, business administration
+        and community engagement.
       </p>
 
-      <a href="biography.html" class="btn">
+      <a
+        href="biography.html"
+        class="btn">
         Read Full Biography →
       </a>
 
@@ -623,15 +699,26 @@
 </section>
 
 
-<!-- LATEST NEWS -->
+<!-- ================= LATEST NEWS ================= -->
+
 <section class="section">
 
   <div class="section-title">
-    <h2>Latest News</h2>
-    <p>Recent published updates</p>
+
+    <h2>
+      Latest News
+    </h2>
+
+    <p>
+      Recent published updates
+    </p>
+
   </div>
 
-  <div id="latestNews" class="cards">
+
+  <div
+    id="latestNews"
+    class="cards">
 
     <div class="loading">
       Loading latest news...
@@ -639,71 +726,120 @@
 
   </div>
 
+
   <div style="text-align:center;margin-top:25px;">
-    <a href="news.html" class="btn">
+
+    <a
+      href="news.html"
+      class="btn">
       View All News →
     </a>
+
   </div>
 
 </section>
 
 
-<!-- KEY AREAS -->
+<!-- ================= KEY AREAS ================= -->
+
 <section class="section">
 
   <div class="section-title">
-    <h2>Key Areas</h2>
-    <p>Areas presented for public information and discussion</p>
+
+    <h2>
+      Key Areas
+    </h2>
+
+    <p>
+      Areas presented for public information and discussion
+    </p>
+
   </div>
+
 
   <div class="areas">
 
     <div class="area">
-      <h3>Education</h3>
+
+      <h3>
+        Education
+      </h3>
+
       <p>
         Information and discussion relating to education,
         skills development and opportunities for young people.
       </p>
+
     </div>
 
+
     <div class="area">
-      <h3>Healthcare</h3>
+
+      <h3>
+        Healthcare
+      </h3>
+
       <p>
         Public health, access to healthcare services and
         community wellbeing are important constituency concerns.
       </p>
+
     </div>
 
+
     <div class="area">
-      <h3>Infrastructure</h3>
+
+      <h3>
+        Infrastructure
+      </h3>
+
       <p>
         Roads, electricity, water and other public infrastructure
         remain important areas of community discussion.
       </p>
+
     </div>
 
+
     <div class="area">
-      <h3>Youth Development</h3>
+
+      <h3>
+        Youth Development
+      </h3>
+
       <p>
         Youth participation, entrepreneurship, skills and
         employment opportunities are areas of public interest.
       </p>
+
     </div>
 
-    <div class="area">
-      <h3>Agriculture</h3>
-      <p>
-        Agriculture and related economic activities are significant
-        to communities across the constituency.
-      </p>
-    </div>
 
     <div class="area">
-      <h3>Community Engagement</h3>
+
+      <h3>
+        Agriculture
+      </h3>
+
       <p>
-        Dialogue with communities and representation of constituency
-        concerns form part of public engagement.
+        Agriculture and related economic activities are
+        significant to communities across the constituency.
       </p>
+
+    </div>
+
+
+    <div class="area">
+
+      <h3>
+        Community Engagement
+      </h3>
+
+      <p>
+        Dialogue with communities and representation of
+        constituency concerns form part of public engagement.
+      </p>
+
     </div>
 
   </div>
@@ -711,17 +847,24 @@
 </section>
 
 
-<!-- CONSTITUENCY -->
+<!-- ================= CONSTITUENCY ================= -->
+
 <section class="constituency">
 
   <div class="section">
 
     <div class="section-title">
-      <h2>Idah Federal Constituency</h2>
+
+      <h2>
+        Idah Federal Constituency
+      </h2>
+
       <p>
         The constituency covers four Local Government Areas
       </p>
+
     </div>
+
 
     <div class="constituency-grid">
 
@@ -748,27 +891,37 @@
 </section>
 
 
-<!-- VISION -->
+<!-- ================= VISION ================= -->
+
 <section class="section">
 
   <div class="section-title">
-    <h2>Public Vision & Engagement</h2>
-    <p>Information about issues affecting the constituency</p>
+
+    <h2>
+      Public Vision & Engagement
+    </h2>
+
+    <p>
+      Information about issues affecting the constituency
+    </p>
+
   </div>
+
 
   <div class="vision-box">
 
     <p>
-      This website provides information about Pharm. Chief Peter Yakubu
-      Iduh, his professional background, public activities, constituency
-      areas and published updates.
+      This website provides information about
+      Pharm. Chief Peter Yakubu Iduh, his professional
+      background, public activities, constituency areas
+      and published updates.
     </p>
 
     <br>
 
     <p>
-      Visitors can also access news, events, press information and
-      constituency-related resources through the website menu.
+      Visitors can also access news, events, press information
+      and constituency-related resources through the website menu.
     </p>
 
   </div>
@@ -776,24 +929,33 @@
 </section>
 
 
-<!-- CONTACT -->
+<!-- ================= CONTACT ================= -->
+
 <section class="section">
 
   <div class="contact-box">
 
-    <h2>Contact</h2>
+    <h2>
+      Contact
+    </h2>
 
     <p>
       For enquiries and official communications:
     </p>
 
     <p style="margin-top:12px;font-size:20px;">
+
       <a href="tel:+2348033906752">
         +234 803 390 6752
       </a>
+
     </p>
 
-    <a href="contact.html" class="btn" style="margin-top:20px;">
+
+    <a
+      href="contact.html"
+      class="btn"
+      style="margin-top:20px;">
       Contact Page →
     </a>
 
@@ -802,32 +964,8 @@
 </section>
 
 
-<!-- WELCOME CARD -->
-<div class="welcome-card" id="welcomeCard">
+<!-- ================= FOOTER ================= -->
 
-  <button class="close-welcome" onclick="closeWelcome()">
-    ×
-  </button>
-
-  <img
-    src="https://i.ibb.co/Tq0FdBqC/IMG-20260916-WA0091.jpg"
-    alt="Pharm. Peter Yakubu Iduh">
-
-  <div class="welcome-content">
-
-    <h3>Welcome</h3>
-
-    <p>
-      Welcome to the information website of
-      Pharm. Chief Peter Yakubu Iduh.
-    </p>
-
-  </div>
-
-</div>
-
-
-<!-- FOOTER -->
 <footer>
 
   <p>
@@ -845,6 +983,8 @@
 </footer>
 
 
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
   /* =========================
@@ -853,24 +993,34 @@
 
   function toggleMenu(){
 
-    const nav = document.getElementById("mainNav");
+    const nav =
+      document.getElementById("mainNav");
 
     nav.classList.toggle("open");
 
   }
 
 
-  document.querySelectorAll("#mainNav a").forEach(function(link){
+  /* Close mobile menu after
+     selecting a page */
 
-    link.addEventListener("click",function(){
+  document
+    .querySelectorAll("#mainNav a")
+    .forEach(function(link){
 
-      document
-        .getElementById("mainNav")
-        .classList.remove("open");
+      link.addEventListener(
+        "click",
+        function(){
+
+          document
+            .getElementById("mainNav")
+            .classList
+            .remove("open");
+
+        }
+      );
 
     });
-
-  });
 
 
   /* =========================
@@ -880,8 +1030,10 @@
   const SUPABASE_URL =
     "https://oltrdzkqumldpfmygmfi.supabase.co";
 
+
   const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_FtdISn_NfDQWnhVxPegaeg_B-RzNdUA";
+
 
   const supabaseClient =
     supabase.createClient(
@@ -896,7 +1048,10 @@
 
   function escapeHtml(value){
 
-    if(value === null || value === undefined){
+    if(
+      value === null ||
+      value === undefined
+    ){
       return "";
     }
 
@@ -920,14 +1075,15 @@
       return "";
     }
 
-    return new Date(date).toLocaleDateString(
-      "en-NG",
-      {
-        year:"numeric",
-        month:"long",
-        day:"numeric"
-      }
-    );
+    return new Date(date)
+      .toLocaleDateString(
+        "en-NG",
+        {
+          year:"numeric",
+          month:"long",
+          day:"numeric"
+        }
+      );
 
   }
 
@@ -941,18 +1097,27 @@
     const container =
       document.getElementById("latestNews");
 
+
     try{
 
-      const { data, error } =
+      const {
+        data,
+        error
+      } =
         await supabaseClient
           .from("news")
           .select(
             "id,title,summary,image_url,published_at"
           )
-          .eq("published",true)
+          .eq(
+            "published",
+            true
+          )
           .order(
             "published_at",
-            {ascending:false}
+            {
+              ascending:false
+            }
           )
           .limit(3);
 
@@ -962,81 +1127,129 @@
       }
 
 
-      if(!data || data.length === 0){
+      if(
+        !data ||
+        data.length === 0
+      ){
 
         container.innerHTML = `
-          <div class="empty" style="grid-column:1/-1;">
+
+          <div class="empty">
+
             No published news available yet.
+
           </div>
+
         `;
 
         return;
+
       }
 
 
       container.innerHTML =
-        data.map(function(item){
+        data
+          .map(function(item){
 
-          const image =
-            item.image_url
-              ? escapeHtml(item.image_url)
-              : "https://via.placeholder.com/800x450?text=News";
+            const image =
+              item.image_url
+                ? escapeHtml(
+                    item.image_url
+                  )
+                : "";
 
 
-          return `
+            return `
 
-            <article class="card">
+              <article class="card">
 
-              <img
-                src="${image}"
-                alt="${escapeHtml(item.title)}"
-                onerror="this.src='https://via.placeholder.com/800x450?text=News';"
-              >
+                ${
+                  image
+                  ?
+                  `
+                  <img
+                    src="${image}"
+                    alt="${escapeHtml(item.title)}"
+                    onerror="
+                      this.style.display='none';
+                    "
+                  >
+                  `
+                  :
+                  ""
+                }
 
-              <div class="card-content">
+                <div class="card-content">
 
-                <div class="date">
-                  ${formatDate(item.published_at)}
+                  <div class="date">
+
+                    ${formatDate(
+                      item.published_at
+                    )}
+
+                  </div>
+
+
+                  <h3>
+
+                    ${escapeHtml(
+                      item.title
+                    )}
+
+                  </h3>
+
+
+                  <p>
+
+                    ${escapeHtml(
+                      item.summary || ""
+                    )}
+
+                  </p>
+
+
+                  <a
+                    href="news.html?id=${encodeURIComponent(item.id)}"
+                    class="btn">
+
+                    Read Full Story →
+
+                  </a>
+
                 </div>
 
-                <h3>
-                  ${escapeHtml(item.title)}
-                </h3>
+              </article>
 
-                <p>
-                  ${escapeHtml(item.summary || "")}
-                </p>
+            `;
 
-                <a
-                  href="news.html?id=${encodeURIComponent(item.id)}"
-                  class="btn"
-                >
-                  Read Full Story →
-                </a>
-
-              </div>
-
-            </article>
-
-          `;
-
-        }).join("");
+          })
+          .join("");
 
     }
+
+
     catch(error){
 
-      console.error("News loading error:",error);
+      console.error(
+        "News loading error:",
+        error
+      );
+
 
       container.innerHTML = `
 
-        <div class="empty" style="grid-column:1/-1;">
+        <div class="empty">
 
           Unable to load latest news at the moment.
 
           <br><br>
 
-          <a href="news.html" class="btn">
+          <a
+            href="news.html"
+            class="btn">
+
             Open News Page
+
           </a>
 
         </div>
@@ -1049,19 +1262,7 @@
 
 
   /* =========================
-     WELCOME CARD
-  ========================= */
-
-  function closeWelcome(){
-
-    document.getElementById("welcomeCard").style.display =
-      "none";
-
-  }
-
-
-  /* =========================
-     START
+     START NEWS
   ========================= */
 
   loadLatestNews();
