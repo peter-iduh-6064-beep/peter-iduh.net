@@ -1,582 +1,790 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>News & Updates | Pharm. Peter Yakubu Iduh</title>
+<title>News & Updates - Pharm. Peter Yakubu Iduh</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f7;
-      color: #222;
-      line-height: 1.7;
-    }
+<style>
 
-    /* HEADER */
-    header {
-      background: #006b3f;
-      border-bottom: 5px solid #e30613;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+*{
+box-sizing:border-box;
+}
 
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f7f6;
+color:#222;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+/* HEADER */
 
-    .adc {
-      background: #e30613;
-      color: white;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      border: 2px solid white;
-    }
+header{
+background:#006b3f;
+color:white;
+padding:15px;
+}
 
-    .brand-text h2 {
-      font-size: 18px;
-      margin-bottom: 2px;
-    }
+.header-inner{
+max-width:1200px;
+margin:auto;
+}
 
-    .brand-text p {
-      font-size: 12px;
-      color: white;
-    }
+.header-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+}
 
-    nav {
-      display: flex;
-      gap: 20px;
-    }
+.logo h1{
+margin:0;
+font-size:20px;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-    }
+.logo p{
+margin:4px 0 0;
+font-size:12px;
+}
 
-    nav a:hover {
-      color: #ffd700;
-    }
+/* MENU */
 
-    .menu-btn {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-    }
+nav{
+display:flex;
+align-items:center;
+gap:6px;
+overflow-x:auto;
+white-space:nowrap;
+scrollbar-width:thin;
+max-width:100%;
+padding:12px 0 4px;
+}
 
-    /* HERO */
-    .hero {
-      background: #006b3f;
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
+nav a{
+color:#fff;
+text-decoration:none;
+font-size:13px;
+font-weight:bold;
+padding:7px 10px;
+border-radius:6px;
+flex-shrink:0;
+}
 
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
+nav a:hover{
+color:#ffd700;
+background:rgba(255,255,255,.1);
+}
 
-    .hero p {
-      max-width: 750px;
-      margin: auto;
-      font-size: 18px;
-    }
+nav a.menu-highlight{
+background:#e30613;
+color:#fff;
+}
 
-    /* CONTAINER */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
+/* CONTAINER */
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+.container{
+max-width:1100px;
+margin:auto;
+padding:25px 15px;
+}
 
-    .section-title h2 {
-      color: #006b3f;
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+/* PAGE TITLE */
 
-    .section-title p {
-      color: #666;
-    }
+.page-title{
+background:#006b3f;
+color:white;
+padding:35px 20px;
+text-align:center;
+border-radius:12px;
+margin-bottom:25px;
+}
 
-    /* NEWS AREA */
-    .news-area {
-      background: white;
-      min-height: 350px;
-      border: 2px dashed #006b3f;
-      border-radius: 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    }
+.page-title h2{
+margin:0 0 8px;
+font-size:30px;
+}
 
-    .news-icon {
-      font-size: 65px;
-      margin-bottom: 20px;
-    }
+.page-title p{
+margin:0;
+font-size:15px;
+}
 
-    .news-area h3 {
-      color: #006b3f;
-      font-size: 27px;
-      margin-bottom: 12px;
-    }
+/* NEWS GRID */
 
-    .news-area p {
-      max-width: 650px;
-      color: #666;
-    }
+.news-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
 
-    /* UPDATE GUIDE */
-    .guide {
-      margin-top: 45px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+.news-card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,.10);
+border:1px solid #e1e1e1;
+}
 
-    .guide-card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      border-top: 5px solid #006b3f;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    }
+.news-image{
+width:100%;
+height:210px;
+object-fit:cover;
+display:block;
+background:#ddd;
+}
 
-    .guide-card h3 {
-      color: #006b3f;
-      margin-bottom: 10px;
-    }
+.news-content{
+padding:18px;
+}
 
-    .guide-card p {
-      color: #666;
-      font-size: 15px;
-    }
+.news-date{
+font-size:12px;
+font-weight:bold;
+color:#e30613;
+margin-bottom:8px;
+}
 
-    /* CONSTITUENCY */
-    .constituency {
-      margin-top: 50px;
-      background: #006b3f;
-      color: white;
-      padding: 45px 25px;
-      border-radius: 15px;
-      text-align: center;
-    }
+.news-card h3{
+color:#006b3f;
+font-size:20px;
+margin:0 0 10px;
+line-height:1.3;
+}
 
-    .constituency h2 {
-      margin-bottom: 15px;
-      font-size: 30px;
-    }
+.news-card p{
+color:#555;
+font-size:14px;
+line-height:1.6;
+}
 
-    .areas {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-top: 25px;
-    }
+.read-more{
+display:inline-block;
+margin-top:8px;
+background:#006b3f;
+color:white;
+text-decoration:none;
+padding:10px 15px;
+border-radius:6px;
+font-size:13px;
+font-weight:bold;
+}
 
-    .area {
-      background: rgba(255,255,255,0.12);
-      padding: 18px;
-      border-radius: 8px;
-      font-weight: bold;
-      border: 1px solid rgba(255,255,255,0.25);
-    }
+.read-more:hover{
+background:#e30613;
+}
 
-    /* FOOTER */
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 60px;
-    }
+/* ARTICLE */
 
-    footer .footer-adc {
-      color: #e30613;
-      font-weight: bold;
-    }
+.article{
+background:white;
+border-radius:12px;
+padding:25px;
+box-shadow:0 4px 15px rgba(0,0,0,.10);
+}
 
-    footer .powered {
-      color: #ffd700;
-      font-weight: bold;
-      margin-top: 8px;
-    }
+.article-image{
+width:100%;
+max-height:500px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:20px;
+}
 
-    /* MOBILE */
-    @media (max-width: 850px) {
+.article h1{
+color:#006b3f;
+font-size:32px;
+margin-top:0;
+}
 
-      nav {
-        display: none;
-        position: absolute;
-        top: 78px;
-        left: 0;
-        right: 0;
-        background: #006b3f;
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
-        border-top: 1px solid rgba(255,255,255,0.2);
-      }
+.article-date{
+color:#e30613;
+font-weight:bold;
+font-size:13px;
+margin-bottom:20px;
+}
 
-      nav.active {
-        display: flex;
-      }
+.article-summary{
+font-size:18px;
+font-weight:bold;
+line-height:1.6;
+color:#444;
+}
 
-      .menu-btn {
-        display: block;
-      }
+.article-content{
+font-size:16px;
+line-height:1.8;
+color:#333;
+margin-top:20px;
+}
 
-      .guide {
-        grid-template-columns: 1fr 1fr;
-      }
+.back-button{
+display:inline-block;
+margin-bottom:20px;
+background:#006b3f;
+color:white;
+text-decoration:none;
+padding:10px 16px;
+border-radius:6px;
+font-weight:bold;
+}
 
-      .areas {
-        grid-template-columns: 1fr 1fr;
-      }
+.back-button:hover{
+background:#e30613;
+}
 
-      .hero h1 {
-        font-size: 36px;
-      }
-    }
+/* MESSAGE */
 
-    @media (max-width: 550px) {
+.message{
+background:white;
+padding:25px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
 
-      .brand-text h2 {
-        font-size: 15px;
-      }
+/* FOOTER */
 
-      .brand-text p {
-        font-size: 10px;
-      }
+footer{
+background:#006b3f;
+color:white;
+text-align:center;
+padding:25px 15px;
+margin-top:40px;
+}
 
-      .adc {
-        width: 42px;
-        height: 42px;
-        font-size: 13px;
-      }
+footer p{
+margin:5px 0;
+font-size:13px;
+}
 
-      .hero {
-        padding: 60px 15px;
-      }
+/* MOBILE */
 
-      .hero h1 {
-        font-size: 30px;
-      }
+@media(max-width:800px){
 
-      .hero p {
-        font-size: 16px;
-      }
+.news-grid{
+grid-template-columns:1fr 1fr;
+}
 
-      .container {
-        padding: 45px 15px;
-      }
+}
 
-      .section-title h2 {
-        font-size: 27px;
-      }
+@media(max-width:550px){
 
-      .guide {
-        grid-template-columns: 1fr;
-      }
+.header-top{
+display:block;
+}
 
-      .areas {
-        grid-template-columns: 1fr;
-      }
+.logo h1{
+font-size:18px;
+}
 
-      .news-area {
-        min-height: 300px;
-      }
-    }
-  </style>
+.news-grid{
+grid-template-columns:1fr;
+}
+
+.page-title h2{
+font-size:25px;
+}
+
+.article{
+padding:18px;
+}
+
+.article h1{
+font-size:25px;
+}
+
+.article-summary{
+font-size:16px;
+}
+
+.article-content{
+font-size:15px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
 
-    <div class="nav-container">
+<header>
 
-      <div class="brand">
+<div class="header-inner">
 
-        <div class="adc">
-          ADC
-        </div>
+<div class="header-top">
 
-        <div class="brand-text">
+<div class="logo">
 
-          <h2>
-            PHARM. PETER YAKUBU IDUH
-          </h2>
+<h1>PHARM. PETER YAKUBU IDUH</h1>
 
-          <p>
-            House of Representatives • Idah Federal Constituency
-          </p>
+<p>
+House of Representatives Candidate • Idah Federal Constituency
+</p>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
 
-      <div
-        class="menu-btn"
-        onclick="toggleMenu()">
+<nav>
 
-        ☰
+<a href="index.html">Home</a>
 
-      </div>
+<a href="about.html">About</a>
 
+<a href="priorities.html">Priorities</a>
 
-      <nav id="mainNav">
+<a href="constituency.html">Constituency</a>
 
-        <a href="index.html">
-          Home
-        </a>
+<a href="vision.html">Vision</a>
 
-        <a href="index.html#about">
-          About
-        </a>
+<a href="gallery.html">Gallery</a>
 
-        <a href="priorities.html">
-          Priorities
-        </a>
+<a href="news.html" class="menu-highlight">
+News
+</a>
 
-        <a href="constituency.html">
-          Constituency
-        </a>
+<a href="events.html">Events</a>
 
-        <a href="vision.html">
-          Vision
-        </a>
+<a href="press.html">Press</a>
 
-        <a href="gallery.html">
-          Gallery
-        </a>
+<a href="faq.html">FAQ</a>
 
-        <a href="news.html">
-          News
-        </a>
+<a href="contact.html">Contact</a>
 
-        <a href="contact.html">
-          Contact
-        </a>
+<a href="election-results.html">
+Election Results
+</a>
 
-      </nav>
+<a href="polling-unit-results.html">
+Polling Unit Results
+</a>
 
-    </div>
+<a href="lga-results.html">
+LGA Results
+</a>
 
-  </header>
+<a href="candidate-results.html">
+Candidate Results
+</a>
 
+<a href="result-details.html">
+Result Details
+</a>
 
-  <!-- HERO -->
-  <section class="hero">
+<a href="admin-results.html">
+Admin Results
+</a>
 
-    <h1>
-      News & Updates
-    </h1>
+<a href="privacy-policy.html">
+Privacy Policy
+</a>
 
-    <p>
-      Public information, announcements and verified updates
-      concerning Pharm. Peter Yakubu Iduh and Idah Federal Constituency.
-    </p>
+<a href="terms.html">
+Terms
+</a>
 
-  </section>
+</nav>
 
+</div>
 
-  <!-- NEWS -->
-  <section class="container">
+</header>
 
-    <div class="section-title">
 
-      <h2>
-        Latest Updates
-      </h2>
+<main class="container">
 
-      <p>
-        Verified updates will be published here.
-      </p>
+<div class="page-title">
 
-    </div>
+<h2>News &amp; Updates</h2>
 
+<p>
+Latest published announcements, activities and public information.
+</p>
 
-    <div class="news-area">
+</div>
 
-      <div class="news-icon">
-        📰
-      </div>
 
-      <h3>
-        Updates Coming Soon
-      </h3>
+<div id="newsContainer">
 
-      <p>
-        No news articles or announcements have been published
-        on this page yet. Verified public updates can be added
-        here as they become available.
-      </p>
+<div class="message">
+Loading news...
+</div>
 
-    </div>
+</div>
 
+</main>
 
-    <!-- INFORMATION CATEGORIES -->
-    <div class="guide">
 
-      <div class="guide-card">
+<footer>
 
-        <h3>
-          Public Updates
-        </h3>
+<p>
+<strong>PHARM. PETER YAKUBU IDUH</strong>
+</p>
 
-        <p>
-          Space for verified announcements and public
-          information relating to the campaign.
-        </p>
+<p>
+House of Representatives Candidate • Idah Federal Constituency
+</p>
 
-      </div>
+<p>
+Powered by IBAJI TV CHANNEL 📺
+</p>
 
+</footer>
 
-      <div class="guide-card">
 
-        <h3>
-          Constituency Activities
-        </h3>
+<script>
 
-        <p>
-          Space for verified reports of constituency
-          engagements and public activities.
-        </p>
+/* =========================================
+   SUPABASE CONNECTION
+========================================= */
 
-      </div>
+const SUPABASE_URL =
+"https://oltrdzkqumldpfmygmfi.supabase.co";
 
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_FtdISn_NfDQWnhVxPegaeg_B-RzNdUA";
 
-      <div class="guide-card">
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY
+);
 
-        <h3>
-          Statements
-        </h3>
 
-        <p>
-          Space for official statements and documented
-          positions released for public information.
-        </p>
+/* =========================================
+   ESCAPE HTML
+========================================= */
 
-      </div>
+function escapeHtml(value){
 
-    </div>
+if(value === null || value === undefined){
+return "";
+}
 
+return String(value).replace(/[&<>"']/g,function(char){
 
-    <!-- CONSTITUENCY -->
-    <div class="constituency">
+return {
 
-      <h2>
-        Idah Federal Constituency
-      </h2>
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
 
-      <p>
-        IDAH • IBAJI • IGALAMELA-ODOLU • OFU
-      </p>
+}[char];
 
+});
 
-      <div class="areas">
+}
 
-        <div class="area">
-          IDAH
-        </div>
 
-        <div class="area">
-          IBAJI
-        </div>
+/* =========================================
+   FORMAT DATE
+========================================= */
 
-        <div class="area">
-          IGALAMELA-ODOLU
-        </div>
+function formatDate(date){
 
-        <div class="area">
-          OFU
-        </div>
+if(!date){
+return "";
+}
 
-      </div>
+return new Date(date).toLocaleString(
+undefined,
+{
+year:"numeric",
+month:"long",
+day:"numeric",
+hour:"numeric",
+minute:"2-digit"
+}
+);
 
-    </div>
+}
 
-  </section>
 
+/* =========================================
+   LOAD NEWS
+========================================= */
 
-  <!-- FOOTER -->
-  <footer>
+async function loadNews(){
 
-    <p>
+const container =
+document.getElementById("newsContainer");
 
-      <span class="footer-adc">
-        ADC
-      </span>
 
-      • Pharm. Peter Yakubu Iduh
+const params =
+new URLSearchParams(
+window.location.search
+);
 
-    </p>
+const newsId =
+params.get("id");
 
 
-    <p>
-      House of Representatives Candidate
-      • Idah Federal Constituency
-    </p>
+/* ==============================
+   SINGLE NEWS ARTICLE
+============================== */
 
+if(newsId){
 
-    <p class="powered">
-      Powered by IBAJI TV CHANNEL 📺
-    </p>
+const {
+data,
+error
+} = await supabaseClient
+.from("news")
+.select("*")
+.eq("id",newsId)
+.eq("published",true)
+.single();
 
-  </footer>
 
+if(error || !data){
 
-  <script>
+container.innerHTML=`
 
-    function toggleMenu() {
+<div class="message">
 
-      document
-        .getElementById("mainNav")
-        .classList
-        .toggle("active");
+<h3>News Not Found</h3>
 
-    }
+<p>
+This news article is unavailable or has not been published.
+</p>
 
-  </script>
+<a
+href="news.html"
+class="back-button"
+>
+← Back to News
+</a>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+let content =
+escapeHtml(data.content || "")
+.replace(/\n/g,"<br>");
+
+
+const image =
+data.image_url
+?
+`
+<img
+src="${escapeHtml(data.image_url)}"
+alt="${escapeHtml(data.title)}"
+class="article-image"
+onerror="this.style.display='none'"
+>
+`
+:
+"";
+
+
+container.innerHTML=`
+
+<a
+href="news.html"
+class="back-button"
+>
+← Back to News
+</a>
+
+<article class="article">
+
+${image}
+
+<div class="article-date">
+
+${escapeHtml(
+formatDate(data.published_at)
+)}
+
+</div>
+
+<h1>
+${escapeHtml(data.title)}
+</h1>
+
+<div class="article-summary">
+
+${escapeHtml(data.summary || "")}
+
+</div>
+
+<div class="article-content">
+
+${content}
+
+</div>
+
+</article>
+
+`;
+
+return;
+
+}
+
+
+/* ==============================
+   ALL PUBLISHED NEWS
+============================== */
+
+const {
+data,
+error
+} = await supabaseClient
+.from("news")
+.select("*")
+.eq("published",true)
+.order(
+"published_at",
+{
+ascending:false
+}
+);
+
+
+if(error){
+
+container.innerHTML=`
+
+<div class="message">
+
+<h3>Unable to Load News</h3>
+
+<p>
+${escapeHtml(error.message)}
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+if(!data || data.length===0){
+
+container.innerHTML=`
+
+<div class="message">
+
+<h3>No Published News Yet</h3>
+
+<p>
+New updates will appear here when they are published.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+const grid =
+document.createElement("div");
+
+grid.className="news-grid";
+
+
+data.forEach(function(item){
+
+const card =
+document.createElement("article");
+
+card.className="news-card";
+
+
+const image =
+item.image_url
+?
+`
+<img
+src="${escapeHtml(item.image_url)}"
+alt="${escapeHtml(item.title)}"
+class="news-image"
+onerror="this.style.display='none'"
+>
+`
+:
+`
+<div
+class="news-image"
+></div>
+`;
+
+
+card.innerHTML=`
+
+${image}
+
+<div class="news-content">
+
+<div class="news-date">
+
+${escapeHtml(
+formatDate(item.published_at)
+)}
+
+</div>
+
+<h3>
+${escapeHtml(item.title)}
+</h3>
+
+<p>
+${escapeHtml(item.summary || "")}
+</p>
+
+<a
+href="news.html?id=${encodeURIComponent(item.id)}"
+class="read-more"
+>
+Read Full Story →
+</a>
+
+</div>
+
+`;
+
+
+grid.appendChild(card);
+
+});
+
+
+container.innerHTML="";
+
+container.appendChild(grid);
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+loadNews();
+
+</script>
 
 </body>
 </html>
