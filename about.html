@@ -1,928 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>About | Pharm. Peter Yakubu Iduh</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #fff;
-      color: #222;
-      line-height: 1.7;
-    }
-
-    /* HEADER */
-    header {
-      background: #006b3f;
-      border-bottom: 5px solid #e30613;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.18);
-    }
-
-    .header-container {
-      max-width: 1250px;
-      margin: auto;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: white;
-      min-width: 270px;
-    }
-
-    .adc-logo {
-      width: 54px;
-      height: 54px;
-      background: #ffffff;
-      color: #006b3f;
-      border: 3px solid #ffd700;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-
-    .brand h1 {
-      font-size: 17px;
-      line-height: 1.2;
-    }
-
-    .brand small {
-      color: #ffd700;
-      font-size: 12px;
-    }
-
-    /* COMPLETE NAVIGATION */
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      overflow-x: auto;
-      white-space: nowrap;
-      scrollbar-width: thin;
-      max-width: 100%;
-      padding: 4px 0;
-    }
-
-    nav::-webkit-scrollbar {
-      height: 4px;
-    }
-
-    nav::-webkit-scrollbar-thumb {
-      background: #ffd700;
-      border-radius: 10px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 13px;
-      padding: 8px 10px;
-      border-radius: 5px;
-      display: inline-block;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background: #e30613;
-      color: white;
-    }
-
-    nav a.menu-highlight {
-      border: 1px solid #ffd700;
-      color: #ffd700;
-    }
-
-    /* MOVING WELCOME */
-    .welcome-bar {
-      width: 100%;
-      overflow: hidden;
-      background: #006b3f;
-      border-bottom: 3px solid #e30613;
-      white-space: nowrap;
-      padding: 12px 0;
-    }
-
-    .welcome-track {
-      display: inline-flex;
-      align-items: center;
-      gap: 25px;
-      padding-left: 100%;
-      animation: moveWelcome 24s linear infinite;
-    }
-
-    .welcome-track span {
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .welcome-track .gold {
-      color: #ffd700;
-      font-size: 21px;
-    }
-
-    .welcome-track .red {
-      color: #e30613;
-      background: white;
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-
-    @keyframes moveWelcome {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-100%);
-      }
-    }
-
-    /* HERO */
-    .hero {
-      background:
-        linear-gradient(rgba(0,107,63,.90), rgba(0,107,63,.90)),
-        url("https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg");
-
-      background-size: cover;
-      background-position: center;
-
-      min-height: 430px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-      color: white;
-
-      padding: 60px 20px;
-    }
-
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: #e30613;
-      border: 2px solid white;
-      padding: 8px 18px;
-      border-radius: 30px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .hero h2 {
-      font-size: 48px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    .hero h2 span {
-      color: #ffd700;
-    }
-
-    .hero p {
-      font-size: 19px;
-    }
-
-    /* GENERAL */
-    section {
-      padding: 70px 20px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title h2 {
-      color: #006b3f;
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #666;
-      max-width: 750px;
-      margin: auto;
-    }
-
-    /* PROFILE */
-    .profile {
-      background: #f7f7f7;
-    }
-
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .profile-image img {
-      width: 100%;
-      border-radius: 12px;
-      border: 6px solid #006b3f;
-      display: block;
-      box-shadow: 0 10px 30px rgba(0,0,0,.15);
-    }
-
-    .profile-text h3 {
-      color: #006b3f;
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
-
-    .profile-text p {
-      margin-bottom: 18px;
-      color: #444;
-    }
-
-    .party-box {
-      background: white;
-      border-left: 5px solid #e30613;
-      padding: 18px;
-      margin-top: 20px;
-    }
-
-    .party-box strong {
-      color: #006b3f;
-    }
-
-    /* REPRESENTATION */
-    .representation-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .representation-card {
-      background: white;
-      padding: 28px;
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-      border-top: 5px solid #006b3f;
-    }
-
-    .representation-card h3 {
-      color: #006b3f;
-      margin-bottom: 10px;
-    }
-
-    .representation-card p {
-      color: #555;
-    }
-
-    /* CONSTITUENCY */
-    .constituency {
-      background: #006b3f;
-      color: white;
-    }
-
-    .constituency .section-title h2 {
-      color: white;
-    }
-
-    .constituency .section-title p {
-      color: #eee;
-    }
-
-    .constituency-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .constituency-card {
-      background: white;
-      color: #222;
-      text-align: center;
-      padding: 25px 15px;
-      border-radius: 10px;
-      border-bottom: 5px solid #e30613;
-    }
-
-    .constituency-card h3 {
-      color: #006b3f;
-      margin-bottom: 8px;
-    }
-
-    /* ISSUES */
-    .issues {
-      background: #f7f7f7;
-    }
-
-    .issues-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .issue {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      border-left: 5px solid #e30613;
-      box-shadow: 0 4px 15px rgba(0,0,0,.06);
-    }
-
-    .issue h3 {
-      color: #006b3f;
-      margin-bottom: 8px;
-    }
-
-    /* CLOSING */
-    .closing {
-      text-align: center;
-    }
-
-    .closing-box {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px;
-      background: #006b3f;
-      color: white;
-      border-radius: 12px;
-      border-bottom: 6px solid #e30613;
-    }
-
-    .closing-box h2 {
-      color: #ffd700;
-      margin-bottom: 15px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    footer strong {
-      color: #ffd700;
-    }
-
-    .footer-adc {
-      color: #e30613;
-      font-weight: bold;
-    }
-
-    /* MOBILE */
-    @media (max-width: 850px) {
-
-      .header-container {
-        display: block;
-      }
-
-      .brand {
-        margin-bottom: 10px;
-      }
-
-      nav {
-        width: 100%;
-      }
-
-      .profile-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-image {
-        max-width: 500px;
-        margin: auto;
-      }
-
-      .representation-grid,
-      .issues-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .constituency-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero h2 {
-        font-size: 38px;
-      }
-    }
-
-    @media (max-width: 550px) {
-
-      .brand h1 {
-        font-size: 15px;
-      }
-
-      .brand small {
-        font-size: 11px;
-      }
-
-      nav a {
-        font-size: 12px;
-        padding: 7px 9px;
-      }
-
-      .welcome-track span {
-        font-size: 13px;
-      }
-
-      .hero h2 {
-        font-size: 30px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .representation-grid,
-      .issues-grid,
-      .constituency-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title h2 {
-        font-size: 28px;
-      }
-
-      .closing-box {
-        padding: 25px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | Pharm. Chief Peter Yakubu Iduh</title>
+
+<meta name="description"
+content="About Pharm. Chief Peter Yakubu Iduh, House of Representatives candidate for Idah Federal Constituency.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7f6;
+  color:#222;
+  line-height:1.7;
+}
+
+/* HEADER */
+header{
+  background:#006b3f;
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 12px rgba(0,0,0,.2);
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.logo span{
+  color:#ffd700;
+}
+
+/* MENU BUTTON */
+.menu-button{
+  display:none;
+  background:#e30613;
+  color:#fff;
+  border:0;
+  padding:10px 15px;
+  border-radius:6px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* NAV */
+nav{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  flex-wrap:wrap;
+  padding:5px 15px 12px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:bold;
+  padding:7px 9px;
+  border-radius:6px;
+}
+
+nav a:hover{
+  color:#ffd700;
+  background:rgba(255,255,255,.12);
+}
+
+nav a.active{
+  background:#e30613;
+  color:#fff;
+}
+
+/* HERO */
+.hero{
+  min-height:360px;
+  background:
+    linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),
+    url("https://i.ibb.co/dsMPnKc0/Screenshot-20260917-003055.jpg")
+    center/cover no-repeat;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:40px 20px;
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#ffd700;
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* CONTENT */
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:55px 20px;
+}
+
+.card{
+  background:#fff;
+  padding:35px;
+  border-radius:12px;
+  box-shadow:0 4px 18px rgba(0,0,0,.1);
+  margin-bottom:30px;
+}
+
+.card h2{
+  color:#006b3f;
+  margin-bottom:15px;
+  font-size:27px;
+}
+
+.card p{
+  margin-bottom:15px;
+}
+
+/* PROFILE */
+.profile{
+  display:grid;
+  grid-template-columns:330px 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.profile img{
+  width:100%;
+  border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,.18);
+}
+
+.profile h2{
+  color:#006b3f;
+  margin-bottom:12px;
+}
+
+/* FACTS */
+.facts{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.fact{
+  background:#f0f7f3;
+  padding:18px;
+  border-radius:7px;
+}
+
+.fact strong{
+  display:block;
+  color:#006b3f;
+}
+
+/* BIO BUTTON */
+.bio-button{
+  display:inline-block;
+  background:#e30613;
+  color:#fff;
+  text-decoration:none;
+  padding:13px 20px;
+  border-radius:7px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.bio-button:hover{
+  opacity:.85;
+}
+
+/* CONSTITUENCY */
+.constituency-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.constituency-box{
+  background:#006b3f;
+  color:#fff;
+  padding:22px 10px;
+  text-align:center;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+  background:#003d25;
+  color:#fff;
+  text-align:center;
+  padding:30px 20px;
+}
+
+.footer-links{
+  margin-bottom:15px;
+}
+
+.footer-links a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 7px;
+  font-size:13px;
+}
+
+.footer-links a:hover{
+  color:#ffd700;
+}
+
+.footer-brand{
+  color:#ffd700;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+  .header-inner{
+    padding:12px 15px;
+  }
+
+  .logo{
+    font-size:15px;
+  }
+
+  .menu-button{
+    display:block;
+  }
+
+  nav{
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:3px;
+    background:#005631;
+    padding:10px 15px 15px;
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  nav a{
+    width:100%;
+    text-align:left;
+    padding:11px 12px;
+    font-size:14px;
+  }
+
+  .hero{
+    min-height:300px;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .profile{
+    grid-template-columns:1fr;
+  }
+
+  .profile img{
+    max-width:500px;
+    margin:auto;
+    display:block;
+  }
+
+  .facts{
+    grid-template-columns:1fr;
+  }
+
+  .constituency-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .card{
+    padding:23px;
+  }
+}
+
+@media(max-width:450px){
+
+  .hero h1{
+    font-size:25px;
+  }
+
+  .constituency-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
+<!-- HEADER -->
+<header>
 
-    <div class="header-container">
+  <div class="header-inner">
 
-      <div class="brand">
+    <a href="index.html" class="logo">
+      PHARM. CHIEF <span>PETER YAKUBU IDUH</span>
+    </a>
 
-        <div class="adc-logo">
-          ADC
-        </div>
-
-        <div>
-          <h1>PHARM. PETER YAKUBU IDUH</h1>
-          <small>House of Representatives Candidate</small>
-        </div>
-
-      </div>
-
-
-      <!-- COMPLETE WEBSITE MENU -->
-      <nav>
-
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="priorities.html">Priorities</a>
-        <a href="constituency.html">Constituency</a>
-        <a href="vision.html">Vision</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="news.html">News</a>
-        <a href="events.html">Events</a>
-        <a href="press.html">Press</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-
-        <a href="election-results.html" class="menu-highlight">
-          Election Results
-        </a>
-
-        <a href="polling-unit-results.html">
-          Polling Unit Results
-        </a>
-
-        <a href="lga-results.html">
-          LGA Results
-        </a>
-
-        <a href="candidate-results.html">
-          Candidate Results
-        </a>
-
-        <a href="result-details.html">
-          Result Details
-        </a>
-
-        <a href="admin-results.html" class="menu-highlight">
-          Admin Results
-        </a>
-
-        <a href="privacy-policy.html">
-          Privacy Policy
-        </a>
-
-        <a href="terms.html">
-          Terms
-        </a>
-
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <!-- MOVING MESSAGE -->
-  <div class="welcome-bar">
-
-    <div class="welcome-track">
-
-      <span>
-        WELCOME TO THE OFFICIAL WEBSITE OF PHARM. PETER YAKUBU IDUH
-      </span>
-
-      <span class="gold">•</span>
-
-      <span class="red">
-        AFRICAN DEMOCRATIC CONGRESS (ADC)
-      </span>
-
-      <span class="gold">•</span>
-
-      <span>
-        HOUSE OF REPRESENTATIVES CANDIDATE
-      </span>
-
-      <span class="gold">•</span>
-
-      <span>
-        IDAH FEDERAL CONSTITUENCY
-      </span>
-
-      <span class="gold">•</span>
-
-      <span>
-        IDAH • IBAJI • IGALAMELA-ODOLU • OFU
-      </span>
-
-    </div>
+    <button
+      class="menu-button"
+      onclick="toggleMenu()">
+      ☰ MENU
+    </button>
 
   </div>
 
+  <nav id="mainNav">
 
-  <!-- HERO -->
-  <section class="hero">
+    <a href="index.html">Home</a>
 
-    <div class="hero-content">
+    <a href="about.html" class="active">
+      About
+    </a>
 
-      <div class="hero-badge">
-        AFRICAN DEMOCRATIC CONGRESS (ADC)
-      </div>
+    <a href="biography.html">
+      Biography
+    </a>
 
-      <h2>
-        ABOUT <span>PHARM. PETER YAKUBU IDUH</span>
-      </h2>
+    <a href="priorities.html">
+      Priorities
+    </a>
 
-      <p>
-        House of Representatives Candidate for
-        Idah Federal Constituency
-      </p>
+    <a href="constituency.html">
+      Constituency
+    </a>
 
-    </div>
+    <a href="vision.html">
+      Vision
+    </a>
 
-  </section>
+    <a href="gallery.html">
+      Gallery
+    </a>
+
+    <a href="news.html">
+      News
+    </a>
+
+    <a href="events.html">
+      Events
+    </a>
+
+    <a href="press.html">
+      Press
+    </a>
+
+    <a href="faq.html">
+      FAQ
+    </a>
+
+    <a href="contact.html">
+      Contact
+    </a>
+
+    <a href="election-results.html">
+      Election Results
+    </a>
+
+    <a href="polling-unit-results.html">
+      Polling Unit Results
+    </a>
+
+    <a href="lga-results.html">
+      LGA Results
+    </a>
+
+    <a href="candidate-results.html">
+      Candidate Results
+    </a>
+
+    <a href="result-details.html">
+      Result Details
+    </a>
+
+    <a href="admin-results.html">
+      Admin Results
+    </a>
+
+    <a href="privacy-policy.html">
+      Privacy Policy
+    </a>
+
+    <a href="terms.html">
+      Terms
+    </a>
+
+  </nav>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+  <div>
+
+    <h1>
+      About Pharm. Chief Peter Yakubu Iduh
+    </h1>
+
+    <p>
+      House of Representatives Candidate
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- CONTENT -->
+<main class="container">
 
 
   <!-- PROFILE -->
-  <section class="profile">
+  <section class="card">
 
-    <div class="container">
+    <div class="profile">
 
-      <div class="section-title">
+      <div>
 
-        <h2>About the Candidate</h2>
-
-        <p>
-          Information presented on this website about
-          Pharm. Peter Yakubu Iduh and his public campaign.
-        </p>
+        <img
+          src="https://i.ibb.co/dsMPnKc0/Screenshot-20260917-003055.jpg"
+          alt="Pharm. Chief Peter Yakubu Iduh">
 
       </div>
 
 
-      <div class="profile-grid">
-
-        <div class="profile-image">
-
-          <img
-            src="https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg"
-            alt="Pharm. Peter Yakubu Iduh"
-          >
-
-        </div>
-
-
-        <div class="profile-text">
-
-          <h3>
-            Pharm. Peter Yakubu Iduh
-          </h3>
-
-          <p>
-            Pharm. Peter Yakubu Iduh is contesting for the
-            House of Representatives seat representing
-            Idah Federal Constituency under the
-            African Democratic Congress (ADC).
-          </p>
-
-          <p>
-            The constituency includes Idah, Ibaji,
-            Igalamela-Odolu and Ofu.
-          </p>
-
-          <p>
-            His public campaign provides an opportunity
-            for constituents to examine issues affecting
-            their communities and consider different
-            proposals for representation.
-          </p>
-
-          <div class="party-box">
-
-            <strong>Political Platform:</strong><br>
-
-            African Democratic Congress (ADC)
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- RESPONSIBLE REPRESENTATION -->
-  <section>
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>Responsible Representation</h2>
-
-        <p>
-          The responsibilities of a federal representative
-          include several areas of public service.
-        </p>
-
-      </div>
-
-
-      <div class="representation-grid">
-
-        <div class="representation-card">
-
-          <h3>Listening</h3>
-
-          <p>
-            Maintaining communication with communities
-            and understanding issues raised by constituents.
-          </p>
-
-        </div>
-
-
-        <div class="representation-card">
-
-          <h3>Legislation</h3>
-
-          <p>
-            Participating in legislative activities and
-            contributing to discussions on national issues.
-          </p>
-
-        </div>
-
-
-        <div class="representation-card">
-
-          <h3>Advocacy</h3>
-
-          <p>
-            Raising constituency concerns and advocating
-            for appropriate development initiatives.
-          </p>
-
-        </div>
-
-
-        <div class="representation-card">
-
-          <h3>Communication</h3>
-
-          <p>
-            Keeping communities informed about relevant
-            public and legislative activities.
-          </p>
-
-        </div>
-
-
-        <div class="representation-card">
-
-          <h3>Accountability</h3>
-
-          <p>
-            Promoting transparency and maintaining an
-            open conversation with constituents.
-          </p>
-
-        </div>
-
-
-        <div class="representation-card">
-
-          <h3>Public Interest</h3>
-
-          <p>
-            Keeping public needs and constituency concerns
-            part of the representation conversation.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONSTITUENCY -->
-  <section class="constituency">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>Idah Federal Constituency</h2>
-
-        <p>
-          One constituency made up of different communities.
-        </p>
-
-      </div>
-
-
-      <div class="constituency-grid">
-
-        <div class="constituency-card">
-          <h3>Idah</h3>
-          <p>Constituency community.</p>
-        </div>
-
-        <div class="constituency-card">
-          <h3>Ibaji</h3>
-          <p>Constituency community.</p>
-        </div>
-
-        <div class="constituency-card">
-          <h3>Igalamela-Odolu</h3>
-          <p>Constituency community.</p>
-        </div>
-
-        <div class="constituency-card">
-          <h3>Ofu</h3>
-          <p>Constituency community.</p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ISSUES -->
-  <section class="issues">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>Areas of Public Interest</h2>
-
-        <p>
-          Issues highlighted in the campaign conversation.
-        </p>
-
-      </div>
-
-
-      <div class="issues-grid">
-
-        <div class="issue">
-          <h3>Healthcare</h3>
-          <p>
-            Quality healthcare and human development.
-          </p>
-        </div>
-
-        <div class="issue">
-          <h3>Education</h3>
-          <p>
-            Education and opportunities for learning.
-          </p>
-        </div>
-
-        <div class="issue">
-          <h3>Infrastructure</h3>
-          <p>
-            Roads and infrastructure development.
-          </p>
-        </div>
-
-        <div class="issue">
-          <h3>Agriculture</h3>
-          <p>
-            Agricultural development and opportunities.
-          </p>
-        </div>
-
-        <div class="issue">
-          <h3>Employment</h3>
-          <p>
-            Employment and economic opportunities.
-          </p>
-        </div>
-
-        <div class="issue">
-          <h3>Youth & Women</h3>
-          <p>
-            Youth development and women's participation.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CLOSING -->
-  <section class="closing">
-
-    <div class="container">
-
-      <div class="closing-box">
+      <div>
 
         <h2>
-          IDAH • IBAJI • IGALAMELA-ODOLU • OFU
+          Pharm. Chief Peter Yakubu Iduh
         </h2>
 
         <p>
-          One constituency. Different communities.
-          A shared future.
+          Pharm. Chief Peter Yakubu Iduh is a pharmacist,
+          entrepreneur and businessman from Idah, Kogi State.
         </p>
-
-        <br>
 
         <p>
-          This website provides information about
-          Pharm. Peter Yakubu Iduh, his stated areas
-          of public interest and constituency representation.
+          He is publicly associated with community,
+          professional, business and political activities
+          in Kogi East.
         </p>
+
+        <p>
+          He is also publicly reported as the African
+          Democratic Congress (ADC) candidate for the
+          Idah Federal Constituency House of Representatives
+          seat in 2026.
+        </p>
+
+        <a
+          href="biography.html"
+          class="bio-button">
+          Read Full Biography →
+        </a>
 
       </div>
 
@@ -931,27 +509,215 @@
   </section>
 
 
-  <!-- FOOTER -->
-  <footer>
+  <!-- BACKGROUND -->
+  <section class="card">
+
+    <h2>
+      Background
+    </h2>
 
     <p>
-      <span class="footer-adc">ADC</span>
-      • Official Website of
-      <strong>Pharm. Peter Yakubu Iduh</strong>
+      Born on <strong>25 March 1974</strong> in Idah,
+      Kogi State, Peter Yakubu Iduh began his education
+      at Federal Polytechnic Staff School, Idah, before
+      attending Federal Government College, Ugwolawo.
     </p>
 
     <p>
-      House of Representatives Candidate —
-      Idah Federal Constituency
+      He subsequently studied Pharmacy at the
+      University of Nigeria, Nsukka (UNN), graduating
+      with a Bachelor of Pharmacy degree in 2002.
     </p>
-
-    <br>
 
     <p>
-      Powered by <strong>IBAJI TV CHANNEL 📺</strong>
+      His professional career has included pharmaceutical
+      practice, sales, management, distribution and
+      private business.
     </p>
 
-  </footer>
+  </section>
+
+
+  <!-- PROFESSIONAL PROFILE -->
+  <section class="card">
+
+    <h2>
+      Professional Profile
+    </h2>
+
+    <p>
+      Pharm. Iduh has been associated with pharmaceutical
+      and distribution businesses, including Swan Medico
+      Ltd and Iduh Integrated Services Nigeria Ltd.
+    </p>
+
+    <p>
+      His published biography also identifies him with
+      Frepet Nig. Ltd and Iduh Pharmacy Ltd and records
+      an MBA from Business School Netherlands.
+    </p>
+
+  </section>
+
+
+  <!-- COMMUNITY -->
+  <section class="card">
+
+    <h2>
+      Community and Public Activities
+    </h2>
+
+    <p>
+      Chief Peter Yakubu Iduh is associated with the
+      traditional title Ogah Attah of the Igala Kingdom
+      (Edeee).
+    </p>
+
+    <p>
+      Public profiles have described him as a businessman,
+      pharmacist and philanthropist involved in community
+      and grassroots activities.
+    </p>
+
+  </section>
+
+
+  <!-- POLITICAL PROFILE -->
+  <section class="card">
+
+    <h2>
+      Political Profile
+    </h2>
+
+    <p>
+      In 2026, public reports stated that Pharm. Peter
+      Yakubu Iduh won the African Democratic Congress
+      primary for the Idah Federal Constituency House of
+      Representatives seat.
+    </p>
+
+    <p>
+      The reported constituency comprises:
+    </p>
+
+    <div class="constituency-grid">
+
+      <div class="constituency-box">
+        IDAH
+      </div>
+
+      <div class="constituency-box">
+        IBAJI
+      </div>
+
+      <div class="constituency-box">
+        IGALAMELA-ODOLU
+      </div>
+
+      <div class="constituency-box">
+        OFU
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LEARN MORE -->
+  <section class="card" style="text-align:center;">
+
+    <h2>
+      Learn More
+    </h2>
+
+    <p>
+      Explore the complete biography, public priorities,
+      constituency information, news, events and other
+      information on this website.
+    </p>
+
+    <a
+      href="biography.html"
+      class="bio-button">
+      View Complete Biography
+    </a>
+
+  </section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-links">
+
+    <a href="index.html">Home</a>
+
+    <a href="about.html">About</a>
+
+    <a href="biography.html">Biography</a>
+
+    <a href="news.html">News</a>
+
+    <a href="gallery.html">Gallery</a>
+
+    <a href="contact.html">Contact</a>
+
+    <a href="privacy-policy.html">
+      Privacy Policy
+    </a>
+
+    <a href="terms.html">
+      Terms
+    </a>
+
+  </div>
+
+  <p>
+    © 2026 Pharm. Chief Peter Yakubu Iduh.
+    All rights reserved.
+  </p>
+
+  <p class="footer-brand">
+    Powered by IBAJI TV CHANNEL 📺
+  </p>
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+  const nav =
+    document.getElementById("mainNav");
+
+  nav.classList.toggle("open");
+
+}
+
+
+/* CLOSE MENU AFTER LINK CLICK */
+
+document
+  .querySelectorAll("#mainNav a")
+  .forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+      document
+        .getElementById("mainNav")
+        .classList.remove("open");
+
+    });
+
+  });
+
+</script>
 
 </body>
 </html>
