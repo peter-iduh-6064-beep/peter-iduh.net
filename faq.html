@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | Pharm. Peter Yakubu Iduh</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#f5f7f6;
+      color:#222;
+      line-height:1.6;
+    }
+
+    header{
+      background:#006b3f;
+      border-bottom:4px solid #e30613;
+      color:white;
+      padding:18px 5%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .adc{
+      width:48px;
+      height:48px;
+      background:#e30613;
+      border:3px solid white;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:bold;
+      font-size:13px;
+    }
+
+    .brand h1{
+      font-size:18px;
+      line-height:1.2;
+    }
+
+    .brand small{
+      font-size:12px;
+      opacity:.9;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      padding:7px 9px;
+      border-radius:5px;
+    }
+
+    nav a:hover{
+      background:#e30613;
+    }
+
+    .welcome-bar{
+      width:100%;
+      overflow:hidden;
+      background:#006b3f;
+      border-bottom:3px solid #e30613;
+      white-space:nowrap;
+      padding:12px 0;
+    }
+
+    .welcome-track{
+      display:inline-flex;
+      align-items:center;
+      gap:25px;
+      padding-left:100%;
+      animation:moveWelcome 24s linear infinite;
+    }
+
+    .welcome-track span{
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+    }
+
+    .welcome-track .gold{
+      color:#ffd700;
+      font-size:21px;
+    }
+
+    .welcome-track .red{
+      color:#e30613;
+      background:white;
+      padding:3px 8px;
+      border-radius:4px;
+    }
+
+    @keyframes moveWelcome{
+      from{transform:translateX(0);}
+      to{transform:translateX(-100%);}
+    }
+
+    .hero{
+      background:linear-gradient(135deg,#006b3f,#003d25);
+      color:white;
+      text-align:center;
+      padding:80px 5%;
+    }
+
+    .hero h2{
+      font-size:42px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      max-width:850px;
+      margin:auto;
+      font-size:18px;
+    }
+
+    .section{
+      max-width:1100px;
+      margin:auto;
+      padding:65px 5%;
+    }
+
+    .section-title{
+      text-align:center;
+      color:#006b3f;
+      font-size:32px;
+      margin-bottom:12px;
+    }
+
+    .section-intro{
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 35px;
+      color:#555;
+    }
+
+    .faq-container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .faq{
+      background:white;
+      margin-bottom:15px;
+      border-left:5px solid #006b3f;
+      border-radius:8px;
+      box-shadow:0 4px 15px rgba(0,0,0,.07);
+      overflow:hidden;
+    }
+
+    .faq h3{
+      color:#006b3f;
+      font-size:18px;
+      padding:20px 22px 8px;
+    }
+
+    .faq p{
+      padding:0 22px 20px;
+      color:#555;
+    }
+
+    .notice{
+      margin-top:40px;
+      background:#fff;
+      border:2px solid #006b3f;
+      border-radius:10px;
+      padding:25px;
+      text-align:center;
+    }
+
+    .notice h3{
+      color:#006b3f;
+      margin-bottom:10px;
+    }
+
+    .constituency{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      margin-top:35px;
+    }
+
+    .location-card{
+      background:white;
+      padding:25px 15px;
+      text-align:center;
+      border-radius:10px;
+      border-top:5px solid #e30613;
+      box-shadow:0 5px 15px rgba(0,0,0,.07);
+    }
+
+    .location-card h3{
+      color:#006b3f;
+      margin-bottom:8px;
+    }
+
+    footer{
+      background:#003d25;
+      color:white;
+      text-align:center;
+      padding:30px 5%;
+      margin-top:30px;
+    }
+
+    footer strong{
+      color:#ffd700;
+    }
+
+    @media(max-width:900px){
+      header{
+        flex-direction:column;
+      }
+
+      nav{
+        width:100%;
+      }
+
+      .constituency{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .hero h2{
+        font-size:34px;
+      }
+    }
+
+    @media(max-width:600px){
+      nav a{
+        font-size:13px;
+      }
+
+      .hero{
+        padding:60px 5%;
+      }
+
+      .hero h2{
+        font-size:28px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .section-title{
+        font-size:27px;
+      }
+
+      .constituency{
+        grid-template-columns:1fr;
+      }
+
+      .faq h3{
+        font-size:16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="adc">ADC</div>
+
+    <div>
+      <h1>PHARM. PETER YAKUBU IDUH</h1>
+      <small>House of Representatives Candidate • Idah Federal Constituency</small>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="priorities.html">Priorities</a>
+    <a href="constituency.html">Constituency</a>
+    <a href="vision.html">Vision</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="press.html">Press</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+
+<!-- MOVING WELCOME BAR -->
+<div class="welcome-bar">
+  <div class="welcome-track">
+    <span>WELCOME TO THE OFFICIAL WEBSITE OF PHARM. PETER YAKUBU IDUH</span>
+    <span class="gold">•</span>
+    <span class="red">AFRICAN DEMOCRATIC CONGRESS (ADC)</span>
+    <span class="gold">•</span>
+    <span>HOUSE OF REPRESENTATIVES CANDIDATE</span>
+    <span class="gold">•</span>
+    <span>IDAH FEDERAL CONSTITUENCY</span>
+    <span class="gold">•</span>
+    <span>IDAH • IBAJI • IGALAMELA-ODOLU • OFU</span>
+  </div>
+</div>
+
+
+<!-- HERO -->
+<section class="hero">
+  <h2>Frequently Asked Questions</h2>
+  <p>
+    Find general information about Pharm. Peter Yakubu Iduh,
+    the constituency and the purpose of this website.
+  </p>
+</section>
+
+
+<!-- FAQ -->
+<section class="section">
+
+  <h2 class="section-title">Frequently Asked Questions</h2>
+
+  <p class="section-intro">
+    This page provides general information for visitors.
+    Additional verified information can be published as it becomes available.
+  </p>
+
+  <div class="faq-container">
+
+    <div class="faq">
+      <h3>Who is Pharm. Peter Yakubu Iduh?</h3>
+      <p>
+        Pharm. Peter Yakubu Iduh is presented on this website as a
+        House of Representatives candidate for Idah Federal Constituency
+        under the African Democratic Congress (ADC).
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Which constituency is represented on this website?</h3>
+      <p>
+        The website concerns Idah Federal Constituency and the communities
+        identified here as Idah, Ibaji, Igalamela-Odolu and Ofu.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>What issues are discussed on the website?</h3>
+      <p>
+        The website discusses areas of public interest including healthcare,
+        education, roads and infrastructure, agriculture, employment,
+        youth development, women's participation and support for local businesses.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>What does responsible representation mean on this website?</h3>
+      <p>
+        The website uses the term to refer to activities such as listening
+        to constituents, participating in legislation, advocating on issues
+        affecting communities, maintaining communication and promoting accountability.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Where can I find photographs?</h3>
+      <p>
+        Photographs and other visual materials can be viewed on the
+        Gallery page of this website.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Where can I find news and press information?</h3>
+      <p>
+        The News and Press pages are available through the website menu.
+        Verified public updates can be published there when available.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>How can I make contact?</h3>
+      <p>
+        Visitors can use the Contact page or call the listed contact number:
+        <strong>+234 803 390 6752</strong>.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Does the website collect voting information?</h3>
+      <p>
+        This website does not provide a voter-registration or voter-preference
+        collection service. Visitors should use the appropriate official
+        electoral channels for election-related processes and voter services.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Will more information be added?</h3>
+      <p>
+        Yes. Public information, verified statements, photographs,
+        documents and other website materials may be added as they become
+        available.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="notice">
+    <h3>Information Notice</h3>
+    <p>
+      Visitors are encouraged to review information carefully and rely on
+      verified public information when making decisions.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- CONSTITUENCY -->
+<section class="section">
+
+  <h2 class="section-title">Idah Federal Constituency</h2>
+
+  <p class="section-intro">
+    The website presents information concerning the following four areas:
+  </p>
+
+  <div class="constituency">
+
+    <div class="location-card">
+      <h3>IDAH</h3>
+      <p>Constituency community</p>
+    </div>
+
+    <div class="location-card">
+      <h3>IBAJI</h3>
+      <p>Constituency community</p>
+    </div>
+
+    <div class="location-card">
+      <h3>IGALAMELA-ODOLU</h3>
+      <p>Constituency community</p>
+    </div>
+
+    <div class="location-card">
+      <h3>OFU</h3>
+      <p>Constituency community</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+  <p>
+    <strong>PHARM. PETER YAKUBU IDUH</strong>
+  </p>
+
+  <p>
+    House of Representatives Candidate • Idah Federal Constituency
+  </p>
+
+  <p>
+    African Democratic Congress (ADC)
+  </p>
+
+  <br>
+
+  <p>
+    Powered by <strong>IBAJI TV CHANNEL 📺</strong>
+  </p>
+</footer>
+
+</body>
+</html>
