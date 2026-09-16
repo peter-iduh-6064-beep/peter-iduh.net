@@ -15,6 +15,10 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Arial,sans-serif;
     background:#f4f7f5;
@@ -22,7 +26,7 @@ body{
 }
 
 /* =========================
-   LOGIN
+LOGIN
 ========================= */
 
 #loginPage{
@@ -100,13 +104,19 @@ body{
     font-weight:bold;
 }
 
+
 /* =========================
-   ADMIN
+ADMIN
 ========================= */
 
 #adminPage{
     display:none;
 }
+
+
+/* =========================
+HEADER
+========================= */
 
 header{
     background:#006b3f;
@@ -116,6 +126,9 @@ header{
     justify-content:space-between;
     align-items:center;
     border-bottom:4px solid #e30613;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
@@ -152,8 +165,24 @@ header{
     font-weight:bold;
 }
 
+
+/* MOBILE MENU BUTTON */
+
+.menu-button{
+    display:none;
+    background:#e30613;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
 /* =========================
-   LAYOUT
+LAYOUT
 ========================= */
 
 .layout{
@@ -161,16 +190,39 @@ header{
     min-height:calc(100vh - 80px);
 }
 
+
 /* =========================
-   SIDEBAR
+SIDEBAR
 ========================= */
 
 .sidebar{
-    width:260px;
+    width:280px;
     background:#003d25;
     color:white;
     padding:20px 0;
     flex-shrink:0;
+
+    position:sticky;
+    top:82px;
+
+    height:calc(100vh - 82px);
+
+    overflow-y:auto;
+
+    scrollbar-width:thin;
+}
+
+.sidebar::-webkit-scrollbar{
+    width:7px;
+}
+
+.sidebar::-webkit-scrollbar-track{
+    background:#002c1b;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:#006b3f;
+    border-radius:10px;
 }
 
 .sidebar-title{
@@ -192,8 +244,9 @@ header{
     display:block;
     color:white;
     text-decoration:none;
-    padding:11px 20px;
+    padding:13px 20px;
     font-size:14px;
+    border-left:4px solid transparent;
 }
 
 .sidebar a:hover{
@@ -205,8 +258,9 @@ header{
     border-left:4px solid #e30613;
 }
 
+
 /* =========================
-   CONTENT
+CONTENT
 ========================= */
 
 .content{
@@ -232,8 +286,9 @@ header{
     opacity:.9;
 }
 
+
 /* =========================
-   DASHBOARD CARDS
+DASHBOARD CARDS
 ========================= */
 
 .cards{
@@ -266,8 +321,9 @@ header{
     font-size:14px;
 }
 
+
 /* =========================
-   RESULT FORM
+RESULT FORM
 ========================= */
 
 .form-card,
@@ -345,8 +401,9 @@ header{
     font-weight:bold;
 }
 
+
 /* =========================
-   TABLE
+TABLE
 ========================= */
 
 .table-wrapper{
@@ -389,8 +446,9 @@ td{
     cursor:pointer;
 }
 
+
 /* =========================
-   QUICK LINKS
+QUICK LINKS
 ========================= */
 
 .quick-grid{
@@ -414,8 +472,9 @@ td{
     color:white;
 }
 
+
 /* =========================
-   FOOTER
+FOOTER
 ========================= */
 
 footer{
@@ -426,11 +485,16 @@ footer{
     margin-top:30px;
 }
 
-/* =========================
-   MOBILE
-========================= */
 
-@media(max-width:1000px){
+/* =====================================================
+TABLET
+===================================================== */
+
+@media(max-width:1100px){
+
+    .sidebar{
+        width:250px;
+    }
 
     .cards{
         grid-template-columns:repeat(2,1fr);
@@ -442,26 +506,79 @@ footer{
 
 }
 
+
+/* =====================================================
+MOBILE
+===================================================== */
+
 @media(max-width:750px){
 
     header{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:12px;
+        position:relative;
+        padding:12px 15px;
+    }
+
+    .logo{
+        width:100%;
+    }
+
+    .logo h1{
+        font-size:15px;
+        line-height:1.3;
+    }
+
+    .header-right{
+        width:100%;
+        justify-content:space-between;
+    }
+
+    .menu-button{
+        display:block;
     }
 
     .layout{
-        flex-direction:column;
+        display:block;
     }
 
+    /* IMPORTANT FIX:
+       SIDEBAR IS NOW A FULL MOBILE MENU */
+
     .sidebar{
+        position:relative;
+        top:0;
+
         width:100%;
-        max-height:500px;
-        overflow-y:auto;
+
+        height:auto;
+
+        max-height:none;
+
+        overflow:visible;
+
+        display:none;
+
+        padding-bottom:20px;
+    }
+
+    .sidebar.show{
+        display:block;
+    }
+
+    .sidebar-title{
+        padding-top:18px;
+    }
+
+    .sidebar a{
+        padding:15px 20px;
+        font-size:15px;
+    }
+
+    .menu-section{
+        padding-top:20px;
     }
 
     .content{
-        padding:18px;
+        padding:15px;
     }
 
     .cards{
@@ -480,6 +597,35 @@ footer{
         grid-column:auto;
     }
 
+    .page-title{
+        padding:22px;
+    }
+
+    .page-title h2{
+        font-size:24px;
+    }
+
+}
+
+
+/* =====================================================
+VERY SMALL PHONES
+===================================================== */
+
+@media(max-width:400px){
+
+    .logo h1{
+        font-size:13px;
+    }
+
+    .header-right strong{
+        font-size:12px;
+    }
+
+    .content{
+        padding:10px;
+    }
+
 }
 
 </style>
@@ -490,7 +636,7 @@ footer{
 
 
 <!-- =====================================================
-     LOGIN
+LOGIN
 ===================================================== -->
 
 <div id="loginPage">
@@ -534,7 +680,7 @@ autocomplete="current-password"
 
 
 <!-- =====================================================
-     ADMIN PAGE
+ADMIN PAGE
 ===================================================== -->
 
 <div id="adminPage">
@@ -562,6 +708,13 @@ Admin: iduh4rep2027
 </strong>
 
 <button
+class="menu-button"
+onclick="toggleMenu()"
+>
+☰ MENU
+</button>
+
+<button
 class="logout"
 onclick="logoutAdmin()"
 >
@@ -578,24 +731,31 @@ Logout
 
 
 <!-- =====================================================
-     COMPLETE SIDEBAR MENU
+SIDEBAR
 ===================================================== -->
 
-<aside class="sidebar">
+<aside
+class="sidebar"
+id="sidebar"
+>
 
 <div class="sidebar-title">
 ⚙️ ADMIN CONTROL PANEL
 </div>
 
 
+<!-- DASHBOARD -->
+
 <div class="menu-section">
 Dashboard
 </div>
 
-<a href="#dashboard" class="active">
+<a href="#dashboard" class="active" onclick="closeMenu()">
 📊 Dashboard
 </a>
 
+
+<!-- WEBSITE -->
 
 <div class="menu-section">
 Website
@@ -642,6 +802,8 @@ Website
 </a>
 
 
+<!-- ELECTION RESULTS -->
+
 <div class="menu-section">
 Election Results
 </div>
@@ -667,6 +829,8 @@ Election Results
 </a>
 
 
+<!-- LEGAL -->
+
 <div class="menu-section">
 Legal
 </div>
@@ -680,11 +844,16 @@ Legal
 </a>
 
 
+<!-- ACCOUNT -->
+
 <div class="menu-section">
 Account
 </div>
 
-<a href="#" onclick="logoutAdmin()">
+<a
+href="#"
+onclick="logoutAdmin();return false;"
+>
 🚪 Logout
 </a>
 
@@ -693,11 +862,13 @@ Account
 
 
 <!-- =====================================================
-     CONTENT
+CONTENT
 ===================================================== -->
 
-<main class="content" id="dashboard">
-
+<main
+class="content"
+id="dashboard"
+>
 
 <section class="page-title">
 
@@ -710,7 +881,6 @@ Manage public election-result records and access all website sections.
 </p>
 
 </section>
-
 
 
 <!-- DASHBOARD CARDS -->
@@ -789,7 +959,7 @@ View candidate result records.
 
 
 <!-- =====================================================
-     ADD RESULT
+ADD RESULT
 ===================================================== -->
 
 <section class="form-card">
@@ -844,21 +1014,13 @@ LGA
 Select LGA
 </option>
 
-<option>
-Idah
-</option>
+<option>Idah</option>
 
-<option>
-Ibaji
-</option>
+<option>Ibaji</option>
 
-<option>
-Igalamela-Odolu
-</option>
+<option>Igalamela-Odolu</option>
 
-<option>
-Ofu
-</option>
+<option>Ofu</option>
 
 </select>
 
@@ -993,17 +1155,11 @@ Result Status
 
 <select id="resultStatus">
 
-<option>
-Awaiting Verification
-</option>
+<option>Awaiting Verification</option>
 
-<option>
-Verified
-</option>
+<option>Verified</option>
 
-<option>
-Published
-</option>
+<option>Published</option>
 
 </select>
 
@@ -1067,7 +1223,7 @@ Clear
 
 
 <!-- =====================================================
-     STORED RESULTS
+STORED RESULTS
 ===================================================== -->
 
 <section class="table-card">
@@ -1102,8 +1258,10 @@ Clear
 
 <tr>
 
-<td colspan="9"
-style="text-align:center;">
+<td
+colspan="9"
+style="text-align:center;"
+>
 
 Loading results...
 
@@ -1122,7 +1280,7 @@ Loading results...
 
 
 <!-- =====================================================
-     QUICK ACCESS
+QUICK ACCESS
 ===================================================== -->
 
 <section class="quick-card">
@@ -1130,7 +1288,6 @@ Loading results...
 <h2>
 🔗 Quick Access
 </h2>
-
 
 <div class="quick-grid">
 
@@ -1191,25 +1348,22 @@ Powered by IBAJI TV CHANNEL 📺
 
 
 <!-- =====================================================
-     SUPABASE
+SUPABASE
 ===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-
 /* =====================================================
-   SUPABASE CONFIGURATION
+SUPABASE CONFIGURATION
 ===================================================== */
 
 const SUPABASE_URL =
 "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
 
-
 const SUPABASE_PUBLISHABLE_KEY =
 "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
-
 
 const supabaseClient =
 supabase.createClient(
@@ -1219,22 +1373,47 @@ SUPABASE_PUBLISHABLE_KEY
 
 
 /* =====================================================
-   ADMIN SETTINGS
+ADMIN SETTINGS
 ===================================================== */
 
 const ADMIN_USERNAME =
 "iduh4rep2027";
 
-
 const ADMIN_EMAIL =
 "YOUR_SUPABASE_ADMIN_EMAIL_HERE";
-
 
 let editingId = null;
 
 
 /* =====================================================
-   LOGIN
+MOBILE MENU
+===================================================== */
+
+function toggleMenu(){
+
+const sidebar =
+document.getElementById("sidebar");
+
+sidebar.classList.toggle("show");
+
+}
+
+
+function closeMenu(){
+
+if(window.innerWidth <= 750){
+
+document
+.getElementById("sidebar")
+.classList.remove("show");
+
+}
+
+}
+
+
+/* =====================================================
+LOGIN
 ===================================================== */
 
 async function loginAdmin(){
@@ -1248,9 +1427,7 @@ document.getElementById("password").value;
 const message =
 document.getElementById("loginMessage");
 
-
 message.textContent = "";
-
 
 if(username !== ADMIN_USERNAME){
 
@@ -1261,7 +1438,6 @@ return;
 
 }
 
-
 if(!password){
 
 message.textContent =
@@ -1270,7 +1446,6 @@ message.textContent =
 return;
 
 }
-
 
 if(
 ADMIN_EMAIL ===
@@ -1284,8 +1459,7 @@ return;
 
 }
 
-
-const { data, error } =
+const {data,error} =
 await supabaseClient.auth.signInWithPassword({
 
 email:ADMIN_EMAIL,
@@ -1293,7 +1467,6 @@ email:ADMIN_EMAIL,
 password:password
 
 });
-
 
 if(error){
 
@@ -1304,13 +1477,11 @@ return;
 
 }
 
-
 document.getElementById("loginPage").style.display =
 "none";
 
 document.getElementById("adminPage").style.display =
 "block";
-
 
 loadResults();
 
@@ -1318,7 +1489,7 @@ loadResults();
 
 
 /* =====================================================
-   SESSION
+SESSION
 ===================================================== */
 
 async function checkSession(){
@@ -1327,7 +1498,6 @@ const {
 data:{session}
 } =
 await supabaseClient.auth.getSession();
-
 
 if(session){
 
@@ -1345,7 +1515,7 @@ loadResults();
 
 
 /* =====================================================
-   LOGOUT
+LOGOUT
 ===================================================== */
 
 async function logoutAdmin(){
@@ -1358,7 +1528,7 @@ location.reload();
 
 
 /* =====================================================
-   SAVE RESULT
+SAVE RESULT
 ===================================================== */
 
 async function saveResult(){
@@ -1366,10 +1536,8 @@ async function saveResult(){
 const message =
 document.getElementById("adminMessage");
 
-
 message.textContent =
 "Saving...";
-
 
 const resultData = {
 
@@ -1417,7 +1585,6 @@ document.getElementById("resultDate").value || null
 
 };
 
-
 if(
 !resultData.lga ||
 !resultData.candidate_name
@@ -1433,9 +1600,7 @@ return;
 
 }
 
-
 let response;
-
 
 if(editingId){
 
@@ -1454,7 +1619,6 @@ await supabaseClient
 
 }
 
-
 if(response.error){
 
 message.textContent =
@@ -1467,13 +1631,11 @@ return;
 
 }
 
-
 message.textContent =
 "Result saved successfully.";
 
 message.style.color =
 "#006b3f";
-
 
 clearForm();
 
@@ -1483,7 +1645,7 @@ loadResults();
 
 
 /* =====================================================
-   NUMBER
+NUMBER
 ===================================================== */
 
 function numberValue(id){
@@ -1501,14 +1663,13 @@ return Number(value);
 
 
 /* =====================================================
-   LOAD
+LOAD RESULTS
 ===================================================== */
 
 async function loadResults(){
 
 const table =
 document.getElementById("resultsTable");
-
 
 const {
 data,
@@ -1518,7 +1679,6 @@ await supabaseClient
 .from("election_results")
 .select("*")
 .order("id",{ascending:false});
-
 
 if(error){
 
@@ -1541,7 +1701,6 @@ return;
 
 }
 
-
 if(!data.length){
 
 table.innerHTML = `
@@ -1563,49 +1722,30 @@ return;
 
 }
 
-
 table.innerHTML = "";
-
 
 data.forEach(result=>{
 
 const row =
 document.createElement("tr");
 
-
 row.innerHTML = `
 
-<td>
-${escapeHtml(result.id)}
-</td>
+<td>${escapeHtml(result.id)}</td>
 
-<td>
-${escapeHtml(result.lga || "")}
-</td>
+<td>${escapeHtml(result.lga || "")}</td>
 
-<td>
-${escapeHtml(result.ward || "")}
-</td>
+<td>${escapeHtml(result.ward || "")}</td>
 
-<td>
-${escapeHtml(result.polling_unit || "")}
-</td>
+<td>${escapeHtml(result.polling_unit || "")}</td>
 
-<td>
-${escapeHtml(result.candidate_name || "")}
-</td>
+<td>${escapeHtml(result.candidate_name || "")}</td>
 
-<td>
-${escapeHtml(result.party || "")}
-</td>
+<td>${escapeHtml(result.party || "")}</td>
 
-<td>
-${escapeHtml(result.candidate_votes ?? "—")}
-</td>
+<td>${escapeHtml(result.candidate_votes ?? "—")}</td>
 
-<td>
-${escapeHtml(result.result_status || "")}
-</td>
+<td>${escapeHtml(result.result_status || "")}</td>
 
 <td>
 
@@ -1627,7 +1767,6 @@ Delete
 
 `;
 
-
 table.appendChild(row);
 
 });
@@ -1636,7 +1775,7 @@ table.appendChild(row);
 
 
 /* =====================================================
-   EDIT
+EDIT
 ===================================================== */
 
 async function editResult(id){
@@ -1651,7 +1790,6 @@ await supabaseClient
 .eq("id",id)
 .single();
 
-
 if(error){
 
 alert(error.message);
@@ -1660,70 +1798,53 @@ return;
 
 }
 
-
 editingId = id;
-
 
 document.getElementById("formTitle").textContent =
 "✏️ Edit Result";
 
-
 document.getElementById("electionName").value =
 data.election_name || "";
-
 
 document.getElementById("constituency").value =
 data.constituency || "";
 
-
 document.getElementById("lga").value =
 data.lga || "";
-
 
 document.getElementById("ward").value =
 data.ward || "";
 
-
 document.getElementById("pollingUnit").value =
 data.polling_unit || "";
-
 
 document.getElementById("candidateName").value =
 data.candidate_name || "";
 
-
 document.getElementById("party").value =
 data.party || "";
-
 
 document.getElementById("candidateVotes").value =
 data.candidate_votes ?? "";
 
-
 document.getElementById("registeredVoters").value =
 data.registered_voters ?? "";
-
 
 document.getElementById("accreditedVoters").value =
 data.accredited_voters ?? "";
 
-
 document.getElementById("votesCast").value =
 data.votes_cast ?? "";
-
 
 document.getElementById("resultStatus").value =
 data.result_status ||
 "Awaiting Verification";
 
-
 document.getElementById("resultDate").value =
 data.result_date || "";
 
-
 document.getElementById("sourceReference").value =
 data.source_reference || "";
-
 
 window.scrollTo({
 top:0,
@@ -1734,7 +1855,7 @@ behavior:"smooth"
 
 
 /* =====================================================
-   DELETE
+DELETE
 ===================================================== */
 
 async function deleteResult(id){
@@ -1747,13 +1868,11 @@ return;
 
 }
 
-
 const {error} =
 await supabaseClient
 .from("election_results")
 .delete()
 .eq("id",id);
-
 
 if(error){
 
@@ -1763,76 +1882,60 @@ return;
 
 }
 
-
 loadResults();
 
 }
 
 
 /* =====================================================
-   CLEAR
+CLEAR
 ===================================================== */
 
 function clearForm(){
 
 editingId = null;
 
-
 document.getElementById("formTitle").textContent =
 "➕ Add New Result";
-
 
 document.getElementById("electionName").value =
 "House of Representatives";
 
-
 document.getElementById("constituency").value =
 "Idah Federal Constituency";
-
 
 document.getElementById("lga").value =
 "";
 
-
 document.getElementById("ward").value =
 "";
-
 
 document.getElementById("pollingUnit").value =
 "";
 
-
 document.getElementById("candidateName").value =
 "";
-
 
 document.getElementById("party").value =
 "";
 
-
 document.getElementById("candidateVotes").value =
 "";
-
 
 document.getElementById("registeredVoters").value =
 "";
 
-
 document.getElementById("accreditedVoters").value =
 "";
-
 
 document.getElementById("votesCast").value =
 "";
 
-
 document.getElementById("resultStatus").value =
 "Awaiting Verification";
 
-
 document.getElementById("resultDate").value =
 "";
-
 
 document.getElementById("sourceReference").value =
 "";
@@ -1841,7 +1944,7 @@ document.getElementById("sourceReference").value =
 
 
 /* =====================================================
-   ESCAPE HTML
+ESCAPE HTML
 ===================================================== */
 
 function escapeHtml(value){
@@ -1857,7 +1960,7 @@ return String(value)
 
 
 /* =====================================================
-   START
+START
 ===================================================== */
 
 checkSession();
