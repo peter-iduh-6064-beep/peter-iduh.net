@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Constituency | Pharm. Peter Yakubu Iduh</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: #006b3f;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 5px solid #e30613;
+    }
+
+    .top-line {
+      height: 5px;
+      background: #fff;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .adc {
+      background: #e30613;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .logo h2 {
+      font-size: 17px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      background:
+        linear-gradient(rgba(0,107,63,.92), rgba(0,107,63,.92)),
+        linear-gradient(135deg, #006b3f, #008f55);
+
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 65px);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #ffd700;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: auto;
+      font-size: 19px;
+    }
+
+    /* GENERAL */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section {
+      padding: 75px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: #006b3f;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .line {
+      width: 70px;
+      height: 5px;
+      background: #e30613;
+      margin: auto;
+    }
+
+    /* INTRO */
+    .intro {
+      background: #fff;
+      text-align: center;
+    }
+
+    .intro p {
+      max-width: 900px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    /* LGAS */
+    .lgas {
+      background: #f6f6f6;
+    }
+
+    .lga-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .lga-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(0,0,0,.08);
+      border-top: 6px solid #006b3f;
+      transition: .3s;
+    }
+
+    .lga-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .lga-header {
+      background: #006b3f;
+      color: #fff;
+      padding: 25px;
+    }
+
+    .lga-header h3 {
+      color: #ffd700;
+      font-size: 28px;
+    }
+
+    .lga-body {
+      padding: 25px;
+    }
+
+    .lga-body h4 {
+      color: #006b3f;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .lga-body p {
+      margin-bottom: 15px;
+    }
+
+    /* ISSUES */
+    .issues {
+      background: #fff;
+    }
+
+    .issue-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .issue {
+      background: #f7f7f7;
+      padding: 25px;
+      border-left: 5px solid #e30613;
+      border-radius: 8px;
+    }
+
+    .issue h3 {
+      color: #006b3f;
+      margin-bottom: 10px;
+    }
+
+    .issue-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    /* REPRESENTATION */
+    .representation {
+      background: #006b3f;
+      color: #fff;
+    }
+
+    .representation .section-title h2 {
+      color: #fff;
+    }
+
+    .rep-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .rep-box {
+      padding: 30px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 10px;
+    }
+
+    .rep-box h3 {
+      color: #ffd700;
+      margin-bottom: 10px;
+      font-size: 23px;
+    }
+
+    /* SHARED FUTURE */
+    .future {
+      background: #f6f6f6;
+      text-align: center;
+    }
+
+    .future-box {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 45px 30px;
+      border-radius: 15px;
+      box-shadow: 0 7px 25px rgba(0,0,0,.08);
+    }
+
+    .future-box h2 {
+      color: #006b3f;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .future-box p {
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer .adc-footer {
+      color: #e30613;
+      font-weight: bold;
+    }
+
+    footer strong {
+      color: #ffd700;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #006b3f;
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        border-top: 2px solid #e30613;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .lga-grid,
+      .rep-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .issue-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .logo h2 {
+        font-size: 12px;
+      }
+
+      .adc {
+        font-size: 15px;
+        padding: 7px 9px;
+      }
+
+      .issue-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 75px 15px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      section {
+        padding: 55px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="top-line"></div>
+
+    <div class="navbar">
+
+      <div class="logo">
+        <div class="adc">ADC</div>
+        <h2>PHARM. PETER YAKUBU IDUH</h2>
+      </div>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+      <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="priorities.html">Priorities</a>
+        <a href="constituency.html">Constituency</a>
+        <a href="index.html#vision">Vision</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="container">
+
+      <h1>
+        Our <span>Constituency</span>
+      </h1>
+
+      <p>
+        IDAH • IBAJI • IGALAMELA-ODOLU • OFU
+      </p>
+
+      <p style="margin-top:15px;">
+        One constituency. Different communities.
+        A shared future.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- INTRODUCTION -->
+  <section class="intro">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Idah Federal Constituency</h2>
+
+        <div class="line"></div>
+
+      </div>
+
+      <p>
+        Idah Federal Constituency brings together communities
+        across Idah, Ibaji, Igalamela-Odolu and Ofu.
+        The constituency is home to diverse communities,
+        families, businesses, farmers, professionals,
+        young people and women whose interests form an
+        important part of the conversation about representation.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOUR LGAs -->
+  <section class="lgas">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>The Four Areas</h2>
+
+        <p>
+          Different communities, shared interests and
+          common development concerns.
+        </p>
+
+        <div class="line"></div>
+
+      </div>
+
+
+      <div class="lga-grid">
+
+        <!-- IDAH -->
+        <div class="lga-card">
+
+          <div class="lga-header">
+            <h3>IDAH</h3>
+          </div>
+
+          <div class="lga-body">
+
+            <h4>Community & Development</h4>
+
+            <p>
+              Idah is one of the communities within the
+              federal constituency whose residents have
+              interests in education, healthcare,
+              infrastructure, employment and economic
+              opportunities.
+            </p>
+
+            <p>
+              Effective representation involves listening
+              to community concerns and communicating them
+              through appropriate legislative channels.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- IBAJI -->
+        <div class="lga-card">
+
+          <div class="lga-header">
+            <h3>IBAJI</h3>
+          </div>
+
+          <div class="lga-body">
+
+            <h4>Community & Development</h4>
+
+            <p>
+              Ibaji includes many rural communities where
+              agriculture, roads, healthcare, education and
+              access to basic infrastructure are important
+              areas of public discussion.
+            </p>
+
+            <p>
+              Community needs can be communicated through
+              representation and appropriate advocacy for
+              development opportunities.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- IGALAMELA -->
+        <div class="lga-card">
+
+          <div class="lga-header">
+            <h3>IGALAMELA-ODOLU</h3>
+          </div>
+
+          <div class="lga-body">
+
+            <h4>Community & Development</h4>
+
+            <p>
+              Communities across Igalamela-Odolu contribute
+              to the wider social and economic life of the
+              constituency.
+            </p>
+
+            <p>
+              Infrastructure, agriculture, education,
+              healthcare and opportunities for local
+              businesses remain important areas for public
+              conversation.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- OFU -->
+        <div class="lga-card">
+
+          <div class="lga-header">
+            <h3>OFU</h3>
+          </div>
+
+          <div class="lga-body">
+
+            <h4>Community & Development</h4>
+
+            <p>
+              Ofu communities are part of the wider
+              constituency and have interests in
+              infrastructure, education, agriculture,
+              healthcare and economic opportunities.
+            </p>
+
+            <p>
+              Listening to communities provides a basis
+              for understanding their priorities and
+              concerns.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- KEY ISSUES -->
+  <section class="issues">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Issues That Matter</h2>
+
+        <p>
+          Areas that can shape the conversation about
+          development and representation.
+        </p>
+
+        <div class="line"></div>
+
+      </div>
+
+
+      <div class="issue-grid">
+
+        <div class="issue">
+          <div class="issue-icon">🏥</div>
+          <h3>Healthcare</h3>
+          <p>
+            Access to quality healthcare and community
+            wellbeing.
+          </p>
+        </div>
+
+
+        <div class="issue">
+          <div class="issue-icon">🎓</div>
+          <h3>Education</h3>
+          <p>
+            Educational development and opportunities
+            for young people.
+          </p>
+        </div>
+
+
+        <div class="issue">
+          <div class="issue-icon">🛣️</div>
+          <h3>Infrastructure</h3>
+          <p>
+            Roads, public infrastructure and community
+            development.
+          </p>
+        </div>
+
+
+        <div class="issue">
+          <div class="issue-icon">🌾</div>
+          <h3>Agriculture</h3>
+          <p>
+            Agricultural development and opportunities
+            for farmers.
+          </p>
+        </div>
+
+
+        <div class="issue">
+          <div class="issue-icon">💼</div>
+          <h3>Employment</h3>
+          <p>
+            Employment, enterprise and economic
+            participation.
+          </p>
+        </div>
+
+
+        <div class="issue">
+          <div class="issue-icon">👥</div>
+          <h3>Youth & Women</h3>
+          <p>
+            Youth development and greater participation
+            of women in community activities.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REPRESENTATION -->
+  <section class="representation">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Representation</h2>
+
+        <div class="line"></div>
+
+      </div>
+
+
+      <div class="rep-grid">
+
+        <div class="rep-box">
+
+          <h3>Listening</h3>
+
+          <p>
+            Understanding the concerns of communities
+            and constituents is an important part of
+            responsible representation.
+          </p>
+
+        </div>
+
+
+        <div class="rep-box">
+
+          <h3>Legislation</h3>
+
+          <p>
+            A federal representative participates in
+            the legislative process and contributes to
+            discussions on national issues.
+          </p>
+
+        </div>
+
+
+        <div class="rep-box">
+
+          <h3>Advocacy</h3>
+
+          <p>
+            Appropriate federal projects and development
+            opportunities can be advocated for based on
+            identified community needs.
+          </p>
+
+        </div>
+
+
+        <div class="rep-box">
+
+          <h3>Communication</h3>
+
+          <p>
+            Maintaining communication helps communities
+            stay informed about representation and
+            public responsibilities.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SHARED FUTURE -->
+  <section class="future">
+
+    <div class="container">
+
+      <div class="future-box">
+
+        <h2>
+          One Constituency. A Shared Future.
+        </h2>
+
+        <p>
+          Idah, Ibaji, Igalamela-Odolu and Ofu are
+          different communities within one federal
+          constituency. An informed conversation about
+          representation can consider the interests,
+          needs and aspirations of people across all
+          four areas.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      <span class="adc-footer">ADC</span>
+      • Pharm. Peter Yakubu Iduh
+    </p>
+
+    <p>
+      Idah Federal Constituency
+    </p>
+
+    <br>
+
+    <p>
+      Powered by
+      <strong>IBAJI TV CHANNEL 📺</strong>
+    </p>
+
+    <p style="font-size:13px; margin-top:10px;">
+      © 2026 Pharm. Peter Yakubu Iduh.
+      All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    function toggleMenu() {
+
+      document
+        .getElementById("navMenu")
+        .classList
+        .toggle("active");
+
+    }
+
+    document
+      .querySelectorAll("nav a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          document
+            .getElementById("navMenu")
+            .classList
+            .remove("active");
+
+        });
+
+      });
+
+  </script>
+
+</body>
+</html>
