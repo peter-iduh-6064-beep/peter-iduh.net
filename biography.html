@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Biography | Pharm. Chief Peter Yakubu Iduh</title>
+
+<meta name="description"
+content="Biography of Pharm. Chief Peter Yakubu Iduh, pharmacist, businessman, traditional title holder and public figure from Idah, Kogi State.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7f6;
+  color:#222;
+  line-height:1.7;
+}
+
+/* HEADER */
+header{
+  background:#006b3f;
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 12px rgba(0,0,0,.2);
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.logo span{
+  color:#ffd700;
+}
+
+/* MENU BUTTON */
+.menu-button{
+  display:none;
+  background:#e30613;
+  color:#fff;
+  border:0;
+  padding:10px 15px;
+  border-radius:6px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* NAVIGATION */
+nav{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  flex-wrap:wrap;
+  padding:5px 15px 12px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:bold;
+  padding:7px 9px;
+  border-radius:6px;
+}
+
+nav a:hover{
+  color:#ffd700;
+  background:rgba(255,255,255,.12);
+}
+
+nav a.active{
+  background:#e30613;
+  color:#fff;
+}
+
+/* PAGE HERO */
+.page-hero{
+  background:
+    linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),
+    url("https://i.ibb.co/dsMPnKc0/Screenshot-20260917-003055.jpg")
+    center/cover no-repeat;
+
+  min-height:380px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:50px 20px;
+}
+
+.page-hero h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.page-hero p{
+  font-size:20px;
+  color:#ffd700;
+  font-weight:bold;
+}
+
+/* MAIN */
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:55px 20px;
+}
+
+/* PROFILE */
+.profile{
+  background:#fff;
+  border-radius:12px;
+  padding:25px;
+  box-shadow:0 4px 18px rgba(0,0,0,.1);
+  margin-bottom:35px;
+}
+
+.profile-grid{
+  display:grid;
+  grid-template-columns:330px 1fr;
+  gap:30px;
+  align-items:start;
+}
+
+.profile-image img{
+  width:100%;
+  border-radius:10px;
+  display:block;
+  box-shadow:0 4px 15px rgba(0,0,0,.18);
+}
+
+.profile-text h2{
+  color:#006b3f;
+  margin-bottom:12px;
+}
+
+.profile-text p{
+  margin-bottom:12px;
+}
+
+/* BIOGRAPHY SECTIONS */
+.bio-section{
+  background:#fff;
+  padding:30px;
+  margin-bottom:25px;
+  border-radius:10px;
+  box-shadow:0 3px 15px rgba(0,0,0,.08);
+  border-left:5px solid #006b3f;
+}
+
+.bio-section h2{
+  color:#006b3f;
+  margin-bottom:15px;
+  font-size:25px;
+}
+
+.bio-section p{
+  margin-bottom:15px;
+}
+
+.highlight{
+  background:#f0f7f3;
+  border-left:4px solid #e30613;
+  padding:18px;
+  margin-top:15px;
+  border-radius:6px;
+}
+
+/* QUICK FACTS */
+.quick-facts{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.fact{
+  background:#f5f7f6;
+  padding:18px;
+  border-radius:7px;
+}
+
+.fact strong{
+  color:#006b3f;
+  display:block;
+  margin-bottom:4px;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  background:#e30613;
+  color:#fff;
+  text-decoration:none;
+  padding:11px 18px;
+  border-radius:6px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.btn:hover{
+  opacity:.85;
+}
+
+/* FOOTER */
+footer{
+  background:#003d25;
+  color:#fff;
+  text-align:center;
+  padding:30px 20px;
+}
+
+.footer-links{
+  margin-bottom:15px;
+}
+
+.footer-links a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 7px;
+  font-size:13px;
+}
+
+.footer-links a:hover{
+  color:#ffd700;
+}
+
+.footer-brand{
+  color:#ffd700;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+  .header-inner{
+    padding:12px 15px;
+  }
+
+  .logo{
+    font-size:15px;
+  }
+
+  .menu-button{
+    display:block;
+  }
+
+  nav{
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:3px;
+    background:#005631;
+    padding:10px 15px 15px;
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  nav a{
+    width:100%;
+    text-align:left;
+    padding:11px 12px;
+    font-size:14px;
+  }
+
+  .page-hero{
+    min-height:320px;
+  }
+
+  .page-hero h1{
+    font-size:30px;
+  }
+
+  .page-hero p{
+    font-size:17px;
+  }
+
+  .profile-grid{
+    grid-template-columns:1fr;
+  }
+
+  .profile-image{
+    max-width:500px;
+    margin:auto;
+  }
+
+  .quick-facts{
+    grid-template-columns:1fr;
+  }
+
+  .container{
+    padding:40px 15px;
+  }
+
+  .bio-section{
+    padding:22px;
+  }
+
+}
+
+@media(max-width:450px){
+
+  .page-hero h1{
+    font-size:25px;
+  }
+
+  .bio-section h2{
+    font-size:21px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+  <div class="header-inner">
+
+    <a href="index.html" class="logo">
+      PHARM. CHIEF <span>PETER YAKUBU IDUH</span>
+    </a>
+
+    <button
+      class="menu-button"
+      onclick="toggleMenu()">
+      ☰ MENU
+    </button>
+
+  </div>
+
+  <nav id="mainNav">
+
+    <a href="index.html">Home</a>
+
+    <a href="about.html">About</a>
+
+    <a href="biography.html" class="active">
+      Biography
+    </a>
+
+    <a href="priorities.html">Priorities</a>
+
+    <a href="constituency.html">Constituency</a>
+
+    <a href="vision.html">Vision</a>
+
+    <a href="gallery.html">Gallery</a>
+
+    <a href="news.html">News</a>
+
+    <a href="events.html">Events</a>
+
+    <a href="press.html">Press</a>
+
+    <a href="faq.html">FAQ</a>
+
+    <a href="contact.html">Contact</a>
+
+    <a href="election-results.html">
+      Election Results
+    </a>
+
+    <a href="polling-unit-results.html">
+      Polling Unit Results
+    </a>
+
+    <a href="lga-results.html">
+      LGA Results
+    </a>
+
+    <a href="candidate-results.html">
+      Candidate Results
+    </a>
+
+    <a href="result-details.html">
+      Result Details
+    </a>
+
+    <a href="admin-results.html">
+      Admin Results
+    </a>
+
+    <a href="privacy-policy.html">
+      Privacy Policy
+    </a>
+
+    <a href="terms.html">
+      Terms
+    </a>
+
+  </nav>
+
+</header>
+
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+
+  <div>
+
+    <h1>
+      Pharm. Chief Peter Yakubu Iduh
+    </h1>
+
+    <p>
+      Biography
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- MAIN CONTENT -->
+<main class="container">
+
+
+  <!-- PROFILE -->
+  <div class="profile">
+
+    <div class="profile-grid">
+
+      <div class="profile-image">
+
+        <img
+          src="https://i.ibb.co/dsMPnKc0/Screenshot-20260917-003055.jpg"
+          alt="Pharm. Chief Peter Yakubu Iduh">
+
+      </div>
+
+
+      <div class="profile-text">
+
+        <h2>
+          Pharm. Chief Peter Yakubu Iduh
+        </h2>
+
+        <p>
+          Pharm. Chief Peter Yakubu Iduh is a pharmacist,
+          businessman, traditional title holder and public
+          figure from Idah, Kogi State.
+        </p>
+
+        <p>
+          His professional background includes pharmacy,
+          pharmaceutical business, distribution and
+          community activities.
+        </p>
+
+        <div class="quick-facts">
+
+          <div class="fact">
+            <strong>Date of Birth</strong>
+            25 March 1974
+          </div>
+
+          <div class="fact">
+            <strong>Place of Birth</strong>
+            Idah, Kogi State
+          </div>
+
+          <div class="fact">
+            <strong>Profession</strong>
+            Pharmacist / Businessman
+          </div>
+
+          <div class="fact">
+            <strong>University</strong>
+            University of Nigeria, Nsukka
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- EARLY LIFE -->
+  <section class="bio-section">
+
+    <h2>
+      Early Life and Background
+    </h2>
+
+    <p>
+      Pharm. Chief Peter Yakubu Iduh was born on
+      <strong>25 March 1974</strong> in Idah, Kogi State,
+      into the family of the late Chief Charles O. Iduh
+      and Mrs. Anasthesia Iduh.
+    </p>
+
+    <p>
+      He began his education at Federal Polytechnic Staff
+      School, Idah, and subsequently attended Federal
+      Government College, Ugwolawo, where he belonged to
+      the 1992 set.
+    </p>
+
+    <p>
+      The published biography describes his early years as
+      characterised by academic performance, hard work and
+      participation in student affairs.
+    </p>
+
+  </section>
+
+
+  <!-- EDUCATION -->
+  <section class="bio-section">
+
+    <h2>
+      Education and Student Leadership
+    </h2>
+
+    <p>
+      In 1995, Peter Iduh proceeded to the
+      <strong>University of Nigeria, Nsukka (UNN)</strong>
+      to study Pharmacy.
+    </p>
+
+    <p>
+      During his university years, he became involved in
+      student leadership and represented his faculty in the
+      university's Student Senate.
+    </p>
+
+    <p>
+      He eventually served as
+      <strong>Deputy Senate President</strong>.
+    </p>
+
+    <p>
+      According to the published biography, he advocated
+      for pharmacy students and used motions and lobbying
+      in addressing accommodation challenges affecting
+      students.
+    </p>
+
+    <p>
+      He graduated in <strong>2002</strong> with a
+      Bachelor of Pharmacy degree.
+    </p>
+
+    <div class="highlight">
+
+      <strong>Professional Training:</strong><br>
+
+      After graduation, he completed his mandatory pharmacy
+      internship at the Federal Medical Centre, Asaba,
+      Delta State, followed by his National Youth Service
+      Corps programme in Kaduna.
+
+    </div>
+
+  </section>
+
+
+  <!-- PHARMACEUTICAL CAREER -->
+  <section class="bio-section">
+
+    <h2>
+      Pharmaceutical and Business Career
+    </h2>
+
+    <p>
+      After completing his NYSC programme, Pharm. Iduh
+      entered the pharmaceutical industry as a sales
+      representative.
+    </p>
+
+    <p>
+      The published biography states that his performance
+      led to his promotion to Assistant Manager in less
+      than two years.
+    </p>
+
+    <p>
+      He later moved into private business and became
+      Managing Director of <strong>Swan Medico Ltd</strong>,
+      a pharmaceutical company described as being involved
+      in importing and distributing fertility-related
+      pharmaceutical products.
+    </p>
+
+    <p>
+      The biography identifies Ferring Pharmaceutical of
+      Switzerland and Vitrolife of Sweden among companies
+      whose products were distributed through the business
+      in Nigeria.
+    </p>
+
+    <p>
+      He is also identified as Chairman/CEO of
+      <strong>Iduh Integrated Services Nigeria Ltd</strong>,
+      <strong>Frepet Nig. Ltd</strong> and
+      <strong>Iduh Pharmacy Ltd</strong>.
+    </p>
+
+    <p>
+      Iduh Integrated Services has been described as a
+      distributor in the FCT and Kogi State for products
+      associated with companies including Unilever,
+      GSK Healthcare, Perfetti Van Melle, Kimberly-Clark
+      and Suntory.
+    </p>
+
+    <p>
+      According to the published biography, he also holds
+      a <strong>Master of Business Administration (MBA)</strong>
+      from Business School Netherlands.
+    </p>
+
+  </section>
+
+
+  <!-- TRADITIONAL TITLE -->
+  <section class="bio-section">
+
+    <h2>
+      Traditional Title and Community Activities
+    </h2>
+
+    <p>
+      Chief Peter Yakubu Iduh is associated with the
+      traditional title <strong>Ogah Attah of the Igala
+      Kingdom (Edeee)</strong>.
+    </p>
+
+    <p>
+      The published profile also identifies him with the
+      title <strong>Ese Rovia 1 of Agbarha-Otor Kingdom</strong>.
+    </p>
+
+    <p>
+      Public reports have described him as a businessman,
+      pharmacist and philanthropist involved in community
+      and grassroots activities in Kogi East.
+    </p>
+
+    <div class="highlight">
+
+      His community activities and public engagements have
+      included participation in events and initiatives
+      across Kogi East.
+
+    </div>
+
+  </section>
+
+
+  <!-- POLITICAL ACTIVITIES -->
+  <section class="bio-section">
+
+    <h2>
+      Political Activities
+    </h2>
+
+    <p>
+      Pharm. Peter Yakubu Iduh has also participated in
+      partisan political activities.
+    </p>
+
+    <p>
+      In May 2026, Kogi Reports reported that he won the
+      African Democratic Congress (ADC) primary for the
+      Idah Federal Constituency House of Representatives
+      seat.
+    </p>
+
+    <p>
+      The reported constituency covers
+      <strong>Idah, Ibaji, Igalamela-Odolu and Ofu
+      Local Government Areas</strong>.
+    </p>
+
+    <p>
+      Recent September 2026 reporting has also identified
+      him publicly as the ADC candidate for the Idah Federal
+      Constituency at the 2026 Igala Nation's Cup event
+      in Idah.
+    </p>
+
+    <div class="highlight">
+
+      <strong>Current public profile:</strong><br>
+
+      As reported in 2026, Pharm. Chief Peter Yakubu Iduh
+      is associated with the ADC candidacy for the
+      Idah Federal Constituency House of Representatives
+      seat.
+
+    </div>
+
+  </section>
+
+
+  <!-- FAMILY -->
+  <section class="bio-section">
+
+    <h2>
+      Family
+    </h2>
+
+    <p>
+      The published biography states that Chief Peter
+      Yakubu Iduh is married to
+      <strong>Mrs. Ruth Ileigo Iduh (née Obaje)</strong>.
+    </p>
+
+    <p>
+      The same published biography states that they have
+      children named Ojochelemi, Enyonedugbojo, Omakojiata
+      and Achile.
+    </p>
+
+  </section>
+
+
+  <!-- SUMMARY -->
+  <section class="bio-section">
+
+    <h2>
+      Biography Summary
+    </h2>
+
+    <p>
+      Pharm. Chief Peter Yakubu Iduh is a pharmacist,
+      entrepreneur, traditional title holder and
+      philanthropist from Idah, Kogi State.
+    </p>
+
+    <p>
+      His career has included pharmaceutical practice,
+      business management, distribution and community
+      activities.
+    </p>
+
+    <p>
+      He has also participated in political and grassroots
+      affairs in Kogi East and, according to 2026 public
+      reports, is associated with the African Democratic
+      Congress candidacy for Idah Federal Constituency.
+    </p>
+
+    <a href="about.html" class="btn">
+      ← Back to About
+    </a>
+
+  </section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-links">
+
+    <a href="index.html">Home</a>
+
+    <a href="about.html">About</a>
+
+    <a href="news.html">News</a>
+
+    <a href="gallery.html">Gallery</a>
+
+    <a href="contact.html">Contact</a>
+
+    <a href="privacy-policy.html">
+      Privacy Policy
+    </a>
+
+    <a href="terms.html">
+      Terms
+    </a>
+
+  </div>
+
+  <p>
+    © 2026 Pharm. Chief Peter Yakubu Iduh.
+    All rights reserved.
+  </p>
+
+  <p class="footer-brand">
+    Powered by IBAJI TV CHANNEL 📺
+  </p>
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+  const nav =
+    document.getElementById("mainNav");
+
+  nav.classList.toggle("open");
+
+}
+
+
+/* CLOSE MENU AFTER CLICKING */
+
+document
+  .querySelectorAll("#mainNav a")
+  .forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+      document
+        .getElementById("mainNav")
+        .classList.remove("open");
+
+    });
+
+  });
+
+</script>
+
+</body>
+</html>
