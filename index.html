@@ -114,6 +114,7 @@
       border-radius: 5px;
       transition: 0.3s;
       display: inline-block;
+      flex-shrink: 0;
     }
 
     nav a:hover {
@@ -151,6 +152,7 @@
       0% {
         transform: translateX(100%);
       }
+
       100% {
         transform: translateX(-100%);
       }
@@ -437,6 +439,135 @@
       text-decoration: none;
     }
 
+    /* =========================================
+       FLOATING WELCOME PICTURE
+    ========================================= */
+
+    .welcome-float {
+      position: fixed;
+      right: 20px;
+      bottom: 25px;
+      width: 330px;
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 3px solid #006b3f;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      z-index: 9999;
+
+      animation:
+        welcomeSlideIn 0.8s ease-out,
+        welcomeFloat 3.5s ease-in-out infinite;
+    }
+
+    .welcome-float-header {
+      position: relative;
+      background: #006b3f;
+      color: white;
+      text-align: center;
+      padding: 12px 45px 12px 15px;
+    }
+
+    .welcome-float-header h3 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .welcome-float-header p {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .welcome-close {
+      position: absolute;
+      top: 7px;
+      right: 8px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 50%;
+      background: #e30613;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 30px;
+    }
+
+    .welcome-close:hover {
+      background: #b80000;
+    }
+
+    .welcome-float-image {
+      width: 100%;
+      height: 280px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .welcome-float-content {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .welcome-float-content h4 {
+      color: #006b3f;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .welcome-float-content p {
+      color: #555;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .welcome-button {
+      display: inline-block;
+      background: #e30613;
+      color: white;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .welcome-button:hover {
+      background: #006b3f;
+    }
+
+    @keyframes welcomeSlideIn {
+
+      0% {
+        opacity: 0;
+        transform: translateY(120px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    @keyframes welcomeFloat {
+
+      0% {
+        margin-bottom: 0;
+      }
+
+      50% {
+        margin-bottom: 10px;
+      }
+
+      100% {
+        margin-bottom: 0;
+      }
+
+    }
+
     /* FOOTER */
     footer {
       background: #003d25;
@@ -479,7 +610,7 @@
       margin-top: 20px;
     }
 
-    /* MOBILE */
+    /* TABLET */
     @media (max-width: 950px) {
 
       .header-container {
@@ -538,6 +669,7 @@
       }
     }
 
+    /* MOBILE */
     @media (max-width: 600px) {
 
       .header-container {
@@ -611,6 +743,30 @@
       .phone {
         font-size: 20px;
       }
+
+      /* FLOATING WELCOME MOBILE */
+
+      .welcome-float {
+        width: calc(100% - 30px);
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .welcome-float-image {
+        height: 250px;
+      }
+
+      .welcome-float-header h3 {
+        font-size: 16px;
+      }
+
+      .welcome-float-content h4 {
+        font-size: 16px;
+      }
+
+      .welcome-float-content p {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -619,74 +775,149 @@
 
   <!-- HEADER -->
   <header>
+
     <div class="header-container">
 
       <div class="brand">
-        <div class="adc-logo">ADC</div>
+
+        <div class="adc-logo">
+          ADC
+        </div>
 
         <div>
-          <h1>PHARM. PETER YAKUBU IDUH</h1>
-          <p>House of Representatives Candidate</p>
+          <h1>
+            PHARM. PETER YAKUBU IDUH
+          </h1>
+
+          <p>
+            House of Representatives Candidate
+          </p>
         </div>
+
       </div>
 
-      <!-- COMPLETE WEBSITE MENU -->
+
+      <!-- COMPLETE MENU -->
       <nav>
 
-        <!-- Main Website -->
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="priorities.html">Priorities</a>
-        <a href="constituency.html">Constituency</a>
-        <a href="vision.html">Vision</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="news.html">News</a>
-        <a href="events.html">Events</a>
-        <a href="press.html">Press</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">
+          Home
+        </a>
 
-        <!-- Election Information -->
-        <a href="election-results.html" class="menu-highlight">Election Results</a>
-        <a href="polling-unit-results.html">Polling Unit Results</a>
-        <a href="lga-results.html">LGA Results</a>
-        <a href="candidate-results.html">Candidate Results</a>
-        <a href="result-details.html">Result Details</a>
+        <a href="about.html">
+          About
+        </a>
 
-        <!-- Administration -->
-        <a href="admin-results.html" class="menu-highlight">Admin Results</a>
+        <a href="priorities.html">
+          Priorities
+        </a>
 
-        <!-- Website Information -->
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms.html">Terms</a>
+        <a href="constituency.html">
+          Constituency
+        </a>
+
+        <a href="vision.html">
+          Vision
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="news.html">
+          News
+        </a>
+
+        <a href="events.html">
+          Events
+        </a>
+
+        <a href="press.html">
+          Press
+        </a>
+
+        <a href="faq.html">
+          FAQ
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="election-results.html" class="menu-highlight">
+          Election Results
+        </a>
+
+        <a href="polling-unit-results.html">
+          Polling Unit Results
+        </a>
+
+        <a href="lga-results.html">
+          LGA Results
+        </a>
+
+        <a href="candidate-results.html">
+          Candidate Results
+        </a>
+
+        <a href="result-details.html">
+          Result Details
+        </a>
+
+        <a href="admin-results.html" class="menu-highlight">
+          Admin Results
+        </a>
+
+        <a href="privacy-policy.html">
+          Privacy Policy
+        </a>
+
+        <a href="terms.html">
+          Terms
+        </a>
 
       </nav>
 
     </div>
+
   </header>
 
 
   <!-- WELCOME MOVING BAR -->
   <div class="welcome-bar">
+
     <div class="welcome-track">
 
-      <span>WELCOME TO THE OFFICIAL WEBSITE OF PHARM. PETER YAKUBU IDUH</span>
+      <span>
+        WELCOME TO THE OFFICIAL WEBSITE OF PHARM. PETER YAKUBU IDUH
+      </span>
 
-      <span>AFRICAN DEMOCRATIC CONGRESS (ADC)</span>
+      <span>
+        AFRICAN DEMOCRATIC CONGRESS (ADC)
+      </span>
 
-      <span>HOUSE OF REPRESENTATIVES CANDIDATE</span>
+      <span>
+        HOUSE OF REPRESENTATIVES CANDIDATE
+      </span>
 
-      <span>IDAH FEDERAL CONSTITUENCY</span>
+      <span>
+        IDAH FEDERAL CONSTITUENCY
+      </span>
 
-      <span>IDAH • IBAJI • IGALAMELA-ODOLU • OFU</span>
+      <span>
+        IDAH • IBAJI • IGALAMELA-ODOLU • OFU
+      </span>
 
-      <span>RESPONSIBLE REPRESENTATION</span>
+      <span>
+        RESPONSIBLE REPRESENTATION
+      </span>
 
     </div>
+
   </div>
 
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
 
     <div class="hero-container">
@@ -741,17 +972,21 @@
   </section>
 
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <section class="about">
 
     <div class="container">
 
       <div class="section-title">
-        <h2>About Pharm. Peter Yakubu Iduh</h2>
+
+        <h2>
+          About Pharm. Peter Yakubu Iduh
+        </h2>
 
         <p>
           Learn more about the candidate and his public profile.
         </p>
+
       </div>
 
 
@@ -769,7 +1004,9 @@
 
         <div class="about-text">
 
-          <h3>Public Profile</h3>
+          <h3>
+            Public Profile
+          </h3>
 
           <p>
             Pharm. Peter Yakubu Iduh is a House of Representatives candidate
@@ -808,7 +1045,9 @@
 
       <div class="section-title">
 
-        <h2>Key Issues</h2>
+        <h2>
+          Key Issues
+        </h2>
 
         <p>
           Areas of public policy and constituency development presented
@@ -822,7 +1061,9 @@
 
         <div class="issue-card">
 
-          <h3>Healthcare</h3>
+          <h3>
+            Healthcare
+          </h3>
 
           <p>
             Improving access to healthcare services, medical facilities
@@ -834,7 +1075,9 @@
 
         <div class="issue-card">
 
-          <h3>Education</h3>
+          <h3>
+            Education
+          </h3>
 
           <p>
             Supporting educational development, learning opportunities
@@ -846,7 +1089,9 @@
 
         <div class="issue-card">
 
-          <h3>Roads & Infrastructure</h3>
+          <h3>
+            Roads & Infrastructure
+          </h3>
 
           <p>
             Highlighting the importance of roads, transportation,
@@ -858,7 +1103,9 @@
 
         <div class="issue-card">
 
-          <h3>Agriculture</h3>
+          <h3>
+            Agriculture
+          </h3>
 
           <p>
             Recognising agriculture as an important part of livelihoods
@@ -870,7 +1117,9 @@
 
         <div class="issue-card">
 
-          <h3>Employment</h3>
+          <h3>
+            Employment
+          </h3>
 
           <p>
             Focusing public discussion on employment opportunities,
@@ -882,7 +1131,9 @@
 
         <div class="issue-card">
 
-          <h3>Youth & Women</h3>
+          <h3>
+            Youth & Women
+          </h3>
 
           <p>
             Encouraging inclusion and opportunities for young people
@@ -898,14 +1149,16 @@
   </section>
 
 
-  <!-- CONSTITUENCY SECTION -->
+  <!-- CONSTITUENCY -->
   <section class="constituency">
 
     <div class="container">
 
       <div class="section-title">
 
-        <h2>Idah Federal Constituency</h2>
+        <h2>
+          Idah Federal Constituency
+        </h2>
 
         <p>
           The constituency covers four Local Government Areas.
@@ -918,7 +1171,9 @@
 
         <div class="constituency-card">
 
-          <h3>Idah</h3>
+          <h3>
+            Idah
+          </h3>
 
           <p>
             Local Government Area
@@ -929,7 +1184,9 @@
 
         <div class="constituency-card">
 
-          <h3>Ibaji</h3>
+          <h3>
+            Ibaji
+          </h3>
 
           <p>
             Local Government Area
@@ -940,7 +1197,9 @@
 
         <div class="constituency-card">
 
-          <h3>Igalamela-Odolu</h3>
+          <h3>
+            Igalamela-Odolu
+          </h3>
 
           <p>
             Local Government Area
@@ -951,7 +1210,9 @@
 
         <div class="constituency-card">
 
-          <h3>Ofu</h3>
+          <h3>
+            Ofu
+          </h3>
 
           <p>
             Local Government Area
@@ -966,14 +1227,16 @@
   </section>
 
 
-  <!-- VISION SECTION -->
+  <!-- VISION -->
   <section class="vision">
 
     <div class="container">
 
       <div class="section-title">
 
-        <h2>Vision & Representation</h2>
+        <h2>
+          Vision & Representation
+        </h2>
 
         <p>
           Information about the approach to public representation.
@@ -1005,14 +1268,16 @@
   </section>
 
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section class="contact">
 
     <div class="container">
 
       <div class="section-title">
 
-        <h2>Contact</h2>
+        <h2>
+          Contact
+        </h2>
 
         <p>
           For enquiries and official communication.
@@ -1025,7 +1290,9 @@
 
         <div class="contact-card">
 
-          <h3>Pharm. Peter Yakubu Iduh</h3>
+          <h3>
+            Pharm. Peter Yakubu Iduh
+          </h3>
 
           <p>
             House of Representatives Candidate
@@ -1044,7 +1311,9 @@
 
         <div class="contact-card">
 
-          <h3>Phone</h3>
+          <h3>
+            Phone
+          </h3>
 
           <p>
             For official enquiries:
@@ -1059,7 +1328,10 @@
 
           <br><br>
 
-          <a href="contact.html" class="btn btn-primary">
+          <a
+            href="contact.html"
+            class="btn btn-primary"
+          >
             Contact Page
           </a>
 
@@ -1070,6 +1342,66 @@
     </div>
 
   </section>
+
+
+  <!-- =========================================
+       FLOATING WELCOME PICTURE
+  ========================================= -->
+
+  <div
+    class="welcome-float"
+    id="welcomeFloat"
+  >
+
+    <div class="welcome-float-header">
+
+      <button
+        class="welcome-close"
+        onclick="closeWelcome()"
+        aria-label="Close welcome message"
+      >
+        ×
+      </button>
+
+      <h3>
+        Welcome
+      </h3>
+
+      <p>
+        Official Website
+      </p>
+
+    </div>
+
+
+    <img
+      class="welcome-float-image"
+      src="https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg"
+      alt="Pharm. Peter Yakubu Iduh"
+    >
+
+
+    <div class="welcome-float-content">
+
+      <h4>
+        PHARM. PETER YAKUBU IDUH
+      </h4>
+
+      <p>
+        House of Representatives Candidate
+        • Idah Federal Constituency
+      </p>
+
+      <a
+        href="about.html"
+        class="welcome-button"
+      >
+        Learn More
+      </a>
+
+    </div>
+
+  </div>
 
 
   <!-- FOOTER -->
@@ -1094,43 +1426,81 @@
 
     <div class="footer-links">
 
-      <a href="index.html">Home</a>
+      <a href="index.html">
+        Home
+      </a>
 
-      <a href="about.html">About</a>
+      <a href="about.html">
+        About
+      </a>
 
-      <a href="priorities.html">Priorities</a>
+      <a href="priorities.html">
+        Priorities
+      </a>
 
-      <a href="constituency.html">Constituency</a>
+      <a href="constituency.html">
+        Constituency
+      </a>
 
-      <a href="vision.html">Vision</a>
+      <a href="vision.html">
+        Vision
+      </a>
 
-      <a href="gallery.html">Gallery</a>
+      <a href="gallery.html">
+        Gallery
+      </a>
 
-      <a href="news.html">News</a>
+      <a href="news.html">
+        News
+      </a>
 
-      <a href="events.html">Events</a>
+      <a href="events.html">
+        Events
+      </a>
 
-      <a href="press.html">Press</a>
+      <a href="press.html">
+        Press
+      </a>
 
-      <a href="faq.html">FAQ</a>
+      <a href="faq.html">
+        FAQ
+      </a>
 
-      <a href="contact.html">Contact</a>
+      <a href="contact.html">
+        Contact
+      </a>
 
-      <a href="election-results.html">Election Results</a>
+      <a href="election-results.html">
+        Election Results
+      </a>
 
-      <a href="polling-unit-results.html">Polling Unit Results</a>
+      <a href="polling-unit-results.html">
+        Polling Unit Results
+      </a>
 
-      <a href="lga-results.html">LGA Results</a>
+      <a href="lga-results.html">
+        LGA Results
+      </a>
 
-      <a href="candidate-results.html">Candidate Results</a>
+      <a href="candidate-results.html">
+        Candidate Results
+      </a>
 
-      <a href="result-details.html">Result Details</a>
+      <a href="result-details.html">
+        Result Details
+      </a>
 
-      <a href="admin-results.html">Admin Results</a>
+      <a href="admin-results.html">
+        Admin Results
+      </a>
 
-      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="privacy-policy.html">
+        Privacy Policy
+      </a>
 
-      <a href="terms.html">Terms & Conditions</a>
+      <a href="terms.html">
+        Terms & Conditions
+      </a>
 
     </div>
 
@@ -1149,6 +1519,19 @@
 
   </footer>
 
+
+  <!-- FLOATING WELCOME SCRIPT -->
+  <script>
+
+    function closeWelcome() {
+
+      document
+        .getElementById("welcomeFloat")
+        .style.display = "none";
+
+    }
+
+  </script>
 
 </body>
 </html>
