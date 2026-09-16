@@ -37,12 +37,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-shrink: 0;
     }
 
     .adc {
@@ -56,6 +58,7 @@
       justify-content: center;
       font-weight: bold;
       border: 2px solid white;
+      flex-shrink: 0;
     }
 
     .brand-text h2 {
@@ -68,26 +71,36 @@
       color: white;
     }
 
+    /* FULL NAVIGATION */
     nav {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+      max-width: 100%;
+      padding: 4px 0;
     }
 
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
+      font-size: 13px;
       font-weight: bold;
-      font-size: 14px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      flex-shrink: 0;
     }
 
     nav a:hover {
       color: #ffd700;
+      background: rgba(255,255,255,.1);
     }
 
-    .menu-btn {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
+    nav a.menu-highlight {
+      background: #e30613;
+      color: #fff;
     }
 
     /* HERO */
@@ -254,28 +267,18 @@
       margin-top: 8px;
     }
 
-    /* MOBILE */
+    /* TABLET / MOBILE */
     @media (max-width: 850px) {
 
-      nav {
-        display: none;
-        position: absolute;
-        top: 78px;
-        left: 0;
-        right: 0;
-        background: #006b3f;
+      .nav-container {
         flex-direction: column;
-        padding: 20px;
-        gap: 15px;
-        border-top: 1px solid rgba(255,255,255,0.2);
+        align-items: flex-start;
+        gap: 10px;
       }
 
-      nav.active {
-        display: flex;
-      }
-
-      .menu-btn {
-        display: block;
+      nav {
+        width: 100%;
+        overflow-x: auto;
       }
 
       .gallery {
@@ -295,7 +298,12 @@
       }
     }
 
+    /* SMALL MOBILE */
     @media (max-width: 550px) {
+
+      .nav-container {
+        padding: 12px 15px;
+      }
 
       .brand-text h2 {
         font-size: 15px;
@@ -309,6 +317,11 @@
         width: 42px;
         height: 42px;
         font-size: 13px;
+      }
+
+      nav a {
+        font-size: 12px;
+        padding: 6px 8px;
       }
 
       .hero {
@@ -379,23 +392,14 @@
 
       </div>
 
-
-      <div
-        class="menu-btn"
-        onclick="toggleMenu()">
-
-        ☰
-
-      </div>
-
-
-      <nav id="mainNav">
+      <!-- FULL MENU -->
+      <nav id="navMenu">
 
         <a href="index.html">
           Home
         </a>
 
-        <a href="index.html#about">
+        <a href="about.html">
           About
         </a>
 
@@ -415,8 +419,56 @@
           Gallery
         </a>
 
+        <a href="news.html">
+          News
+        </a>
+
+        <a href="events.html">
+          Events
+        </a>
+
+        <a href="press.html">
+          Press
+        </a>
+
+        <a href="faq.html">
+          FAQ
+        </a>
+
         <a href="contact.html">
           Contact
+        </a>
+
+        <a href="election-results.html" class="menu-highlight">
+          Election Results
+        </a>
+
+        <a href="polling-unit-results.html">
+          Polling Unit Results
+        </a>
+
+        <a href="lga-results.html">
+          LGA Results
+        </a>
+
+        <a href="candidate-results.html">
+          Candidate Results
+        </a>
+
+        <a href="result-details.html">
+          Result Details
+        </a>
+
+        <a href="admin-results.html" class="menu-highlight">
+          Admin Results
+        </a>
+
+        <a href="privacy-policy.html">
+          Privacy Policy
+        </a>
+
+        <a href="terms.html">
+          Terms
         </a>
 
       </nav>
@@ -627,21 +679,5 @@
 
   </footer>
 
-
-  <!-- JAVASCRIPT -->
-  <script>
-
-    function toggleMenu() {
-
-      document
-        .getElementById("mainNav")
-        .classList
-        .toggle("active");
-
-    }
-
-  </script>
-
 </body>
 </html>
-```0
