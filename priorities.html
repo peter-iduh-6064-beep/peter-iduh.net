@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Campaign Priorities | Pharm. Peter Yakubu Iduh</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: #006b3f;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 5px solid #e30613;
+    }
+
+    .top-line {
+      height: 5px;
+      background: white;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .adc {
+      background: #e30613;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .logo h2 {
+      font-size: 17px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      background:
+        linear-gradient(rgba(0,107,63,.92), rgba(0,107,63,.92)),
+        linear-gradient(135deg, #006b3f, #008f55);
+
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 65px);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #ffd700;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 19px;
+    }
+
+    /* GENERAL */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section {
+      padding: 75px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: #006b3f;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .line {
+      width: 70px;
+      height: 5px;
+      background: #e30613;
+      margin: auto;
+    }
+
+    /* INTRO */
+    .intro {
+      background: white;
+      text-align: center;
+    }
+
+    .intro p {
+      max-width: 850px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    /* PRIORITIES */
+    .priorities {
+      background: #f5f5f5;
+    }
+
+    .priority-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .priority-card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      border-top: 5px solid #006b3f;
+      transition: .3s;
+    }
+
+    .priority-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .priority-card h3 {
+      color: #006b3f;
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .priority-card p {
+      font-size: 15px;
+    }
+
+    /* REPRESENTATION */
+    .representation {
+      background: #006b3f;
+      color: white;
+    }
+
+    .representation .section-title h2 {
+      color: white;
+    }
+
+    .representation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .rep-box {
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,.3);
+      background: rgba(255,255,255,.08);
+      border-radius: 10px;
+    }
+
+    .rep-box h3 {
+      color: #ffd700;
+      margin-bottom: 10px;
+      font-size: 23px;
+    }
+
+    /* CONSTITUENCY */
+    .constituency {
+      background: white;
+      text-align: center;
+    }
+
+    .locations {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .location {
+      padding: 30px 15px;
+      border-radius: 10px;
+      background: #006b3f;
+      color: white;
+      border-bottom: 5px solid #e30613;
+    }
+
+    .location h3 {
+      color: #ffd700;
+      margin-bottom: 8px;
+    }
+
+    /* MESSAGE */
+    .message {
+      background: #f5f5f5;
+      text-align: center;
+    }
+
+    .message-box {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      padding: 45px 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    }
+
+    .message-box h2 {
+      color: #006b3f;
+      margin-bottom: 20px;
+    }
+
+    .message-box p {
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer .adc-footer {
+      color: #e30613;
+      font-weight: bold;
+    }
+
+    footer strong {
+      color: #ffd700;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #006b3f;
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        border-top: 2px solid #e30613;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .priority-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .locations {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .logo h2 {
+        font-size: 12px;
+      }
+
+      .adc {
+        font-size: 15px;
+        padding: 7px 9px;
+      }
+
+      .priority-grid,
+      .representation-grid,
+      .locations {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 75px 15px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      section {
+        padding: 55px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="top-line"></div>
+
+    <div class="navbar">
+
+      <div class="logo">
+        <div class="adc">ADC</div>
+        <h2>PHARM. PETER YAKUBU IDUH</h2>
+      </div>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+      <nav id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="priorities.html">Priorities</a>
+        <a href="index.html#constituency">Constituency</a>
+        <a href="index.html#vision">Vision</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="container">
+
+      <h1>
+        Campaign <span>Priorities</span>
+      </h1>
+
+      <p>
+        Key issues that matter to the people and communities
+        of Idah Federal Constituency.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- INTRODUCTION -->
+  <section class="intro">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Our Focus</h2>
+
+        <div class="line"></div>
+
+      </div>
+
+      <p>
+        The conversation about representation should focus on
+        issues that directly affect everyday life. These include
+        healthcare, education, infrastructure, agriculture,
+        employment, youth development, women's participation
+        and support for local businesses.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRIORITIES -->
+  <section class="priorities">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Key Priorities</h2>
+
+        <p>
+          Areas of public interest for Idah Federal Constituency.
+        </p>
+
+        <div class="line"></div>
+
+      </div>
+
+
+      <div class="priority-grid">
+
+        <!-- HEALTHCARE -->
+        <div class="priority-card">
+
+          <div class="icon">🏥</div>
+
+          <h3>Healthcare</h3>
+
+          <p>
+            Greater attention to quality healthcare,
+            access to healthcare services and improved
+            community wellbeing.
+          </p>
+
+        </div>
+
+
+        <!-- EDUCATION -->
+        <div class="priority-card">
+
+          <div class="icon">🎓</div>
+
+          <h3>Education</h3>
+
+          <p>
+            Supporting educational development and creating
+            opportunities for young people to acquire useful
+            knowledge and skills.
+          </p>
+
+        </div>
+
+
+        <!-- ROADS -->
+        <div class="priority-card">
+
+          <div class="icon">🛣️</div>
+
+          <h3>Roads & Infrastructure</h3>
+
+          <p>
+            Advocacy for appropriate infrastructure,
+            improved roads and projects that support
+            community development.
+          </p>
+
+        </div>
+
+
+        <!-- AGRICULTURE -->
+        <div class="priority-card">
+
+          <div class="icon">🌾</div>
+
+          <h3>Agricultural Development</h3>
+
+          <p>
+            Supporting agricultural development and
+            opportunities for farmers and rural communities.
+          </p>
+
+        </div>
+
+
+        <!-- EMPLOYMENT -->
+        <div class="priority-card">
+
+          <div class="icon">💼</div>
+
+          <h3>Employment</h3>
+
+          <p>
+            Encouraging employment opportunities,
+            enterprise and economic participation
+            across the constituency.
+          </p>
+
+        </div>
+
+
+        <!-- YOUTH -->
+        <div class="priority-card">
+
+          <div class="icon">👨‍🎓</div>
+
+          <h3>Youth Development</h3>
+
+          <p>
+            Promoting opportunities that can help young
+            people participate meaningfully in economic
+            and community development.
+          </p>
+
+        </div>
+
+
+        <!-- WOMEN -->
+        <div class="priority-card">
+
+          <div class="icon">👩‍💼</div>
+
+          <h3>Women's Participation</h3>
+
+          <p>
+            Encouraging greater participation of women
+            in community, economic and development activities.
+          </p>
+
+        </div>
+
+
+        <!-- LOCAL BUSINESS -->
+        <div class="priority-card">
+
+          <div class="icon">🏪</div>
+
+          <h3>Local Businesses</h3>
+
+          <p>
+            Supporting local businesses and initiatives
+            that contribute to economic activity within
+            our communities.
+          </p>
+
+        </div>
+
+
+        <!-- ACCOUNTABILITY -->
+        <div class="priority-card">
+
+          <div class="icon">📋</div>
+
+          <h3>Accountability</h3>
+
+          <p>
+            Maintaining communication with constituents
+            and keeping communities informed about
+            representation and public responsibilities.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REPRESENTATION -->
+  <section class="representation">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Responsible Representation</h2>
+
+        <div class="line"></div>
+
+      </div>
+
+
+      <div class="representation-grid">
+
+        <div class="rep-box">
+
+          <h3>Giving Constituents a Voice</h3>
+
+          <p>
+            A federal representative has a responsibility
+            to give voice to the concerns and interests
+            of the communities represented.
+          </p>
+
+        </div>
+
+
+        <div class="rep-box">
+
+          <h3>Legislative Participation</h3>
+
+          <p>
+            Representation includes participating in
+            legislation and contributing to discussions
+            on issues affecting citizens.
+          </p>
+
+        </div>
+
+
+        <div class="rep-box">
+
+          <h3>Advocating for Projects</h3>
+
+          <p>
+            Appropriate federal projects and development
+            opportunities can be advocated for based on
+            community needs.
+          </p>
+
+        </div>
+
+
+        <div class="rep-box">
+
+          <h3>Communication</h3>
+
+          <p>
+            Maintaining communication with communities
+            helps constituents remain informed about
+            representation and public responsibilities.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONSTITUENCY -->
+  <section class="constituency">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Idah Federal Constituency</h2>
+
+        <p>
+          One constituency. Different communities.
+          A shared future.
+        </p>
+
+        <div class="line"></div>
+
+      </div>
+
+
+      <div class="locations">
+
+        <div class="location">
+          <h3>IDAH</h3>
+          <p>People • Community • Development</p>
+        </div>
+
+        <div class="location">
+          <h3>IBAJI</h3>
+          <p>People • Community • Development</p>
+        </div>
+
+        <div class="location">
+          <h3>IGALAMELA-ODOLU</h3>
+          <p>People • Community • Development</p>
+        </div>
+
+        <div class="location">
+          <h3>OFU</h3>
+          <p>People • Community • Development</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MESSAGE -->
+  <section class="message">
+
+    <div class="container">
+
+      <div class="message-box">
+
+        <h2>
+          An Informed Conversation About Representation
+        </h2>
+
+        <p>
+          As the political process continues, Idah Federal
+          Constituency deserves an informed conversation about
+          representation, accountability, development and
+          the future of its people.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      <span class="adc-footer">ADC</span>
+      • Pharm. Peter Yakubu Iduh
+    </p>
+
+    <p>
+      Idah Federal Constituency
+    </p>
+
+    <br>
+
+    <p>
+      Powered by
+      <strong>IBAJI TV CHANNEL 📺</strong>
+    </p>
+
+    <p style="font-size:13px; margin-top:10px;">
+      © 2026 Pharm. Peter Yakubu Iduh.
+      All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- MENU SCRIPT -->
+  <script>
+
+    function toggleMenu() {
+
+      document
+        .getElementById("navMenu")
+        .classList
+        .toggle("active");
+
+    }
+
+  </script>
+
+</body>
+</html>
