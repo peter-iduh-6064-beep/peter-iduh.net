@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact | Pharm. Peter Yakubu Iduh</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background: #006b3f;
+      border-bottom: 5px solid #e30613;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+    }
+
+    .adc-logo {
+      width: 48px;
+      height: 48px;
+      background: #e30613;
+      border: 3px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .brand small {
+      color: #ffd700;
+      font-size: 12px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 13px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    /* ================= MOVING WELCOME ================= */
+
+    .welcome-bar {
+      width: 100%;
+      overflow: hidden;
+      background: #006b3f;
+      border-bottom: 3px solid #e30613;
+      white-space: nowrap;
+      padding: 12px 0;
+    }
+
+    .welcome-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 25px;
+      padding-left: 100%;
+      animation: moveWelcome 24s linear infinite;
+    }
+
+    .welcome-track span {
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .welcome-track .gold {
+      color: #ffd700;
+      font-size: 21px;
+    }
+
+    .welcome-track .red {
+      color: #e30613;
+      background: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    @keyframes moveWelcome {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 430px;
+
+      background:
+        linear-gradient(rgba(0,107,63,.90), rgba(0,107,63,.90)),
+        url("https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      color: white;
+
+      padding: 60px 20px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #e30613;
+      border: 2px solid white;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: 50px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero h2 span {
+      color: #ffd700;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: #006b3f;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    /* ================= CONTACT GRID ================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: #f7f7f7;
+      padding: 35px;
+      border-radius: 12px;
+      border-top: 6px solid #006b3f;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    }
+
+    .contact-card h3 {
+      color: #006b3f;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .info-item {
+      margin-bottom: 18px;
+    }
+
+    .info-item strong {
+      color: #006b3f;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .phone {
+      color: #e30613;
+      font-size: 21px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .call-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 13px 22px;
+      background: #e30613;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .call-button:hover {
+      background: #b9000d;
+    }
+
+    /* ================= FORM ================= */
+
+    .contact-form {
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      border-top: 6px solid #e30613;
+    }
+
+    .contact-form h3 {
+      color: #006b3f;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #006b3f;
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      width: 100%;
+      border: none;
+      padding: 14px;
+      background: #006b3f;
+      color: white;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: #004d2d;
+    }
+
+    /* ================= CONSTITUENCY ================= */
+
+    .constituency {
+      background: #006b3f;
+      color: white;
+    }
+
+    .constituency .section-title h2 {
+      color: white;
+    }
+
+    .constituency .section-title p {
+      color: #eee;
+    }
+
+    .constituency-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .constituency-card {
+      background: white;
+      color: #222;
+      padding: 25px 15px;
+      text-align: center;
+      border-radius: 10px;
+      border-bottom: 5px solid #e30613;
+    }
+
+    .constituency-card h3 {
+      color: #006b3f;
+      margin-bottom: 8px;
+    }
+
+    /* ================= NOTICE ================= */
+
+    .notice {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      background: #f7f7f7;
+      padding: 35px;
+      border-left: 6px solid #e30613;
+      border-radius: 10px;
+    }
+
+    .notice h3 {
+      color: #006b3f;
+      margin-bottom: 10px;
+    }
+
+    .notice p {
+      color: #555;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer strong {
+      color: #ffd700;
+    }
+
+    .footer-adc {
+      color: #e30613;
+      font-weight: bold;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 850px) {
+
+      .header-container {
+        flex-direction: column;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .constituency-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h2 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      nav {
+        gap: 9px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .welcome-track span {
+        font-size: 13px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .constituency-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+
+      .contact-card,
+      .contact-form {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <div class="header-container">
+
+      <div class="brand">
+
+        <div class="adc-logo">
+          ADC
+        </div>
+
+        <div>
+          <h1>PHARM. PETER YAKUBU IDUH</h1>
+          <small>House of Representatives Candidate</small>
+        </div>
+
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="priorities.html">Priorities</a>
+        <a href="constituency.html">Constituency</a>
+        <a href="vision.html">Vision</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="press.html">Press</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= MOVING WELCOME ================= -->
+
+  <div class="welcome-bar">
+
+    <div class="welcome-track">
+
+      <span>
+        WELCOME TO THE OFFICIAL WEBSITE OF PHARM. PETER YAKUBU IDUH
+      </span>
+
+      <span class="gold">•</span>
+
+      <span class="red">
+        AFRICAN DEMOCRATIC CONGRESS (ADC)
+      </span>
+
+      <span class="gold">•</span>
+
+      <span>
+        HOUSE OF REPRESENTATIVES CANDIDATE
+      </span>
+
+      <span class="gold">•</span>
+
+      <span>
+        IDAH FEDERAL CONSTITUENCY
+      </span>
+
+      <span class="gold">•</span>
+
+      <span>
+        IDAH • IBAJI • IGALAMELA-ODOLU • OFU
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        AFRICAN DEMOCRATIC CONGRESS (ADC)
+      </div>
+
+      <h2>
+        CONTACT <span>US</span>
+      </h2>
+
+      <p>
+        Official contact information for enquiries concerning
+        Pharm. Peter Yakubu Iduh and the public information
+        presented on this website.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CONTACT ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Get In Touch</h2>
+
+        <p>
+          For enquiries and official communication,
+          use the contact information below.
+        </p>
+
+      </div>
+
+
+      <div class="contact-grid">
+
+        <!-- INFORMATION -->
+
+        <div class="contact-card">
+
+          <h3>
+            Official Information
+          </h3>
+
+          <div class="info-item">
+
+            <strong>Name</strong>
+
+            Pharm. Peter Yakubu Iduh
+
+          </div>
+
+
+          <div class="info-item">
+
+            <strong>Position</strong>
+
+            House of Representatives Candidate
+
+          </div>
+
+
+          <div class="info-item">
+
+            <strong>Constituency</strong>
+
+            Idah Federal Constituency
+
+          </div>
+
+
+          <div class="info-item">
+
+            <strong>Political Platform</strong>
+
+            African Democratic Congress (ADC)
+
+          </div>
+
+
+          <div class="info-item">
+
+            <strong>Phone</strong>
+
+            <a
+              href="tel:+2348033906752"
+              class="phone"
+            >
+              +234 803 390 6752
+            </a>
+
+          </div>
+
+
+          <a
+            href="tel:+2348033906752"
+            class="call-button"
+          >
+            📞 Call Pharm. Peter
+          </a>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <div class="contact-form">
+
+          <h3>
+            Send an Enquiry
+          </h3>
+
+          <form
+            onsubmit="sendMessage(event)"
+          >
+
+            <div class="form-group">
+
+              <label for="name">
+                Your Name
+              </label>
+
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="email">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="subject">
+                Subject
+              </label>
+
+              <input
+                type="text"
+                id="subject"
+                placeholder="Enter subject"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="message">
+                Message
+              </label>
+
+              <textarea
+                id="message"
+                placeholder="Write your message..."
+                required
+              ></textarea>
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="submit-button"
+            >
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= NOTICE ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="notice">
+
+        <h3>
+          Website Contact Notice
+        </h3>
+
+        <p>
+          The contact form on this page is currently a
+          website demonstration form. A backend service
+          can be connected later to receive and manage
+          submitted enquiries.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CONSTITUENCY ================= -->
+
+  <section class="constituency">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Idah Federal Constituency
+        </h2>
+
+        <p>
+          The constituency information presented on this
+          website covers these four communities.
+        </p>
+
+      </div>
+
+
+      <div class="constituency-grid">
+
+        <div class="constituency-card">
+
+          <h3>Idah</h3>
+
+          <p>
+            Constituency community.
+          </p>
+
+        </div>
+
+
+        <div class="constituency-card">
+
+          <h3>Ibaji</h3>
+
+          <p>
+            Constituency community.
+          </p>
+
+        </div>
+
+
+        <div class="constituency-card">
+
+          <h3>Igalamela-Odolu</h3>
+
+          <p>
+            Constituency community.
+          </p>
+
+        </div>
+
+
+        <div class="constituency-card">
+
+          <h3>Ofu</h3>
+
+          <p>
+            Constituency community.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <p>
+      <span class="footer-adc">ADC</span>
+      • Official Website of
+      <strong>Pharm. Peter Yakubu Iduh</strong>
+    </p>
+
+    <p>
+      House of Representatives Candidate —
+      Idah Federal Constituency
+    </p>
+
+    <br>
+
+    <p>
+      Powered by <strong>IBAJI TV CHANNEL 📺</strong>
+    </p>
+
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    function sendMessage(event) {
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("name").value;
+
+      alert(
+        "Thank you, " +
+        name +
+        ". Your message form has been received by this website interface."
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
