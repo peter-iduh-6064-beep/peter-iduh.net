@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Press & Media | Pharm. Peter Yakubu Iduh</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: #006b3f;
+      border-bottom: 5px solid #e30613;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+    }
+
+    .adc-logo {
+      width: 48px;
+      height: 48px;
+      background: #e30613;
+      border: 3px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .brand small {
+      color: #ffd700;
+      font-size: 12px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    /* MOVING WELCOME */
+    .welcome-bar {
+      width: 100%;
+      overflow: hidden;
+      background: #006b3f;
+      border-bottom: 3px solid #e30613;
+      white-space: nowrap;
+      padding: 12px 0;
+    }
+
+    .welcome-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 25px;
+      padding-left: 100%;
+      animation: moveWelcome 24s linear infinite;
+    }
+
+    .welcome-track span {
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .welcome-track .gold {
+      color: #ffd700;
+      font-size: 21px;
+    }
+
+    .welcome-track .red {
+      color: #e30613;
+      background: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    @keyframes moveWelcome {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 430px;
+
+      background:
+        linear-gradient(rgba(0,107,63,.90), rgba(0,107,63,.90)),
+        url("https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      color: white;
+
+      padding: 60px 20px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #e30613;
+      border: 2px solid white;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: 50px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero h2 span {
+      color: #ffd700;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: #006b3f;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    /* PRESS CARDS */
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .press-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      border-top: 5px solid #006b3f;
+    }
+
+    .press-icon {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .press-card h3 {
+      color: #006b3f;
+      margin-bottom: 10px;
+    }
+
+    .press-card p {
+      color: #555;
+    }
+
+    /* PUBLICATIONS */
+    .publications {
+      background: #f7f7f7;
+    }
+
+    .empty-box {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      padding: 50px 30px;
+      text-align: center;
+      border-radius: 12px;
+      border-left: 6px solid #e30613;
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
+    }
+
+    .empty-box .icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .empty-box h3 {
+      color: #006b3f;
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .empty-box p {
+      color: #555;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* MEDIA CONTACT */
+    .media-contact {
+      background: #006b3f;
+      color: white;
+    }
+
+    .media-contact .section-title h2 {
+      color: white;
+    }
+
+    .media-contact .section-title p {
+      color: #eee;
+    }
+
+    .media-box {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      color: #222;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      border-bottom: 6px solid #e30613;
+    }
+
+    .media-box h3 {
+      color: #006b3f;
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .phone {
+      display: inline-block;
+      margin-top: 15px;
+      color: #e30613;
+      font-size: 21px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* CONSTITUENCY */
+    .constituency-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .constituency-card {
+      background: #f7f7f7;
+      padding: 25px 15px;
+      text-align: center;
+      border-radius: 10px;
+      border-bottom: 5px solid #006b3f;
+    }
+
+    .constituency-card h3 {
+      color: #006b3f;
+      margin-bottom: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer strong {
+      color: #ffd700;
+    }
+
+    .footer-adc {
+      color: #e30613;
+      font-weight: bold;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+
+      .header-container {
+        flex-direction: column;
+      }
+
+      .press-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .constituency-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h2 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      nav {
+        gap: 9px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .welcome-track span {
+        font-size: 13px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .press-grid,
+      .constituency-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+
+      .media-box,
+      .empty-box {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="header-container">
+
+      <div class="brand">
+
+        <div class="adc-logo">
+          ADC
+        </div>
+
+        <div>
+          <h1>PHARM. PETER YAKUBU IDUH</h1>
+          <small>House of Representatives Candidate</small>
+        </div>
+
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="priorities.html">Priorities</a>
+        <a href="constituency.html">Constituency</a>
+        <a href="vision.html">Vision</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Events</a>
+        <a href="press.html">Press</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- MOVING WELCOME -->
+  <div class="welcome-bar">
+
+    <div class="welcome-track">
+
+      <span>
+        WELCOME TO THE OFFICIAL WEBSITE OF PHARM. PETER YAKUBU IDUH
+      </span>
+
+      <span class="gold">•</span>
+
+      <span class="red">
+        AFRICAN DEMOCRATIC CONGRESS (ADC)
+      </span>
+
+      <span class="gold">•</span>
+
+      <span>
+        HOUSE OF REPRESENTATIVES CANDIDATE
+      </span>
+
+      <span class="gold">•</span>
+
+      <span>
+        IDAH FEDERAL CONSTITUENCY
+      </span>
+
+      <span class="gold">•</span>
+
+      <span>
+        IDAH • IBAJI • IGALAMELA-ODOLU • OFU
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        AFRICAN DEMOCRATIC CONGRESS (ADC)
+      </div>
+
+      <h2>
+        PRESS & <span>MEDIA</span>
+      </h2>
+
+      <p>
+        Official media information, statements, publications
+        and resources relating to Pharm. Peter Yakubu Iduh.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- MEDIA RESOURCES -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Media Resources</h2>
+
+        <p>
+          This section provides a place for official media
+          materials and public communications.
+        </p>
+
+      </div>
+
+
+      <div class="press-grid">
+
+        <div class="press-card">
+
+          <div class="press-icon">📰</div>
+
+          <h3>Press Statements</h3>
+
+          <p>
+            Official statements and public communications
+            can be published here when available.
+          </p>
+
+        </div>
+
+
+        <div class="press-card">
+
+          <div class="press-icon">📸</div>
+
+          <h3>Media Photos</h3>
+
+          <p>
+            Official photographs can be made available
+            through the website gallery.
+          </p>
+
+        </div>
+
+
+        <div class="press-card">
+
+          <div class="press-icon">🎥</div>
+
+          <h3>Video & Broadcast</h3>
+
+          <p>
+            Relevant official video and broadcast materials
+            can be added here.
+          </p>
+
+        </div>
+
+
+        <div class="press-card">
+
+          <div class="press-icon">📄</div>
+
+          <h3>Public Documents</h3>
+
+          <p>
+            Relevant public documents and information
+            can be published when available.
+          </p>
+
+        </div>
+
+
+        <div class="press-card">
+
+          <div class="press-icon">🎙️</div>
+
+          <h3>Interviews</h3>
+
+          <p>
+            Confirmed interviews and public media
+            appearances can be listed here.
+          </p>
+
+        </div>
+
+
+        <div class="press-card">
+
+          <div class="press-icon">📢</div>
+
+          <h3>Announcements</h3>
+
+          <p>
+            Official announcements and verified updates
+            can be published through this section.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PUBLICATIONS -->
+  <section class="publications">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Latest Publications</h2>
+
+        <p>
+          Verified public communications will be displayed here.
+        </p>
+
+      </div>
+
+
+      <div class="empty-box">
+
+        <div class="icon">
+          📄
+        </div>
+
+        <h3>
+          Publications Coming Soon
+        </h3>
+
+        <p>
+          No official publication has been added to this
+          section yet. Please check back for verified
+          statements, documents and media updates.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MEDIA CONTACT -->
+  <section class="media-contact">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Media Enquiries</h2>
+
+        <p>
+          For official enquiries concerning media information.
+        </p>
+
+      </div>
+
+
+      <div class="media-box">
+
+        <h3>
+          Contact
+        </h3>
+
+        <p>
+          Pharm. Peter Yakubu Iduh
+        </p>
+
+        <p>
+          House of Representatives Candidate
+        </p>
+
+        <p>
+          Idah Federal Constituency
+        </p>
+
+        <a
+          href="tel:+2348033906752"
+          class="phone"
+        >
+          +234 803 390 6752
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONSTITUENCY -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Idah Federal Constituency</h2>
+
+        <p>
+          The website covers the constituency communities
+          of Idah, Ibaji, Igalamela-Odolu and Ofu.
+        </p>
+
+      </div>
+
+
+      <div class="constituency-grid">
+
+        <div class="constituency-card">
+          <h3>Idah</h3>
+          <p>Constituency community.</p>
+        </div>
+
+        <div class="constituency-card">
+          <h3>Ibaji</h3>
+          <p>Constituency community.</p>
+        </div>
+
+        <div class="constituency-card">
+          <h3>Igalamela-Odolu</h3>
+          <p>Constituency community.</p>
+        </div>
+
+        <div class="constituency-card">
+          <h3>Ofu</h3>
+          <p>Constituency community.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      <span class="footer-adc">ADC</span>
+      • Official Website of
+      <strong>Pharm. Peter Yakubu Iduh</strong>
+    </p>
+
+    <p>
+      House of Representatives Candidate —
+      Idah Federal Constituency
+    </p>
+
+    <br>
+
+    <p>
+      Powered by <strong>IBAJI TV CHANNEL 📺</strong>
+    </p>
+
+  </footer>
+
+</body>
+</html>
