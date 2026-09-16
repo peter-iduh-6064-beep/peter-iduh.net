@@ -43,12 +43,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 15px;
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-shrink: 0;
     }
 
     .adc {
@@ -62,22 +64,38 @@
 
     .logo h2 {
       font-size: 17px;
+      white-space: nowrap;
     }
 
+    /* COMPLETE NAVIGATION */
     nav {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+      max-width: 100%;
+      padding: 4px 0;
     }
 
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 14px;
+      font-size: 13px;
+      padding: 7px 9px;
+      border-radius: 5px;
+      flex-shrink: 0;
     }
 
     nav a:hover {
       color: #ffd700;
+      background: rgba(255,255,255,.08);
+    }
+
+    .menu-highlight {
+      color: #ffd700 !important;
     }
 
     .menu-btn {
@@ -290,25 +308,24 @@
     /* MOBILE */
     @media (max-width: 850px) {
 
-      nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: #006b3f;
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
-        border-top: 2px solid #e30613;
+      .navbar {
+        flex-wrap: wrap;
       }
 
-      nav.active {
-        display: flex;
+      nav {
+        width: 100%;
+        order: 3;
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
+
+      nav a {
+        font-size: 12px;
+        padding: 7px 8px;
       }
 
       .menu-btn {
-        display: block;
+        display: none;
       }
 
       .priority-grid {
@@ -322,6 +339,10 @@
 
     @media (max-width: 550px) {
 
+      .navbar {
+        padding: 12px 10px;
+      }
+
       .logo h2 {
         font-size: 12px;
       }
@@ -329,6 +350,16 @@
       .adc {
         font-size: 15px;
         padding: 7px 9px;
+      }
+
+      nav {
+        gap: 4px;
+        padding-top: 8px;
+      }
+
+      nav a {
+        font-size: 11px;
+        padding: 6px 7px;
       }
 
       .priority-grid,
@@ -363,18 +394,86 @@
 
       <div class="logo">
         <div class="adc">ADC</div>
-        <h2>PHARM. PETER YAKUBU IDUH</h2>
+
+        <h2>
+          PHARM. PETER YAKUBU IDUH
+        </h2>
       </div>
 
-      <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
       <nav id="navMenu">
+
         <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="priorities.html">Priorities</a>
-        <a href="index.html#constituency">Constituency</a>
-        <a href="index.html#vision">Vision</a>
-        <a href="index.html#contact">Contact</a>
+
+        <a href="about.html">About</a>
+
+        <a href="priorities.html" class="menu-highlight">
+          Priorities
+        </a>
+
+        <a href="constituency.html">
+          Constituency
+        </a>
+
+        <a href="vision.html">
+          Vision
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="news.html">
+          News
+        </a>
+
+        <a href="events.html">
+          Events
+        </a>
+
+        <a href="press.html">
+          Press
+        </a>
+
+        <a href="faq.html">
+          FAQ
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="election-results.html" class="menu-highlight">
+          Election Results
+        </a>
+
+        <a href="polling-unit-results.html">
+          Polling Unit Results
+        </a>
+
+        <a href="lga-results.html">
+          LGA Results
+        </a>
+
+        <a href="candidate-results.html">
+          Candidate Results
+        </a>
+
+        <a href="result-details.html">
+          Result Details
+        </a>
+
+        <a href="admin-results.html" class="menu-highlight">
+          Admin Results
+        </a>
+
+        <a href="privacy-policy.html">
+          Privacy Policy
+        </a>
+
+        <a href="terms.html">
+          Terms
+        </a>
+
       </nav>
 
     </div>
@@ -447,7 +546,6 @@
 
       <div class="priority-grid">
 
-        <!-- HEALTHCARE -->
         <div class="priority-card">
 
           <div class="icon">🏥</div>
@@ -463,7 +561,6 @@
         </div>
 
 
-        <!-- EDUCATION -->
         <div class="priority-card">
 
           <div class="icon">🎓</div>
@@ -479,7 +576,6 @@
         </div>
 
 
-        <!-- ROADS -->
         <div class="priority-card">
 
           <div class="icon">🛣️</div>
@@ -495,7 +591,6 @@
         </div>
 
 
-        <!-- AGRICULTURE -->
         <div class="priority-card">
 
           <div class="icon">🌾</div>
@@ -510,7 +605,6 @@
         </div>
 
 
-        <!-- EMPLOYMENT -->
         <div class="priority-card">
 
           <div class="icon">💼</div>
@@ -526,7 +620,6 @@
         </div>
 
 
-        <!-- YOUTH -->
         <div class="priority-card">
 
           <div class="icon">👨‍🎓</div>
@@ -542,7 +635,6 @@
         </div>
 
 
-        <!-- WOMEN -->
         <div class="priority-card">
 
           <div class="icon">👩‍💼</div>
@@ -557,7 +649,6 @@
         </div>
 
 
-        <!-- LOCAL BUSINESS -->
         <div class="priority-card">
 
           <div class="icon">🏪</div>
@@ -573,7 +664,6 @@
         </div>
 
 
-        <!-- ACCOUNTABILITY -->
         <div class="priority-card">
 
           <div class="icon">📋</div>
@@ -767,21 +857,6 @@
     </p>
 
   </footer>
-
-
-  <!-- MENU SCRIPT -->
-  <script>
-
-    function toggleMenu() {
-
-      document
-        .getElementById("navMenu")
-        .classList
-        .toggle("active");
-
-    }
-
-  </script>
 
 </body>
 </html>
