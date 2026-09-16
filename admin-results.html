@@ -9,6 +9,10 @@
 
 <style>
 
+/* =====================================================
+   BASIC
+===================================================== */
+
 *{
     margin:0;
     padding:0;
@@ -20,14 +24,15 @@ html{
 }
 
 body{
-    font-family:Arial,sans-serif;
+    font-family:Arial, sans-serif;
     background:#f4f7f5;
     color:#222;
 }
 
-/* =========================
-LOGIN
-========================= */
+
+/* =====================================================
+   LOGIN
+===================================================== */
 
 #loginPage{
     min-height:100vh;
@@ -105,30 +110,28 @@ LOGIN
 }
 
 
-/* =========================
-ADMIN
-========================= */
+/* =====================================================
+   ADMIN
+===================================================== */
 
 #adminPage{
     display:none;
 }
 
 
-/* =========================
-HEADER
-========================= */
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
     background:#006b3f;
     color:white;
-    padding:15px 25px;
+    padding:15px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:15px;
     border-bottom:4px solid #e30613;
-    position:sticky;
-    top:0;
-    z-index:1000;
 }
 
 .logo{
@@ -143,6 +146,7 @@ header{
     padding:8px 12px;
     border-radius:6px;
     font-weight:bold;
+    flex-shrink:0;
 }
 
 .logo h1{
@@ -166,108 +170,84 @@ header{
 }
 
 
-/* MOBILE MENU BUTTON */
+/* =====================================================
+   MAIN ADMIN MENU
+   THIS IS ALWAYS VISIBLE
+===================================================== */
 
-.menu-button{
-    display:none;
-    background:#e30613;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:6px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-
-/* =========================
-LAYOUT
-========================= */
-
-.layout{
-    display:flex;
-    min-height:calc(100vh - 80px);
-}
-
-
-/* =========================
-SIDEBAR
-========================= */
-
-.sidebar{
-    width:280px;
+.admin-menu{
     background:#003d25;
-    color:white;
-    padding:20px 0;
-    flex-shrink:0;
+    border-bottom:4px solid #e30613;
+    width:100%;
+}
 
-    position:sticky;
-    top:82px;
+.menu-title{
+    background:#002c1b;
+    color:#ffd700;
+    padding:12px 18px;
+    font-weight:bold;
+    font-size:14px;
+}
 
-    height:calc(100vh - 82px);
 
-    overflow-y:auto;
+/* Horizontal menu */
 
+.menu-scroll{
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
     scrollbar-width:thin;
 }
 
-.sidebar::-webkit-scrollbar{
-    width:7px;
+
+/* Make all links stay in one line */
+
+.menu-list{
+    display:flex;
+    flex-wrap:nowrap;
+    width:max-content;
+    min-width:100%;
 }
 
-.sidebar::-webkit-scrollbar-track{
-    background:#002c1b;
-}
-
-.sidebar::-webkit-scrollbar-thumb{
-    background:#006b3f;
-    border-radius:10px;
-}
-
-.sidebar-title{
-    padding:0 20px 18px;
-    border-bottom:1px solid rgba(255,255,255,.15);
-    font-weight:bold;
-    font-size:17px;
-}
-
-.menu-section{
-    padding:18px 20px 8px;
-    color:#ffd700;
-    font-size:12px;
-    font-weight:bold;
-    text-transform:uppercase;
-}
-
-.sidebar a{
+.menu-list a{
     display:block;
     color:white;
     text-decoration:none;
-    padding:13px 20px;
+    padding:16px 18px;
     font-size:14px;
-    border-left:4px solid transparent;
+    font-weight:bold;
+    white-space:nowrap;
+    border-right:1px solid rgba(255,255,255,.12);
+    border-bottom:4px solid transparent;
 }
 
-.sidebar a:hover{
+.menu-list a:hover{
     background:#006b3f;
+    border-bottom-color:#ffd700;
 }
 
-.sidebar a.active{
+.menu-list a.active{
     background:#006b3f;
-    border-left:4px solid #e30613;
+    border-bottom-color:#e30613;
 }
 
 
-/* =========================
-CONTENT
-========================= */
+/* =====================================================
+   CONTENT
+===================================================== */
 
 .content{
-    flex:1;
+    width:100%;
+    max-width:1500px;
+    margin:auto;
     padding:30px;
-    min-width:0;
 }
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
 
 .page-title{
     background:linear-gradient(135deg,#006b3f,#003d25);
@@ -287,9 +267,9 @@ CONTENT
 }
 
 
-/* =========================
-DASHBOARD CARDS
-========================= */
+/* =====================================================
+   DASHBOARD CARDS
+===================================================== */
 
 .cards{
     display:grid;
@@ -322,9 +302,9 @@ DASHBOARD CARDS
 }
 
 
-/* =========================
-RESULT FORM
-========================= */
+/* =====================================================
+   FORM
+===================================================== */
 
 .form-card,
 .table-card,
@@ -402,9 +382,9 @@ RESULT FORM
 }
 
 
-/* =========================
-TABLE
-========================= */
+/* =====================================================
+   TABLE
+===================================================== */
 
 .table-wrapper{
     overflow-x:auto;
@@ -447,9 +427,9 @@ td{
 }
 
 
-/* =========================
-QUICK LINKS
-========================= */
+/* =====================================================
+   QUICK ACCESS
+===================================================== */
 
 .quick-grid{
     display:grid;
@@ -473,9 +453,9 @@ QUICK LINKS
 }
 
 
-/* =========================
-FOOTER
-========================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
     background:#003d25;
@@ -487,14 +467,10 @@ footer{
 
 
 /* =====================================================
-TABLET
+   TABLET
 ===================================================== */
 
-@media(max-width:1100px){
-
-    .sidebar{
-        width:250px;
-    }
+@media(max-width:1000px){
 
     .cards{
         grid-template-columns:repeat(2,1fr);
@@ -508,14 +484,15 @@ TABLET
 
 
 /* =====================================================
-MOBILE
+   MOBILE
 ===================================================== */
 
-@media(max-width:750px){
+@media(max-width:700px){
 
     header{
-        position:relative;
-        padding:12px 15px;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:14px;
     }
 
     .logo{
@@ -523,7 +500,7 @@ MOBILE
     }
 
     .logo h1{
-        font-size:15px;
+        font-size:16px;
         line-height:1.3;
     }
 
@@ -532,53 +509,29 @@ MOBILE
         justify-content:space-between;
     }
 
-    .menu-button{
-        display:block;
+    .header-right strong{
+        font-size:13px;
     }
 
-    .layout{
-        display:block;
+    .menu-title{
+        font-size:13px;
     }
 
-    /* IMPORTANT FIX:
-       SIDEBAR IS NOW A FULL MOBILE MENU */
-
-    .sidebar{
-        position:relative;
-        top:0;
-
-        width:100%;
-
-        height:auto;
-
-        max-height:none;
-
-        overflow:visible;
-
-        display:none;
-
-        padding-bottom:20px;
-    }
-
-    .sidebar.show{
-        display:block;
-    }
-
-    .sidebar-title{
-        padding-top:18px;
-    }
-
-    .sidebar a{
-        padding:15px 20px;
-        font-size:15px;
-    }
-
-    .menu-section{
-        padding-top:20px;
+    .menu-list a{
+        padding:15px 16px;
+        font-size:13px;
     }
 
     .content{
         padding:15px;
+    }
+
+    .page-title{
+        padding:22px;
+    }
+
+    .page-title h2{
+        font-size:24px;
     }
 
     .cards{
@@ -597,33 +550,25 @@ MOBILE
         grid-column:auto;
     }
 
-    .page-title{
-        padding:22px;
-    }
-
-    .page-title h2{
-        font-size:24px;
-    }
-
 }
 
 
 /* =====================================================
-VERY SMALL PHONES
+   SMALL PHONE
 ===================================================== */
 
 @media(max-width:400px){
 
     .logo h1{
-        font-size:13px;
+        font-size:14px;
+    }
+
+    .adc{
+        padding:7px 9px;
     }
 
     .header-right strong{
-        font-size:12px;
-    }
-
-    .content{
-        padding:10px;
+        font-size:11px;
     }
 
 }
@@ -636,44 +581,46 @@ VERY SMALL PHONES
 
 
 <!-- =====================================================
-LOGIN
+LOGIN PAGE
 ===================================================== -->
 
 <div id="loginPage">
 
-<div class="login-box">
+    <div class="login-box">
 
-<div class="login-logo">
-ADC
-</div>
+        <div class="login-logo">
+            ADC
+        </div>
 
-<h1>Admin Login</h1>
+        <h1>
+            Admin Login
+        </h1>
 
-<p>
-Election Results Administration
-</p>
+        <p>
+            Election Results Administration
+        </p>
 
-<input
-type="text"
-id="username"
-placeholder="Username"
-autocomplete="username"
->
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            autocomplete="username"
+        >
 
-<input
-type="password"
-id="password"
-placeholder="Password"
-autocomplete="current-password"
->
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="current-password"
+        >
 
-<button onclick="loginAdmin()">
-🔐 LOGIN
-</button>
+        <button onclick="loginAdmin()">
+            🔐 LOGIN
+        </button>
 
-<div id="loginMessage"></div>
+        <div id="loginMessage"></div>
 
-</div>
+    </div>
 
 </div>
 
@@ -686,273 +633,266 @@ ADMIN PAGE
 <div id="adminPage">
 
 
+<!-- =====================================================
+HEADER
+===================================================== -->
+
 <header>
 
-<div class="logo">
+    <div class="logo">
 
-<div class="adc">
-ADC
-</div>
+        <div class="adc">
+            ADC
+        </div>
 
-<h1>
-PHARM. PETER YAKUBU IDUH
-</h1>
+        <h1>
+            PHARM. PETER YAKUBU IDUH
+        </h1>
 
-</div>
+    </div>
 
 
-<div class="header-right">
+    <div class="header-right">
 
-<strong>
-Admin: iduh4rep2027
-</strong>
+        <strong>
+            Admin: iduh4rep2027
+        </strong>
 
-<button
-class="menu-button"
-onclick="toggleMenu()"
->
-☰ MENU
-</button>
+        <button
+            class="logout"
+            onclick="logoutAdmin()"
+        >
+            Logout
+        </button>
 
-<button
-class="logout"
-onclick="logoutAdmin()"
->
-Logout
-</button>
-
-</div>
+    </div>
 
 </header>
 
 
 
-<div class="layout">
-
-
 <!-- =====================================================
-SIDEBAR
+FULL ADMIN MENU
 ===================================================== -->
 
-<aside
-class="sidebar"
-id="sidebar"
->
+<nav class="admin-menu">
 
-<div class="sidebar-title">
-⚙️ ADMIN CONTROL PANEL
-</div>
+    <div class="menu-title">
+        ⚙️ ADMIN CONTROL PANEL — WEBSITE MENU
+    </div>
 
 
-<!-- DASHBOARD -->
+    <div class="menu-scroll">
 
-<div class="menu-section">
-Dashboard
-</div>
+        <div class="menu-list">
 
-<a href="#dashboard" class="active" onclick="closeMenu()">
-📊 Dashboard
-</a>
+            <!-- DASHBOARD -->
 
-
-<!-- WEBSITE -->
-
-<div class="menu-section">
-Website
-</div>
-
-<a href="index.html">
-🏠 Website Home
-</a>
-
-<a href="about.html">
-👤 About
-</a>
-
-<a href="priorities.html">
-🎯 Priorities
-</a>
-
-<a href="constituency.html">
-📍 Constituency
-</a>
-
-<a href="vision.html">
-💡 Vision
-</a>
-
-<a href="gallery.html">
-🖼️ Gallery
-</a>
-
-<a href="news.html">
-📰 News
-</a>
-
-<a href="events.html">
-📅 Events
-</a>
-
-<a href="press.html">
-🎤 Press
-</a>
-
-<a href="faq.html">
-❓ FAQ
-</a>
+            <a
+                href="#dashboard"
+                class="active"
+            >
+                📊 Dashboard
+            </a>
 
 
-<!-- ELECTION RESULTS -->
+            <!-- WEBSITE -->
 
-<div class="menu-section">
-Election Results
-</div>
+            <a href="index.html">
+                🏠 Website Home
+            </a>
 
-<a href="election-results.html">
-📊 Results Centre
-</a>
+            <a href="about.html">
+                👤 About
+            </a>
 
-<a href="polling-unit-results.html">
-📍 Polling Unit Results
-</a>
+            <a href="priorities.html">
+                🎯 Priorities
+            </a>
 
-<a href="lga-results.html">
-🏘️ LGA Results
-</a>
+            <a href="constituency.html">
+                📍 Constituency
+            </a>
 
-<a href="candidate-results.html">
-👤 Candidate Results
-</a>
+            <a href="vision.html">
+                💡 Vision
+            </a>
 
-<a href="result-details.html">
-📄 Result Details
-</a>
+            <a href="gallery.html">
+                🖼️ Gallery
+            </a>
+
+            <a href="news.html">
+                📰 News
+            </a>
+
+            <a href="events.html">
+                📅 Events
+            </a>
+
+            <a href="press.html">
+                🎤 Press
+            </a>
+
+            <a href="faq.html">
+                ❓ FAQ
+            </a>
 
 
-<!-- LEGAL -->
+            <!-- ELECTION RESULTS -->
 
-<div class="menu-section">
-Legal
-</div>
+            <a href="election-results.html">
+                📊 Results Centre
+            </a>
 
-<a href="privacy-policy.html">
-🔒 Privacy Policy
-</a>
+            <a href="polling-unit-results.html">
+                📍 Polling Unit Results
+            </a>
 
-<a href="terms.html">
-📜 Terms
-</a>
+            <a href="lga-results.html">
+                🏘️ LGA Results
+            </a>
+
+            <a href="candidate-results.html">
+                👤 Candidate Results
+            </a>
+
+            <a href="result-details.html">
+                📄 Result Details
+            </a>
 
 
-<!-- ACCOUNT -->
+            <!-- LEGAL -->
 
-<div class="menu-section">
-Account
-</div>
+            <a href="privacy-policy.html">
+                🔒 Privacy Policy
+            </a>
 
-<a
-href="#"
-onclick="logoutAdmin();return false;"
->
-🚪 Logout
-</a>
+            <a href="terms.html">
+                📜 Terms
+            </a>
 
-</aside>
+
+            <!-- ACCOUNT -->
+
+            <a
+                href="#"
+                onclick="logoutAdmin(); return false;"
+            >
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
 
 
 
 <!-- =====================================================
-CONTENT
+MAIN CONTENT
 ===================================================== -->
 
 <main
-class="content"
-id="dashboard"
+    class="content"
+    id="dashboard"
 >
+
+
+<!-- PAGE TITLE -->
 
 <section class="page-title">
 
-<h2>
-Admin Dashboard
-</h2>
+    <h2>
+        Admin Dashboard
+    </h2>
 
-<p>
-Manage public election-result records and access all website sections.
-</p>
+    <p>
+        Manage public election-result records and access all website sections.
+    </p>
 
 </section>
 
 
-<!-- DASHBOARD CARDS -->
+
+<!-- =====================================================
+DASHBOARD CARDS
+===================================================== -->
 
 <div class="cards">
 
-<div class="card">
 
-<div class="card-icon">
-📊
-</div>
+    <div class="card">
 
-<h3>
-Results
-</h3>
+        <div class="card-icon">
+            📊
+        </div>
 
-<p>
-Manage public election results.
-</p>
+        <h3>
+            Results
+        </h3>
 
-</div>
+        <p>
+            Manage public election results.
+        </p>
 
-
-<div class="card">
-
-<div class="card-icon">
-📍
-</div>
-
-<h3>
-Polling Units
-</h3>
-
-<p>
-View polling-unit result records.
-</p>
-
-</div>
+    </div>
 
 
-<div class="card">
 
-<div class="card-icon">
-🏘️
-</div>
+    <div class="card">
 
-<h3>
-LGAs
-</h3>
+        <div class="card-icon">
+            📍
+        </div>
 
-<p>
-View LGA result information.
-</p>
+        <h3>
+            Polling Units
+        </h3>
 
-</div>
+        <p>
+            View polling-unit result records.
+        </p>
+
+    </div>
 
 
-<div class="card">
 
-<div class="card-icon">
-👤
-</div>
+    <div class="card">
 
-<h3>
-Candidates
-</h3>
+        <div class="card-icon">
+            🏘️
+        </div>
 
-<p>
-View candidate result records.
-</p>
+        <h3>
+            LGAs
+        </h3>
 
-</div>
+        <p>
+            View LGA result information.
+        </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <div class="card-icon">
+            👤
+        </div>
+
+        <h3>
+            Candidates
+        </h3>
+
+        <p>
+            View candidate result records.
+        </p>
+
+    </div>
+
 
 </div>
 
@@ -964,259 +904,289 @@ ADD RESULT
 
 <section class="form-card">
 
-<h2 id="formTitle">
-➕ Add New Result
-</h2>
+    <h2 id="formTitle">
+        ➕ Add New Result
+    </h2>
 
 
-<div class="form-grid">
+    <div class="form-grid">
 
 
-<div class="form-group">
+        <div class="form-group">
 
-<label>
-Election Name
-</label>
+            <label>
+                Election Name
+            </label>
 
-<input
-type="text"
-id="electionName"
-value="House of Representatives"
->
+            <input
+                type="text"
+                id="electionName"
+                value="House of Representatives"
+            >
 
-</div>
+        </div>
 
 
-<div class="form-group">
 
-<label>
-Constituency
-</label>
+        <div class="form-group">
 
-<input
-type="text"
-id="constituency"
-value="Idah Federal Constituency"
->
+            <label>
+                Constituency
+            </label>
 
-</div>
+            <input
+                type="text"
+                id="constituency"
+                value="Idah Federal Constituency"
+            >
 
+        </div>
 
-<div class="form-group">
 
-<label>
-LGA
-</label>
 
-<select id="lga">
+        <div class="form-group">
 
-<option value="">
-Select LGA
-</option>
+            <label>
+                LGA
+            </label>
 
-<option>Idah</option>
+            <select id="lga">
 
-<option>Ibaji</option>
+                <option value="">
+                    Select LGA
+                </option>
 
-<option>Igalamela-Odolu</option>
+                <option>
+                    Idah
+                </option>
 
-<option>Ofu</option>
+                <option>
+                    Ibaji
+                </option>
 
-</select>
+                <option>
+                    Igalamela-Odolu
+                </option>
 
-</div>
+                <option>
+                    Ofu
+                </option>
 
+            </select>
 
-<div class="form-group">
+        </div>
 
-<label>
-Ward
-</label>
 
-<input
-type="text"
-id="ward"
-placeholder="Ward"
->
 
-</div>
+        <div class="form-group">
 
+            <label>
+                Ward
+            </label>
 
-<div class="form-group">
+            <input
+                type="text"
+                id="ward"
+                placeholder="Ward"
+            >
 
-<label>
-Polling Unit
-</label>
+        </div>
 
-<input
-type="text"
-id="pollingUnit"
-placeholder="Polling Unit"
->
 
-</div>
 
+        <div class="form-group">
 
-<div class="form-group">
+            <label>
+                Polling Unit
+            </label>
 
-<label>
-Candidate Name
-</label>
+            <input
+                type="text"
+                id="pollingUnit"
+                placeholder="Polling Unit"
+            >
 
-<input
-type="text"
-id="candidateName"
-placeholder="Candidate"
->
+        </div>
 
-</div>
 
 
-<div class="form-group">
+        <div class="form-group">
 
-<label>
-Party
-</label>
+            <label>
+                Candidate Name
+            </label>
 
-<input
-type="text"
-id="party"
-placeholder="Party"
->
+            <input
+                type="text"
+                id="candidateName"
+                placeholder="Candidate"
+            >
 
-</div>
+        </div>
 
 
-<div class="form-group">
 
-<label>
-Candidate Votes
-</label>
+        <div class="form-group">
 
-<input
-type="number"
-id="candidateVotes"
-min="0"
->
+            <label>
+                Party
+            </label>
 
-</div>
+            <input
+                type="text"
+                id="party"
+                placeholder="Party"
+            >
 
+        </div>
 
-<div class="form-group">
 
-<label>
-Registered Voters
-</label>
 
-<input
-type="number"
-id="registeredVoters"
-min="0"
->
+        <div class="form-group">
 
-</div>
+            <label>
+                Candidate Votes
+            </label>
 
+            <input
+                type="number"
+                id="candidateVotes"
+                min="0"
+            >
 
-<div class="form-group">
+        </div>
 
-<label>
-Accredited Voters
-</label>
 
-<input
-type="number"
-id="accreditedVoters"
-min="0"
->
 
-</div>
+        <div class="form-group">
 
+            <label>
+                Registered Voters
+            </label>
 
-<div class="form-group">
+            <input
+                type="number"
+                id="registeredVoters"
+                min="0"
+            >
 
-<label>
-Votes Cast
-</label>
+        </div>
 
-<input
-type="number"
-id="votesCast"
-min="0"
->
 
-</div>
 
+        <div class="form-group">
 
-<div class="form-group">
+            <label>
+                Accredited Voters
+            </label>
 
-<label>
-Result Status
-</label>
+            <input
+                type="number"
+                id="accreditedVoters"
+                min="0"
+            >
 
-<select id="resultStatus">
+        </div>
 
-<option>Awaiting Verification</option>
 
-<option>Verified</option>
 
-<option>Published</option>
+        <div class="form-group">
 
-</select>
+            <label>
+                Votes Cast
+            </label>
 
-</div>
+            <input
+                type="number"
+                id="votesCast"
+                min="0"
+            >
 
+        </div>
 
-<div class="form-group">
 
-<label>
-Result Date
-</label>
 
-<input
-type="date"
-id="resultDate"
->
+        <div class="form-group">
 
-</div>
+            <label>
+                Result Status
+            </label>
 
+            <select id="resultStatus">
 
-<div class="form-group full">
+                <option>
+                    Awaiting Verification
+                </option>
 
-<label>
-Source / Reference
-</label>
+                <option>
+                    Verified
+                </option>
 
-<input
-type="text"
-id="sourceReference"
-placeholder="Official result sheet or public source"
->
+                <option>
+                    Published
+                </option>
 
-</div>
+            </select>
 
-</div>
+        </div>
 
 
-<div class="button-row">
 
-<button
-class="btn save"
-onclick="saveResult()"
->
-💾 Save Result
-</button>
+        <div class="form-group">
 
-<button
-class="btn clear"
-onclick="clearForm()"
->
-Clear
-</button>
+            <label>
+                Result Date
+            </label>
 
-</div>
+            <input
+                type="date"
+                id="resultDate"
+            >
 
+        </div>
 
-<div id="adminMessage"></div>
+
+
+        <div class="form-group full">
+
+            <label>
+                Source / Reference
+            </label>
+
+            <input
+                type="text"
+                id="sourceReference"
+                placeholder="Official result sheet or public source"
+            >
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="button-row">
+
+        <button
+            class="btn save"
+            onclick="saveResult()"
+        >
+            💾 Save Result
+        </button>
+
+
+        <button
+            class="btn clear"
+            onclick="clearForm()"
+        >
+            Clear
+        </button>
+
+    </div>
+
+
+    <div id="adminMessage"></div>
 
 </section>
 
@@ -1228,52 +1198,60 @@ STORED RESULTS
 
 <section class="table-card">
 
-<h2>
-📋 Stored Results
-</h2>
+    <h2>
+        📋 Stored Results
+    </h2>
 
-<div class="table-wrapper">
 
-<table>
+    <div class="table-wrapper">
 
-<thead>
+        <table>
 
-<tr>
+            <thead>
 
-<th>ID</th>
-<th>LGA</th>
-<th>Ward</th>
-<th>Polling Unit</th>
-<th>Candidate</th>
-<th>Party</th>
-<th>Votes</th>
-<th>Status</th>
-<th>Action</th>
+                <tr>
 
-</tr>
+                    <th>ID</th>
 
-</thead>
+                    <th>LGA</th>
 
-<tbody id="resultsTable">
+                    <th>Ward</th>
 
-<tr>
+                    <th>Polling Unit</th>
 
-<td
-colspan="9"
-style="text-align:center;"
->
+                    <th>Candidate</th>
 
-Loading results...
+                    <th>Party</th>
 
-</td>
+                    <th>Votes</th>
 
-</tr>
+                    <th>Status</th>
 
-</tbody>
+                    <th>Action</th>
 
-</table>
+                </tr>
 
-</div>
+            </thead>
+
+
+            <tbody id="resultsTable">
+
+                <tr>
+
+                    <td
+                        colspan="9"
+                        style="text-align:center;"
+                    >
+                        Loading results...
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
 
 </section>
 
@@ -1285,60 +1263,70 @@ QUICK ACCESS
 
 <section class="quick-card">
 
-<h2>
-🔗 Quick Access
-</h2>
+    <h2>
+        🔗 Quick Access
+    </h2>
 
-<div class="quick-grid">
 
-<a href="election-results.html">
-📊 Results Centre
-</a>
+    <div class="quick-grid">
 
-<a href="polling-unit-results.html">
-📍 Polling Unit Results
-</a>
 
-<a href="lga-results.html">
-🏘️ LGA Results
-</a>
+        <a href="election-results.html">
+            📊 Results Centre
+        </a>
 
-<a href="candidate-results.html">
-👤 Candidate Results
-</a>
 
-<a href="result-details.html">
-📄 Result Details
-</a>
+        <a href="polling-unit-results.html">
+            📍 Polling Unit Results
+        </a>
 
-<a href="index.html">
-🏠 Open Website
-</a>
 
-</div>
+        <a href="lga-results.html">
+            🏘️ LGA Results
+        </a>
+
+
+        <a href="candidate-results.html">
+            👤 Candidate Results
+        </a>
+
+
+        <a href="result-details.html">
+            📄 Result Details
+        </a>
+
+
+        <a href="index.html">
+            🏠 Open Website
+        </a>
+
+
+    </div>
 
 </section>
 
 
 </main>
 
-</div>
 
 
+<!-- =====================================================
+FOOTER
+===================================================== -->
 
 <footer>
 
-<p>
-© 2026 Pharm. Peter Yakubu Iduh
-</p>
+    <p>
+        © 2026 Pharm. Peter Yakubu Iduh
+    </p>
 
-<p>
-Admin Results Management System
-</p>
+    <p>
+        Admin Results Management System
+    </p>
 
-<p style="margin-top:10px;">
-Powered by IBAJI TV CHANNEL 📺
-</p>
+    <p style="margin-top:10px;">
+        Powered by IBAJI TV CHANNEL 📺
+    </p>
 
 </footer>
 
@@ -1348,10 +1336,11 @@ Powered by IBAJI TV CHANNEL 📺
 
 
 <!-- =====================================================
-SUPABASE
+SUPABASE LIBRARY
 ===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <script>
 
@@ -1362,13 +1351,15 @@ SUPABASE CONFIGURATION
 const SUPABASE_URL =
 "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
 
+
 const SUPABASE_PUBLISHABLE_KEY =
 "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
 
+
 const supabaseClient =
 supabase.createClient(
-SUPABASE_URL,
-SUPABASE_PUBLISHABLE_KEY
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
 );
 
 
@@ -1379,37 +1370,12 @@ ADMIN SETTINGS
 const ADMIN_USERNAME =
 "iduh4rep2027";
 
+
 const ADMIN_EMAIL =
 "YOUR_SUPABASE_ADMIN_EMAIL_HERE";
 
+
 let editingId = null;
-
-
-/* =====================================================
-MOBILE MENU
-===================================================== */
-
-function toggleMenu(){
-
-const sidebar =
-document.getElementById("sidebar");
-
-sidebar.classList.toggle("show");
-
-}
-
-
-function closeMenu(){
-
-if(window.innerWidth <= 750){
-
-document
-.getElementById("sidebar")
-.classList.remove("show");
-
-}
-
-}
 
 
 /* =====================================================
@@ -1418,98 +1384,107 @@ LOGIN
 
 async function loginAdmin(){
 
-const username =
-document.getElementById("username").value.trim();
+    const username =
+        document.getElementById("username").value.trim();
 
-const password =
-document.getElementById("password").value;
+    const password =
+        document.getElementById("password").value;
 
-const message =
-document.getElementById("loginMessage");
+    const message =
+        document.getElementById("loginMessage");
 
-message.textContent = "";
 
-if(username !== ADMIN_USERNAME){
+    message.textContent = "";
 
-message.textContent =
-"Incorrect username.";
 
-return;
+    if(username !== ADMIN_USERNAME){
 
-}
+        message.textContent =
+            "Incorrect username.";
 
-if(!password){
+        return;
 
-message.textContent =
-"Please enter your password.";
+    }
 
-return;
 
-}
+    if(!password){
 
-if(
-ADMIN_EMAIL ===
-"YOUR_SUPABASE_ADMIN_EMAIL_HERE"
-){
+        message.textContent =
+            "Please enter your password.";
 
-message.textContent =
-"Add your Supabase admin email in the code first.";
+        return;
 
-return;
+    }
 
-}
 
-const {data,error} =
-await supabaseClient.auth.signInWithPassword({
+    if(
+        ADMIN_EMAIL ===
+        "YOUR_SUPABASE_ADMIN_EMAIL_HERE"
+    ){
 
-email:ADMIN_EMAIL,
+        message.textContent =
+            "Add your Supabase admin email in the code first.";
 
-password:password
+        return;
 
-});
+    }
 
-if(error){
 
-message.textContent =
-"Login failed: " + error.message;
+    const { data, error } =
+        await supabaseClient.auth.signInWithPassword({
 
-return;
+            email:ADMIN_EMAIL,
 
-}
+            password:password
 
-document.getElementById("loginPage").style.display =
-"none";
+        });
 
-document.getElementById("adminPage").style.display =
-"block";
 
-loadResults();
+    if(error){
+
+        message.textContent =
+            "Login failed: " + error.message;
+
+        return;
+
+    }
+
+
+    document.getElementById("loginPage").style.display =
+        "none";
+
+    document.getElementById("adminPage").style.display =
+        "block";
+
+
+    loadResults();
 
 }
 
 
 /* =====================================================
-SESSION
+CHECK SESSION
 ===================================================== */
 
 async function checkSession(){
 
-const {
-data:{session}
-} =
-await supabaseClient.auth.getSession();
+    const {
+        data:{session}
+    } =
+        await supabaseClient.auth.getSession();
 
-if(session){
 
-document.getElementById("loginPage").style.display =
-"none";
+    if(session){
 
-document.getElementById("adminPage").style.display =
-"block";
+        document.getElementById("loginPage").style.display =
+            "none";
 
-loadResults();
+        document.getElementById("adminPage").style.display =
+            "block";
 
-}
+        loadResults();
+
+    }
 
 }
 
@@ -1520,9 +1495,9 @@ LOGOUT
 
 async function logoutAdmin(){
 
-await supabaseClient.auth.signOut();
+    await supabaseClient.auth.signOut();
 
-location.reload();
+    location.reload();
 
 }
 
@@ -1533,113 +1508,123 @@ SAVE RESULT
 
 async function saveResult(){
 
-const message =
-document.getElementById("adminMessage");
+    const message =
+        document.getElementById("adminMessage");
 
-message.textContent =
-"Saving...";
 
-const resultData = {
+    message.textContent =
+        "Saving...";
 
-election_name:
-document.getElementById("electionName").value.trim(),
 
-constituency:
-document.getElementById("constituency").value.trim(),
+    const resultData = {
 
-lga:
-document.getElementById("lga").value,
+        election_name:
+            document.getElementById("electionName").value.trim(),
 
-ward:
-document.getElementById("ward").value.trim(),
+        constituency:
+            document.getElementById("constituency").value.trim(),
 
-polling_unit:
-document.getElementById("pollingUnit").value.trim(),
+        lga:
+            document.getElementById("lga").value,
 
-candidate_name:
-document.getElementById("candidateName").value.trim(),
+        ward:
+            document.getElementById("ward").value.trim(),
 
-party:
-document.getElementById("party").value.trim(),
+        polling_unit:
+            document.getElementById("pollingUnit").value.trim(),
 
-registered_voters:
-numberValue("registeredVoters"),
+        candidate_name:
+            document.getElementById("candidateName").value.trim(),
 
-accredited_voters:
-numberValue("accreditedVoters"),
+        party:
+            document.getElementById("party").value.trim(),
 
-votes_cast:
-numberValue("votesCast"),
+        registered_voters:
+            numberValue("registeredVoters"),
 
-candidate_votes:
-numberValue("candidateVotes"),
+        accredited_voters:
+            numberValue("accreditedVoters"),
 
-result_status:
-document.getElementById("resultStatus").value,
+        votes_cast:
+            numberValue("votesCast"),
 
-source_reference:
-document.getElementById("sourceReference").value.trim(),
+        candidate_votes:
+            numberValue("candidateVotes"),
 
-result_date:
-document.getElementById("resultDate").value || null
+        result_status:
+            document.getElementById("resultStatus").value,
 
-};
+        source_reference:
+            document.getElementById("sourceReference").value.trim(),
 
-if(
-!resultData.lga ||
-!resultData.candidate_name
-){
+        result_date:
+            document.getElementById("resultDate").value || null
 
-message.textContent =
-"LGA and candidate name are required.";
+    };
 
-message.style.color =
-"#e30613";
 
-return;
+    if(
+        !resultData.lga ||
+        !resultData.candidate_name
+    ){
 
-}
+        message.textContent =
+            "LGA and candidate name are required.";
 
-let response;
+        message.style.color =
+            "#e30613";
 
-if(editingId){
+        return;
 
-response =
-await supabaseClient
-.from("election_results")
-.update(resultData)
-.eq("id",editingId);
+    }
 
-}else{
 
-response =
-await supabaseClient
-.from("election_results")
-.insert([resultData]);
+    let response;
 
-}
 
-if(response.error){
+    if(editingId){
 
-message.textContent =
-response.error.message;
+        response =
+            await supabaseClient
+            .from("election_results")
+            .update(resultData)
+            .eq("id",editingId);
 
-message.style.color =
-"#e30613";
+    }
 
-return;
+    else{
 
-}
+        response =
+            await supabaseClient
+            .from("election_results")
+            .insert([resultData]);
 
-message.textContent =
-"Result saved successfully.";
+    }
 
-message.style.color =
-"#006b3f";
 
-clearForm();
+    if(response.error){
 
-loadResults();
+        message.textContent =
+            response.error.message;
+
+        message.style.color =
+            "#e30613";
+
+        return;
+
+    }
+
+
+    message.textContent =
+        "Result saved successfully.";
+
+    message.style.color =
+        "#006b3f";
+
+
+    clearForm();
+
+    loadResults();
 
 }
 
@@ -1650,14 +1635,18 @@ NUMBER
 
 function numberValue(id){
 
-const value =
-document.getElementById(id).value;
+    const value =
+        document.getElementById(id).value;
 
-if(value === ""){
-return null;
-}
 
-return Number(value);
+    if(value === ""){
+
+        return null;
+
+    }
+
+
+    return Number(value);
 
 }
 
@@ -1668,277 +1657,343 @@ LOAD RESULTS
 
 async function loadResults(){
 
-const table =
-document.getElementById("resultsTable");
+    const table =
+        document.getElementById("resultsTable");
 
-const {
-data,
-error
-} =
-await supabaseClient
-.from("election_results")
-.select("*")
-.order("id",{ascending:false});
 
-if(error){
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+        .from("election_results")
+        .select("*")
+        .order("id",{ascending:false});
 
-table.innerHTML = `
 
-<tr>
+    if(error){
 
-<td colspan="9"
-style="text-align:center;color:red;">
+        table.innerHTML = `
 
-${escapeHtml(error.message)}
+            <tr>
 
-</td>
+                <td
+                    colspan="9"
+                    style="text-align:center;color:red;"
+                >
 
-</tr>
+                    ${escapeHtml(error.message)}
 
-`;
+                </td>
 
-return;
+            </tr>
 
-}
+        `;
 
-if(!data.length){
+        return;
 
-table.innerHTML = `
+    }
 
-<tr>
 
-<td colspan="9"
-style="text-align:center;">
+    if(!data || !data.length){
 
-No results have been added yet.
+        table.innerHTML = `
 
-</td>
+            <tr>
 
-</tr>
+                <td
+                    colspan="9"
+                    style="text-align:center;"
+                >
 
-`;
+                    No results have been added yet.
 
-return;
+                </td>
 
-}
+            </tr>
 
-table.innerHTML = "";
+        `;
 
-data.forEach(result=>{
+        return;
 
-const row =
-document.createElement("tr");
+    }
 
-row.innerHTML = `
 
-<td>${escapeHtml(result.id)}</td>
+    table.innerHTML = "";
 
-<td>${escapeHtml(result.lga || "")}</td>
 
-<td>${escapeHtml(result.ward || "")}</td>
+    data.forEach(result=>{
 
-<td>${escapeHtml(result.polling_unit || "")}</td>
+        const row =
+            document.createElement("tr");
 
-<td>${escapeHtml(result.candidate_name || "")}</td>
 
-<td>${escapeHtml(result.party || "")}</td>
+        row.innerHTML = `
 
-<td>${escapeHtml(result.candidate_votes ?? "—")}</td>
+            <td>
+                ${escapeHtml(result.id)}
+            </td>
 
-<td>${escapeHtml(result.result_status || "")}</td>
+            <td>
+                ${escapeHtml(result.lga || "")}
+            </td>
 
-<td>
+            <td>
+                ${escapeHtml(result.ward || "")}
+            </td>
 
-<button
-class="edit"
-onclick="editResult(${result.id})"
->
-Edit
-</button>
+            <td>
+                ${escapeHtml(result.polling_unit || "")}
+            </td>
 
-<button
-class="delete"
-onclick="deleteResult(${result.id})"
->
-Delete
-</button>
+            <td>
+                ${escapeHtml(result.candidate_name || "")}
+            </td>
 
-</td>
+            <td>
+                ${escapeHtml(result.party || "")}
+            </td>
 
-`;
+            <td>
+                ${escapeHtml(result.candidate_votes ?? "—")}
+            </td>
 
-table.appendChild(row);
+            <td>
+                ${escapeHtml(result.result_status || "")}
+            </td>
 
-});
+            <td>
+
+                <button
+                    class="edit"
+                    onclick="editResult(${result.id})"
+                >
+                    Edit
+                </button>
+
+                <button
+                    class="delete"
+                    onclick="deleteResult(${result.id})"
+                >
+                    Delete
+                </button>
+
+            </td>
+
+        `;
+
+
+        table.appendChild(row);
+
+    });
 
 }
 
 
 /* =====================================================
-EDIT
+EDIT RESULT
 ===================================================== */
 
 async function editResult(id){
 
-const {
-data,
-error
-} =
-await supabaseClient
-.from("election_results")
-.select("*")
-.eq("id",id)
-.single();
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+        .from("election_results")
+        .select("*")
+        .eq("id",id)
+        .single();
 
-if(error){
 
-alert(error.message);
+    if(error){
 
-return;
+        alert(error.message);
 
-}
+        return;
 
-editingId = id;
+    }
 
-document.getElementById("formTitle").textContent =
-"✏️ Edit Result";
 
-document.getElementById("electionName").value =
-data.election_name || "";
+    editingId = id;
 
-document.getElementById("constituency").value =
-data.constituency || "";
 
-document.getElementById("lga").value =
-data.lga || "";
+    document.getElementById("formTitle").textContent =
+        "✏️ Edit Result";
 
-document.getElementById("ward").value =
-data.ward || "";
 
-document.getElementById("pollingUnit").value =
-data.polling_unit || "";
+    document.getElementById("electionName").value =
+        data.election_name || "";
 
-document.getElementById("candidateName").value =
-data.candidate_name || "";
 
-document.getElementById("party").value =
-data.party || "";
+    document.getElementById("constituency").value =
+        data.constituency || "";
 
-document.getElementById("candidateVotes").value =
-data.candidate_votes ?? "";
 
-document.getElementById("registeredVoters").value =
-data.registered_voters ?? "";
+    document.getElementById("lga").value =
+        data.lga || "";
 
-document.getElementById("accreditedVoters").value =
-data.accredited_voters ?? "";
 
-document.getElementById("votesCast").value =
-data.votes_cast ?? "";
+    document.getElementById("ward").value =
+        data.ward || "";
 
-document.getElementById("resultStatus").value =
-data.result_status ||
-"Awaiting Verification";
 
-document.getElementById("resultDate").value =
-data.result_date || "";
+    document.getElementById("pollingUnit").value =
+        data.polling_unit || "";
 
-document.getElementById("sourceReference").value =
-data.source_reference || "";
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+    document.getElementById("candidateName").value =
+        data.candidate_name || "";
+
+
+    document.getElementById("party").value =
+        data.party || "";
+
+
+    document.getElementById("candidateVotes").value =
+        data.candidate_votes ?? "";
+
+
+    document.getElementById("registeredVoters").value =
+        data.registered_voters ?? "";
+
+
+    document.getElementById("accreditedVoters").value =
+        data.accredited_voters ?? "";
+
+
+    document.getElementById("votesCast").value =
+        data.votes_cast ?? "";
+
+
+    document.getElementById("resultStatus").value =
+        data.result_status ||
+        "Awaiting Verification";
+
+
+    document.getElementById("resultDate").value =
+        data.result_date || "";
+
+
+    document.getElementById("sourceReference").value =
+        data.source_reference || "";
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
 
 }
 
 
 /* =====================================================
-DELETE
+DELETE RESULT
 ===================================================== */
 
 async function deleteResult(id){
 
-if(!confirm(
-"Delete this result record?"
-)){
+    if(!confirm(
+        "Delete this result record?"
+    )){
 
-return;
+        return;
 
-}
+    }
 
-const {error} =
-await supabaseClient
-.from("election_results")
-.delete()
-.eq("id",id);
 
-if(error){
+    const {error} =
+        await supabaseClient
+        .from("election_results")
+        .delete()
+        .eq("id",id);
 
-alert(error.message);
 
-return;
+    if(error){
 
-}
+        alert(error.message);
 
-loadResults();
+        return;
+
+    }
+
+
+    loadResults();
 
 }
 
 
 /* =====================================================
-CLEAR
+CLEAR FORM
 ===================================================== */
 
 function clearForm(){
 
-editingId = null;
+    editingId = null;
 
-document.getElementById("formTitle").textContent =
-"➕ Add New Result";
 
-document.getElementById("electionName").value =
-"House of Representatives";
+    document.getElementById("formTitle").textContent =
+        "➕ Add New Result";
 
-document.getElementById("constituency").value =
-"Idah Federal Constituency";
 
-document.getElementById("lga").value =
-"";
+    document.getElementById("electionName").value =
+        "House of Representatives";
 
-document.getElementById("ward").value =
-"";
 
-document.getElementById("pollingUnit").value =
-"";
+    document.getElementById("constituency").value =
+        "Idah Federal Constituency";
 
-document.getElementById("candidateName").value =
-"";
 
-document.getElementById("party").value =
-"";
+    document.getElementById("lga").value =
+        "";
 
-document.getElementById("candidateVotes").value =
-"";
 
-document.getElementById("registeredVoters").value =
-"";
+    document.getElementById("ward").value =
+        "";
 
-document.getElementById("accreditedVoters").value =
-"";
 
-document.getElementById("votesCast").value =
-"";
+    document.getElementById("pollingUnit").value =
+        "";
 
-document.getElementById("resultStatus").value =
-"Awaiting Verification";
 
-document.getElementById("resultDate").value =
-"";
+    document.getElementById("candidateName").value =
+        "";
 
-document.getElementById("sourceReference").value =
-"";
+
+    document.getElementById("party").value =
+        "";
+
+
+    document.getElementById("candidateVotes").value =
+        "";
+
+
+    document.getElementById("registeredVoters").value =
+        "";
+
+
+    document.getElementById("accreditedVoters").value =
+        "";
+
+
+    document.getElementById("votesCast").value =
+        "";
+
+
+    document.getElementById("resultStatus").value =
+        "Awaiting Verification";
+
+
+    document.getElementById("resultDate").value =
+        "";
+
+
+    document.getElementById("sourceReference").value =
+        "";
 
 }
 
@@ -1949,12 +2004,17 @@ ESCAPE HTML
 
 function escapeHtml(value){
 
-return String(value)
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+    return String(value)
+
+        .replace(/&/g,"&amp;")
+
+        .replace(/</g,"&lt;")
+
+        .replace(/>/g,"&gt;")
+
+        .replace(/"/g,"&quot;")
+
+        .replace(/'/g,"&#039;");
 
 }
 
