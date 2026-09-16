@@ -6,1367 +6,1104 @@
 
 <title>Pharm. Peter Yakubu Iduh | Idah Federal Constituency</title>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<meta name="description"
+content="Official information website for Pharm. Peter Yakubu Iduh, House of Representatives Candidate for Idah Federal Constituency.">
 
 <style>
-
 *{
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f5f7f6;
-color:#222;
-line-height:1.6;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7f6;
+  color:#222;
+  line-height:1.6;
 }
 
-/* =========================
-HEADER
-========================= */
-
+/* HEADER */
 header{
-background:#006b3f;
-color:white;
-padding:14px 15px;
-position:sticky;
-top:0;
-z-index:1000;
-box-shadow:0 3px 12px rgba(0,0,0,.18);
+  background:#006b3f;
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 12px rgba(0,0,0,.2);
 }
 
 .header-inner{
-max-width:1200px;
-margin:auto;
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
 
-.header-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:15px;
+.logo{
+  font-size:18px;
+  font-weight:bold;
+  color:#fff;
+  text-decoration:none;
 }
 
-.logo h1{
-margin:0;
-font-size:20px;
+.logo span{
+  color:#ffd700;
 }
 
-.logo p{
-margin:3px 0 0;
-font-size:12px;
+/* MENU BUTTON */
+.menu-button{
+  display:none;
+  background:#e30613;
+  color:#fff;
+  border:none;
+  padding:10px 15px;
+  border-radius:6px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* =========================
-NAVIGATION
-========================= */
-
+/* NAVIGATION */
 nav{
-display:flex;
-align-items:center;
-gap:6px;
-overflow-x:auto;
-white-space:nowrap;
-scrollbar-width:thin;
-max-width:100%;
-padding:10px 0 3px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  flex-wrap:wrap;
+  max-width:1200px;
+  margin:auto;
+  padding:5px 15px 12px;
 }
 
 nav a{
-color:#fff;
-text-decoration:none;
-font-size:13px;
-font-weight:bold;
-padding:7px 10px;
-border-radius:6px;
-flex-shrink:0;
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:bold;
+  padding:7px 9px;
+  border-radius:6px;
+  transition:.2s;
 }
 
 nav a:hover{
-color:#ffd700;
-background:rgba(255,255,255,.1);
+  color:#ffd700;
+  background:rgba(255,255,255,.12);
 }
 
 nav a.menu-highlight{
-background:#e30613;
-color:#fff;
+  background:#e30613;
+  color:#fff;
 }
 
-/* =========================
-WELCOME BAR
-========================= */
-
-.welcome-bar{
-background:#e30613;
-color:white;
-overflow:hidden;
-white-space:nowrap;
-}
-
-.welcome-track{
-display:inline-block;
-padding:9px 0;
-padding-left:100%;
-animation:moveText 22s linear infinite;
-font-size:13px;
-font-weight:bold;
-}
-
-@keyframes moveText{
-
-0%{
-transform:translateX(0);
-}
-
-100%{
-transform:translateX(-100%);
-}
-
-}
-
-/* =========================
-HERO
-========================= */
-
+/* HERO */
 .hero{
-background:linear-gradient(
-rgba(0,107,63,.88),
-rgba(0,107,63,.88)
-),
-url("https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg");
+  min-height:520px;
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg")
+    center/cover no-repeat;
 
-background-size:cover;
-background-position:center;
-
-color:white;
-text-align:center;
-padding:80px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:40px 20px;
 }
 
 .hero-content{
-max-width:900px;
-margin:auto;
+  max-width:900px;
+}
+
+.hero h1{
+  font-size:45px;
+  line-height:1.2;
+  margin-bottom:15px;
 }
 
 .hero h2{
-font-size:42px;
-margin:0 0 10px;
-}
-
-.hero h3{
-font-size:24px;
-margin:0 0 15px;
-color:#ffd700;
+  color:#ffd700;
+  font-size:25px;
+  margin-bottom:15px;
 }
 
 .hero p{
-font-size:17px;
-max-width:750px;
-margin:0 auto 25px;
+  font-size:18px;
+  max-width:750px;
+  margin:auto;
 }
 
 .hero-buttons{
-display:flex;
-justify-content:center;
-gap:12px;
-flex-wrap:wrap;
+  margin-top:25px;
 }
 
-.hero-button{
-display:inline-block;
-padding:12px 20px;
-border-radius:7px;
-text-decoration:none;
-font-weight:bold;
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  padding:12px 20px;
+  margin:5px;
+  border-radius:7px;
+  font-weight:bold;
 }
 
-.hero-button.red{
-background:#e30613;
-color:white;
+.btn-red{
+  background:#e30613;
+  color:#fff;
 }
 
-.hero-button.white{
-background:white;
-color:#006b3f;
+.btn-green{
+  background:#006b3f;
+  color:#fff;
+  border:1px solid #fff;
 }
 
-/* =========================
-GENERAL
-========================= */
+.btn:hover{
+  opacity:.85;
+}
+
+/* SECTIONS */
+section{
+  padding:60px 20px;
+}
 
 .container{
-max-width:1100px;
-margin:auto;
-padding:45px 15px;
+  max-width:1100px;
+  margin:auto;
 }
 
 .section-title{
-text-align:center;
-margin-bottom:30px;
+  text-align:center;
+  color:#006b3f;
+  font-size:30px;
+  margin-bottom:30px;
 }
 
-.section-title h2{
-color:#006b3f;
-font-size:30px;
-margin:0 0 8px;
+.section-title::after{
+  content:"";
+  display:block;
+  width:70px;
+  height:4px;
+  background:#e30613;
+  margin:10px auto;
 }
 
-.section-title p{
-color:#666;
-margin:0;
-}
-
-.section{
-background:white;
-}
-
-/* =========================
-ABOUT
-========================= */
-
+/* ABOUT */
 .about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-align-items:center;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center;
 }
 
-.about-image{
-width:100%;
-max-height:500px;
-object-fit:cover;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,.15);
+.about-image img{
+  width:100%;
+  max-height:500px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
 
-.about-text h2{
-color:#006b3f;
+.about-text h3{
+  color:#006b3f;
+  font-size:26px;
+  margin-bottom:15px;
 }
 
 .about-text p{
-color:#555;
+  margin-bottom:15px;
 }
 
-.info-box{
-background:#f0f7f3;
-border-left:5px solid #006b3f;
-padding:15px;
-margin-top:15px;
-border-radius:5px;
-}
-
-/* =========================
-NEWS
-========================= */
-
-.latest-news{
-background:#f5f7f6;
+/* NEWS */
+.news-section{
+  background:#fff;
 }
 
 .news-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
 .news-card{
-background:white;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 4px 15px rgba(0,0,0,.10);
-border:1px solid #e2e2e2;
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 3px 15px rgba(0,0,0,.12);
+  border:1px solid #eee;
 }
 
-.news-image{
-width:100%;
-height:210px;
-object-fit:cover;
-display:block;
-background:#ddd;
+.news-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  display:block;
 }
 
 .news-content{
-padding:18px;
+  padding:18px;
 }
 
 .news-date{
-font-size:11px;
-font-weight:bold;
-color:#e30613;
-margin-bottom:7px;
+  color:#e30613;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:7px;
 }
 
 .news-card h3{
-color:#006b3f;
-font-size:19px;
-line-height:1.3;
-margin:0 0 10px;
+  color:#006b3f;
+  margin-bottom:10px;
 }
 
 .news-card p{
-color:#555;
-font-size:14px;
-margin:0;
-line-height:1.6;
+  color:#555;
+  margin-bottom:15px;
 }
 
-.news-read{
-display:inline-block;
-margin-top:14px;
-background:#006b3f;
-color:white;
-text-decoration:none;
-padding:9px 14px;
-border-radius:6px;
-font-size:13px;
-font-weight:bold;
+.read-more{
+  color:#e30613;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-.news-read:hover{
-background:#e30613;
+/* LOADING */
+.loading{
+  text-align:center;
+  color:#006b3f;
+  padding:20px;
 }
 
-.news-message{
-grid-column:1 / -1;
-background:white;
-padding:30px;
-text-align:center;
-border-radius:10px;
-box-shadow:0 3px 12px rgba(0,0,0,.08);
-color:#666;
+.no-news{
+  text-align:center;
+  padding:30px;
+  color:#666;
 }
 
-.news-view-all{
-text-align:center;
-margin-top:25px;
+/* PRIORITIES */
+.priority-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-.news-view-all a{
-display:inline-block;
-background:#e30613;
-color:white;
-text-decoration:none;
-padding:11px 20px;
-border-radius:7px;
-font-weight:bold;
+.priority-card{
+  background:#fff;
+  padding:25px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 3px 12px rgba(0,0,0,.1);
+  border-top:4px solid #006b3f;
 }
 
-/* =========================
-KEY AREAS
-========================= */
-
-.areas{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px;
+.priority-card h3{
+  color:#006b3f;
+  margin-bottom:10px;
 }
 
-.area-card{
-background:white;
-padding:22px 15px;
-text-align:center;
-border-radius:10px;
-box-shadow:0 3px 12px rgba(0,0,0,.08);
-border-top:4px solid #006b3f;
-}
-
-.area-card h3{
-color:#006b3f;
-font-size:18px;
-}
-
-.area-card p{
-font-size:14px;
-color:#666;
-}
-
-/* =========================
-CONSTITUENCY
-========================= */
-
+/* CONSTITUENCY */
 .constituency{
-background:#006b3f;
-color:white;
+  background:#006b3f;
+  color:#fff;
 }
 
-.constituency .section-title h2{
-color:white;
-}
-
-.constituency .section-title p{
-color:#e5e5e5;
+.constituency .section-title{
+  color:#fff;
 }
 
 .constituency-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:25px;
 }
 
 .constituency-card{
-background:white;
-color:#222;
-padding:25px 15px;
-border-radius:10px;
-text-align:center;
+  background:#fff;
+  color:#006b3f;
+  padding:25px 15px;
+  text-align:center;
+  border-radius:8px;
+  font-weight:bold;
 }
 
-.constituency-card h3{
-color:#006b3f;
-margin-top:0;
-}
-
-/* =========================
-VISION
-========================= */
-
+/* VISION */
 .vision-box{
-background:white;
-border-radius:12px;
-padding:30px;
-text-align:center;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-
-.vision-box h2{
-color:#006b3f;
+  max-width:850px;
+  margin:auto;
+  background:#fff;
+  padding:35px;
+  border-left:6px solid #e30613;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+  border-radius:8px;
+  text-align:center;
 }
 
 .vision-box p{
-color:#555;
-max-width:800px;
-margin:auto;
+  font-size:18px;
 }
 
-/* =========================
-CONTACT
-========================= */
-
-.contact-section{
-background:#fff;
+/* CONTACT */
+.contact{
+  background:#f0f3f1;
 }
 
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+.contact-box{
+  max-width:700px;
+  margin:auto;
+  background:#fff;
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0 3px 15px rgba(0,0,0,.1);
+  text-align:center;
 }
 
-.contact-card{
-background:#f5f7f6;
-padding:25px;
-border-radius:10px;
-text-align:center;
+.contact-box h3{
+  color:#006b3f;
+  margin-bottom:15px;
 }
 
-.contact-card h3{
-color:#006b3f;
+.phone{
+  display:inline-block;
+  margin-top:15px;
+  font-size:22px;
+  color:#006b3f;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-.contact-card a{
-color:#006b3f;
-font-weight:bold;
-text-decoration:none;
-}
-
-/* =========================
-FOOTER
-========================= */
-
+/* FOOTER */
 footer{
-background:#006b3f;
-color:white;
-text-align:center;
-padding:30px 15px;
-}
-
-footer p{
-margin:5px 0;
-font-size:13px;
+  background:#003d25;
+  color:#fff;
+  text-align:center;
+  padding:30px 20px;
 }
 
 .footer-links{
-margin-top:15px;
+  margin-bottom:15px;
 }
 
 .footer-links a{
-color:white;
-text-decoration:none;
-margin:0 8px;
-font-size:12px;
+  color:#fff;
+  text-decoration:none;
+  margin:0 8px;
+  font-size:13px;
 }
 
-/* =========================
-FLOATING WELCOME CARD
-========================= */
-
-.welcome-float{
-position:fixed;
-right:20px;
-bottom:25px;
-width:330px;
-background:#fff;
-border-radius:18px;
-overflow:hidden;
-border:3px solid #006b3f;
-box-shadow:0 12px 40px rgba(0,0,0,.35);
-z-index:9999;
-
-animation:
-welcomeSlideIn .8s ease-out,
-welcomeFloat 3.5s ease-in-out infinite;
+.footer-links a:hover{
+  color:#ffd700;
 }
 
-.welcome-float-header{
-position:relative;
-background:#006b3f;
-color:white;
-text-align:center;
-padding:12px 45px 12px 15px;
+.footer-brand{
+  color:#ffd700;
+  font-weight:bold;
 }
 
-.welcome-float-header h3{
-font-size:18px;
-margin:0;
+/* FLOATING WELCOME */
+.welcome-card{
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  width:280px;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 5px 25px rgba(0,0,0,.25);
+  overflow:hidden;
+  z-index:900;
 }
 
-.welcome-float-header p{
-font-size:12px;
-margin:2px 0 0;
+.welcome-card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
 }
 
-.welcome-close{
-position:absolute;
-top:7px;
-right:8px;
-width:32px;
-height:32px;
-border:none;
-border-radius:50%;
-background:#e30613;
-color:white;
-font-size:22px;
-font-weight:bold;
-cursor:pointer;
-line-height:30px;
+.welcome-content{
+  padding:15px;
 }
 
-.welcome-float-image{
-width:100%;
-height:280px;
-display:block;
-object-fit:cover;
+.welcome-content h3{
+  color:#006b3f;
+  font-size:17px;
+  margin-bottom:5px;
 }
 
-.welcome-float-content{
-padding:15px;
-text-align:center;
+.welcome-content p{
+  font-size:13px;
+  color:#555;
+  margin-bottom:10px;
 }
 
-.welcome-float-content h4{
-color:#006b3f;
-font-size:18px;
-margin:0 0 5px;
+.welcome-content a{
+  display:inline-block;
+  background:#e30613;
+  color:#fff;
+  text-decoration:none;
+  padding:8px 13px;
+  border-radius:5px;
+  font-size:13px;
+  font-weight:bold;
 }
 
-.welcome-float-content p{
-color:#555;
-font-size:13px;
-line-height:1.5;
-margin:0 0 12px;
+/* CLOSE WELCOME */
+.close-welcome{
+  position:absolute;
+  right:8px;
+  top:8px;
+  width:28px;
+  height:28px;
+  border:none;
+  border-radius:50%;
+  background:#e30613;
+  color:#fff;
+  cursor:pointer;
+  font-weight:bold;
 }
 
-.welcome-button{
-display:inline-block;
-background:#e30613;
-color:white;
-text-decoration:none;
-padding:9px 18px;
-border-radius:7px;
-font-size:13px;
-font-weight:bold;
+/* MOBILE */
+@media(max-width:800px){
+
+  .header-inner{
+    padding:12px 15px;
+  }
+
+  .logo{
+    font-size:15px;
+  }
+
+  .menu-button{
+    display:block;
+  }
+
+  nav{
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:3px;
+    padding:10px 15px 15px;
+    background:#005631;
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  nav a{
+    width:100%;
+    padding:11px 12px;
+    font-size:14px;
+    text-align:left;
+  }
+
+  .hero{
+    min-height:480px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .hero h2{
+    font-size:21px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .news-grid{
+    grid-template-columns:1fr;
+  }
+
+  .priority-grid{
+    grid-template-columns:1fr;
+  }
+
+  .constituency-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .welcome-card{
+    width:calc(100% - 30px);
+    right:15px;
+    bottom:15px;
+  }
+
+  section{
+    padding:45px 15px;
+  }
 }
 
-@keyframes welcomeSlideIn{
+@media(max-width:450px){
 
-0%{
-opacity:0;
-transform:translateY(120px);
+  .hero h1{
+    font-size:27px;
+  }
+
+  .hero h2{
+    font-size:19px;
+  }
+
+  .constituency-grid{
+    grid-template-columns:1fr;
+  }
+
+  .welcome-card{
+    width:calc(100% - 20px);
+    right:10px;
+    bottom:10px;
+  }
 }
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-@keyframes welcomeFloat{
-
-0%{
-margin-bottom:0;
-}
-
-50%{
-margin-bottom:10px;
-}
-
-100%{
-margin-bottom:0;
-}
-
-}
-
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:850px){
-
-.hero h2{
-font-size:34px;
-}
-
-.about-grid{
-grid-template-columns:1fr;
-}
-
-.news-grid{
-grid-template-columns:1fr 1fr;
-}
-
-.areas{
-grid-template-columns:1fr 1fr;
-}
-
-.constituency-grid{
-grid-template-columns:1fr 1fr;
-}
-
-}
-
-@media(max-width:600px){
-
-.logo h1{
-font-size:17px;
-}
-
-.logo p{
-font-size:11px;
-}
-
-.hero{
-padding:60px 15px;
-}
-
-.hero h2{
-font-size:28px;
-}
-
-.hero h3{
-font-size:19px;
-}
-
-.hero p{
-font-size:14px;
-}
-
-.news-grid{
-grid-template-columns:1fr;
-}
-
-.areas{
-grid-template-columns:1fr;
-}
-
-.constituency-grid{
-grid-template-columns:1fr 1fr;
-}
-
-.contact-grid{
-grid-template-columns:1fr;
-}
-
-.welcome-float{
-width:280px;
-right:10px;
-bottom:12px;
-}
-
-.welcome-float-image{
-height:220px;
-}
-
-.welcome-float-content h4{
-font-size:15px;
-}
-
-}
-
 </style>
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 </head>
 
 <body>
 
-
-<!-- =========================
-HEADER
-========================= -->
-
+<!-- HEADER -->
 <header>
 
-<div class="header-inner">
+  <div class="header-inner">
 
-<div class="header-top">
+    <a href="index.html" class="logo">
+      PHARM. PETER <span>YAKUBU IDUH</span>
+    </a>
 
-<div class="logo">
+    <button
+      class="menu-button"
+      onclick="toggleMenu()"
+      aria-label="Open menu">
+      ☰ MENU
+    </button>
 
-<h1>PHARM. PETER YAKUBU IDUH</h1>
+  </div>
 
-<p>
-House of Representatives Candidate • Idah Federal Constituency
-</p>
+  <!-- FULL MENU -->
+  <nav id="mainNav">
 
-</div>
+    <a href="index.html" class="menu-highlight">Home</a>
 
-</div>
+    <a href="about.html">About</a>
 
+    <a href="priorities.html">Priorities</a>
 
-<nav>
+    <a href="constituency.html">Constituency</a>
 
-<a href="index.html" class="menu-highlight">
-Home
-</a>
+    <a href="vision.html">Vision</a>
 
-<a href="about.html">
-About
-</a>
+    <a href="gallery.html">Gallery</a>
 
-<a href="priorities.html">
-Priorities
-</a>
+    <a href="news.html">News</a>
 
-<a href="constituency.html">
-Constituency
-</a>
+    <a href="events.html">Events</a>
 
-<a href="vision.html">
-Vision
-</a>
+    <a href="press.html">Press</a>
 
-<a href="gallery.html">
-Gallery
-</a>
+    <a href="faq.html">FAQ</a>
 
-<a href="news.html">
-News
-</a>
+    <a href="contact.html">Contact</a>
 
-<a href="events.html">
-Events
-</a>
+    <a href="election-results.html">Election Results</a>
 
-<a href="press.html">
-Press
-</a>
+    <a href="polling-unit-results.html">
+      Polling Unit Results
+    </a>
 
-<a href="faq.html">
-FAQ
-</a>
+    <a href="lga-results.html">
+      LGA Results
+    </a>
 
-<a href="contact.html">
-Contact
-</a>
+    <a href="candidate-results.html">
+      Candidate Results
+    </a>
 
-<a href="election-results.html">
-Election Results
-</a>
+    <a href="result-details.html">
+      Result Details
+    </a>
 
-<a href="polling-unit-results.html">
-Polling Unit Results
-</a>
+    <a href="admin-results.html">
+      Admin Results
+    </a>
 
-<a href="lga-results.html">
-LGA Results
-</a>
+    <a href="privacy-policy.html">
+      Privacy Policy
+    </a>
 
-<a href="candidate-results.html">
-Candidate Results
-</a>
+    <a href="terms.html">
+      Terms
+    </a>
 
-<a href="result-details.html">
-Result Details
-</a>
-
-<a href="admin-results.html">
-Admin Results
-</a>
-
-<a href="privacy-policy.html">
-Privacy Policy
-</a>
-
-<a href="terms.html">
-Terms
-</a>
-
-</nav>
-
-</div>
+  </nav>
 
 </header>
 
 
-<!-- =========================
-MOVING WELCOME BAR
-========================= -->
-
-<div class="welcome-bar">
-
-<div class="welcome-track">
-
-Welcome to the official website of Pharm. Peter Yakubu Iduh • House of Representatives Candidate • Idah Federal Constituency
-
-</div>
-
-</div>
-
-
-<!-- =========================
-HERO
-========================= -->
-
+<!-- HERO -->
 <section class="hero">
 
-<div class="hero-content">
+  <div class="hero-content">
 
-<h2>
-PHARM. PETER YAKUBU IDUH
-</h2>
+    <h1>
+      PHARM. PETER YAKUBU IDUH
+    </h1>
 
-<h3>
-House of Representatives Candidate
-</h3>
+    <h2>
+      House of Representatives Candidate
+    </h2>
 
-<p>
-Idah Federal Constituency
-</p>
+    <p>
+      Idah Federal Constituency
+    </p>
 
-<p>
-Official public information, updates, activities and constituency resources.
-</p>
+    <p>
+      Idah • Ibaji • Igalamela-Odolu • Ofu
+    </p>
 
-<div class="hero-buttons">
+    <div class="hero-buttons">
 
-<a
-href="about.html"
-class="hero-button red"
->
-About
-</a>
+      <a href="about.html" class="btn btn-red">
+        About the Candidate
+      </a>
 
-<a
-href="news.html"
-class="hero-button white"
->
-Latest News
-</a>
+      <a href="contact.html" class="btn btn-green">
+        Contact
+      </a>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 </section>
 
 
-<!-- =========================
-ABOUT
-========================= -->
+<!-- ABOUT -->
+<section>
 
-<section class="section">
+  <div class="container">
 
-<div class="container">
+    <h2 class="section-title">
+      About Pharm. Peter Yakubu Iduh
+    </h2>
 
-<div class="section-title">
+    <div class="about-grid">
 
-<h2>
-About
-</h2>
+      <div class="about-image">
 
-<p>
-Official information about Pharm. Peter Yakubu Iduh.
-</p>
+        <img
+          src="https://i.ibb.co/4RTnqS9J/IMG-20260916-WA0092.jpg"
+          alt="Pharm. Peter Yakubu Iduh">
 
-</div>
+      </div>
 
+      <div class="about-text">
 
-<div class="about-grid">
+        <h3>
+          Pharm. Peter Yakubu Iduh
+        </h3>
 
-<div>
+        <p>
+          Pharm. Peter Yakubu Iduh is a House of Representatives
+          candidate for Idah Federal Constituency.
+        </p>
 
-<img
-src="https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg"
-alt="Pharm. Peter Yakubu Iduh"
-class="about-image"
->
+        <p>
+          The constituency comprises Idah, Ibaji,
+          Igalamela-Odolu and Ofu Local Government Areas.
+        </p>
 
-</div>
+        <p>
+          This website provides information about the candidate,
+          constituency, public priorities, activities, news,
+          events and election-result information.
+        </p>
 
+        <a href="about.html" class="btn btn-red">
+          Read More
+        </a>
 
-<div class="about-text">
+      </div>
 
-<h2>
-Pharm. Peter Yakubu Iduh
-</h2>
+    </div>
 
-<p>
-Pharm. Peter Yakubu Iduh is a House of Representatives
-candidate for Idah Federal Constituency.
-</p>
-
-<p>
-This website provides public information about his
-background, constituency, priorities, activities,
-announcements and other official updates.
-</p>
-
-<div class="info-box">
-
-<strong>
-Constituency:
-</strong>
-
-<br>
-
-Idah Federal Constituency
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =========================
-LATEST NEWS
-========================= -->
+<!-- NEWS -->
+<section class="news-section">
 
-<section class="latest-news">
+  <div class="container">
 
-<div class="container">
+    <h2 class="section-title">
+      Latest News & Updates
+    </h2>
 
-<div class="section-title">
+    <div id="latestNews" class="news-grid">
 
-<h2>
-Latest News &amp; Updates
-</h2>
+      <div class="loading">
+        Loading latest news...
+      </div>
 
-<p>
-Latest published announcements, activities and public information.
-</p>
+    </div>
 
-</div>
+    <div style="text-align:center;margin-top:30px;">
 
+      <a href="news.html" class="btn btn-red">
+        View All News
+      </a>
 
-<div
-id="homepageNews"
-class="news-grid"
->
+    </div>
 
-<div class="news-message">
-
-Loading latest news...
-
-</div>
-
-</div>
-
-
-<div class="news-view-all">
-
-<a href="news.html">
-View All News →
-</a>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =========================
-KEY AREAS
-========================= -->
+<!-- PRIORITIES -->
+<section>
 
-<section class="section">
+  <div class="container">
 
-<div class="container">
+    <h2 class="section-title">
+      Key Areas
+    </h2>
 
-<div class="section-title">
+    <div class="priority-grid">
 
-<h2>
-Key Areas of Public Interest
-</h2>
+      <div class="priority-card">
 
-<p>
-Topics and areas of interest presented through the official website.
-</p>
+        <h3>
+          Education
+        </h3>
 
-</div>
+        <p>
+          Information and public discussion concerning
+          education and human-capital development.
+        </p>
 
-
-<div class="areas">
-
-<div class="area-card">
-
-<h3>
-Education
-</h3>
-
-<p>
-Information concerning education and learning opportunities.
-</p>
-
-</div>
+      </div>
 
 
-<div class="area-card">
+      <div class="priority-card">
 
-<h3>
-Healthcare
-</h3>
+        <h3>
+          Healthcare
+        </h3>
 
-<p>
-Public information relating to healthcare and community wellbeing.
-</p>
+        <p>
+          Attention to healthcare-related issues and
+          access to essential services.
+        </p>
 
-</div>
-
-
-<div class="area-card">
-
-<h3>
-Infrastructure
-</h3>
-
-<p>
-Information concerning roads, public facilities and development.
-</p>
-
-</div>
+      </div>
 
 
-<div class="area-card">
+      <div class="priority-card">
 
-<h3>
-Youth &amp; Employment
-</h3>
+        <h3>
+          Infrastructure
+        </h3>
 
-<p>
-Information concerning youth development and economic opportunities.
-</p>
+        <p>
+          Focus on infrastructure, roads, connectivity
+          and community development.
+        </p>
 
-</div>
+      </div>
 
-</div>
 
-</div>
+      <div class="priority-card">
+
+        <h3>
+          Youth Development
+        </h3>
+
+        <p>
+          Information about opportunities and issues
+          affecting young people.
+        </p>
+
+      </div>
+
+
+      <div class="priority-card">
+
+        <h3>
+          Agriculture
+        </h3>
+
+        <p>
+          Public discussion around agriculture,
+          rural development and livelihoods.
+        </p>
+
+      </div>
+
+
+      <div class="priority-card">
+
+        <h3>
+          Representation
+        </h3>
+
+        <p>
+          Information about constituency representation,
+          legislative issues and public engagement.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- =========================
-CONSTITUENCY
-========================= -->
-
+<!-- CONSTITUENCY -->
 <section class="constituency">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-title">
+    <h2 class="section-title">
+      Idah Federal Constituency
+    </h2>
 
-<h2>
-Idah Federal Constituency
-</h2>
+    <p style="text-align:center;max-width:800px;margin:auto;">
 
-<p>
-The constituency covers the following local government areas.
-</p>
+      Idah Federal Constituency covers four Local Government
+      Areas in Kogi State.
 
-</div>
+    </p>
 
+    <div class="constituency-grid">
 
-<div class="constituency-grid">
+      <div class="constituency-card">
+        IDAH
+      </div>
 
-<div class="constituency-card">
+      <div class="constituency-card">
+        IBAJI
+      </div>
 
-<h3>
-Idah
-</h3>
+      <div class="constituency-card">
+        IGALAMELA-ODOLU
+      </div>
 
-<p>
-Local Government Area
-</p>
+      <div class="constituency-card">
+        OFU
+      </div>
 
-</div>
+    </div>
 
-
-<div class="constituency-card">
-
-<h3>
-Ibaji
-</h3>
-
-<p>
-Local Government Area
-</p>
-
-</div>
-
-
-<div class="constituency-card">
-
-<h3>
-Igalamela-Odolu
-</h3>
-
-<p>
-Local Government Area
-</p>
-
-</div>
-
-
-<div class="constituency-card">
-
-<h3>
-Ofu
-</h3>
-
-<p>
-Local Government Area
-</p>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =========================
-VISION
-========================= -->
+<!-- VISION -->
+<section>
 
-<section class="section">
+  <div class="container">
 
-<div class="container">
+    <h2 class="section-title">
+      Vision
+    </h2>
 
-<div class="section-title">
+    <div class="vision-box">
 
-<h2>
-Vision &amp; Public Service
-</h2>
+      <p>
+        A representative approach centred on constituency
+        engagement, legislative responsibilities, development
+        priorities and access to information.
+      </p>
 
-</div>
+      <br>
 
+      <a href="vision.html" class="btn btn-red">
+        Read Full Vision
+      </a>
 
-<div class="vision-box">
+    </div>
 
-<h2>
-Serving the Constituency
-</h2>
-
-<p>
-This section provides public information about issues,
-ideas, activities and priorities relating to representation
-and constituency development.
-</p>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =========================
-CONTACT
-========================= -->
+<!-- CONTACT -->
+<section class="contact">
 
-<section class="contact-section">
+  <div class="container">
 
-<div class="container">
+    <h2 class="section-title">
+      Contact
+    </h2>
 
-<div class="section-title">
+    <div class="contact-box">
 
-<h2>
-Contact
-</h2>
+      <h3>
+        Pharm. Peter Yakubu Iduh
+      </h3>
 
-<p>
-For official enquiries and public information.
-</p>
+      <p>
+        House of Representatives Candidate
+      </p>
 
-</div>
+      <p>
+        Idah Federal Constituency
+      </p>
 
+      <a
+        href="tel:+2348033906752"
+        class="phone">
+        +234 803 390 6752
+      </a>
 
-<div class="contact-grid">
+      <br>
 
-<div class="contact-card">
+      <a href="contact.html" class="btn btn-red">
+        Contact Page
+      </a>
 
-<h3>
-Phone
-</h3>
+    </div>
 
-<p>
-
-<a href="tel:+2348033906752">
-+234 803 390 6752
-</a>
-
-</p>
-
-</div>
-
-
-<div class="contact-card">
-
-<h3>
-Official Website
-</h3>
-
-<p>
-Use the website menu to access news,
-events, gallery and constituency information.
-</p>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =========================
-FOOTER
-========================= -->
-
+<!-- FOOTER -->
 <footer>
 
-<p>
-<strong>
-PHARM. PETER YAKUBU IDUH
-</strong>
-</p>
+  <div class="footer-links">
 
-<p>
-House of Representatives Candidate • Idah Federal Constituency
-</p>
+    <a href="about.html">About</a>
 
-<p>
-Powered by IBAJI TV CHANNEL 📺
-</p>
+    <a href="news.html">News</a>
 
+    <a href="events.html">Events</a>
 
-<div class="footer-links">
+    <a href="gallery.html">Gallery</a>
 
-<a href="privacy-policy.html">
-Privacy Policy
-</a>
+    <a href="contact.html">Contact</a>
 
-<a href="terms.html">
-Terms
-</a>
+    <a href="privacy-policy.html">
+      Privacy
+    </a>
 
-<a href="contact.html">
-Contact
-</a>
+    <a href="terms.html">
+      Terms
+    </a>
 
-</div>
+  </div>
+
+  <p>
+    © 2026 Pharm. Peter Yakubu Iduh.
+    All rights reserved.
+  </p>
+
+  <p class="footer-brand">
+    Powered by IBAJI TV CHANNEL 📺
+  </p>
 
 </footer>
 
 
-<!-- =========================
-FLOATING WELCOME CARD
-========================= -->
+<!-- FLOATING WELCOME CARD -->
+<div class="welcome-card" id="welcomeCard">
 
-<div
-class="welcome-float"
-id="welcomeFloat"
->
+  <button
+    class="close-welcome"
+    onclick="closeWelcome()">
+    ×
+  </button>
 
-<div class="welcome-float-header">
+  <img
+    src="https://i.ibb.co/Tq0FdBqC/IMG-20260916-WA0091.jpg"
+    alt="Pharm. Peter Yakubu Iduh">
 
-<button
-class="welcome-close"
-onclick="closeWelcome()"
-aria-label="Close welcome message"
->
-×
-</button>
+  <div class="welcome-content">
 
-<h3>
-Welcome
-</h3>
+    <h3>
+      Welcome
+    </h3>
 
-<p>
-Official Website
-</p>
+    <p>
+      Welcome to the official information website
+      for Pharm. Peter Yakubu Iduh.
+    </p>
 
-</div>
+    <a href="about.html">
+      Learn More
+    </a>
 
-
-<img
-class="welcome-float-image"
-src="https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg"
-alt="Pharm. Peter Yakubu Iduh"
->
-
-
-<div class="welcome-float-content">
-
-<h4>
-PHARM. PETER YAKUBU IDUH
-</h4>
-
-<p>
-House of Representatives Candidate
-• Idah Federal Constituency
-</p>
-
-<a
-href="about.html"
-class="welcome-button"
->
-Learn More
-</a>
-
-</div>
+  </div>
 
 </div>
 
 
 <script>
 
-/* =========================================
-SUPABASE
-========================================= */
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu(){
+
+  const nav =
+    document.getElementById("mainNav");
+
+  nav.classList.toggle("open");
+
+}
+
+
+/* Close menu after clicking a link on mobile */
+
+document
+  .querySelectorAll("#mainNav a")
+  .forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+      document
+        .getElementById("mainNav")
+        .classList.remove("open");
+
+    });
+
+  });
+
+
+/* =========================
+   CLOSE WELCOME CARD
+========================= */
+
+function closeWelcome(){
+
+  document
+    .getElementById("welcomeCard")
+    .style.display="none";
+
+}
+
+
+/* =========================
+   SUPABASE
+========================= */
 
 const SUPABASE_URL =
 "https://oltrdzkqumldpfmygmfi.supabase.co";
@@ -1376,243 +1113,175 @@ const SUPABASE_PUBLISHABLE_KEY =
 
 const supabaseClient =
 supabase.createClient(
-SUPABASE_URL,
-SUPABASE_PUBLISHABLE_KEY
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
 );
 
 
-/* =========================================
-ESCAPE HTML
-========================================= */
+/* =========================
+   ESCAPE HTML
+========================= */
 
 function escapeHtml(value){
 
-if(value === null || value === undefined){
-return "";
-}
+  if(value === null || value === undefined){
+    return "";
+  }
 
-return String(value).replace(
-/[&<>"']/g,
-function(char){
-
-return {
-
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-
-}[char];
-
-}
-);
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
-/* =========================================
-FORMAT DATE
-========================================= */
+/* =========================
+   FORMAT DATE
+========================= */
 
 function formatDate(date){
 
-if(!date){
-return "";
-}
+  if(!date){
+    return "";
+  }
 
-return new Date(date).toLocaleDateString(
-undefined,
-{
-year:"numeric",
-month:"long",
-day:"numeric"
-}
-);
-
-}
-
-
-/* =========================================
-LOAD LATEST 3 NEWS
-========================================= */
-
-async function loadHomepageNews(){
-
-const container =
-document.getElementById(
-"homepageNews"
-);
-
-
-const {
-data,
-error
-} = await supabaseClient
-.from("news")
-.select(
-"id,title,summary,image_url,published_at"
-)
-.eq(
-"published",
-true
-)
-.order(
-"published_at",
-{
-ascending:false
-}
-)
-.limit(3);
-
-
-if(error){
-
-container.innerHTML=`
-
-<div class="news-message">
-
-<strong>
-Unable to load latest news.
-</strong>
-
-<br><br>
-
-Please try again later.
-
-</div>
-
-`;
-
-return;
+  return new Date(date).toLocaleDateString(
+    "en-NG",
+    {
+      year:"numeric",
+      month:"long",
+      day:"numeric"
+    }
+  );
 
 }
 
 
-if(!data || data.length === 0){
+/* =========================
+   LOAD LATEST NEWS
+========================= */
 
-container.innerHTML=`
+async function loadLatestNews(){
 
-<div class="news-message">
+  const container =
+    document.getElementById("latestNews");
 
-<h3>
-No Published News Yet
-</h3>
+  try{
 
-<p>
-New updates will appear here when they are published.
-</p>
-
-</div>
-
-`;
-
-return;
-
-}
-
-
-container.innerHTML="";
-
-
-data.forEach(function(item){
-
-const card =
-document.createElement("article");
-
-card.className="news-card";
+    const { data, error } =
+      await supabaseClient
+        .from("news")
+        .select(
+          "id,title,summary,image_url,published_at"
+        )
+        .eq("published",true)
+        .order(
+          "published_at",
+          {
+            ascending:false
+          }
+        )
+        .limit(3);
 
 
-let imageHTML="";
+    if(error){
+
+      console.error(error);
+
+      container.innerHTML = `
+        <div class="no-news">
+          News is currently unavailable.
+        </div>
+      `;
+
+      return;
+    }
 
 
-if(item.image_url){
+    if(!data || data.length === 0){
 
-imageHTML=`
+      container.innerHTML = `
+        <div class="no-news">
+          No published news available yet.
+        </div>
+      `;
 
-<img
-src="${escapeHtml(item.image_url)}"
-alt="${escapeHtml(item.title)}"
-class="news-image"
-onerror="this.style.display='none'"
->
-
-`;
-
-}else{
-
-imageHTML=`
-
-<div class="news-image"></div>
-
-`;
-
-}
+      return;
+    }
 
 
-card.innerHTML=`
+    container.innerHTML =
+      data.map(function(item){
 
-${imageHTML}
-
-<div class="news-content">
-
-<div class="news-date">
-
-${escapeHtml(
-formatDate(item.published_at)
-)}
-
-</div>
-
-<h3>
-
-${escapeHtml(item.title)}
-
-</h3>
-
-<p>
-
-${escapeHtml(item.summary || "")}
-
-</p>
-
-<a
-href="news.html?id=${encodeURIComponent(item.id)}"
-class="news-read"
->
-Read Full Story →
-</a>
-
-</div>
-
-`;
+        const image =
+          item.image_url
+          ? escapeHtml(item.image_url)
+          : "https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg";
 
 
-container.appendChild(card);
+        return `
 
-});
+          <article class="news-card">
 
-}
+            <img
+              src="${image}"
+              alt="${escapeHtml(item.title)}"
+              onerror="this.src='https://i.ibb.co/fzC2Gxpc/IMG-20260916-WA0093.jpg'"
+            >
 
+            <div class="news-content">
 
-/* =========================================
-CLOSE WELCOME CARD
-========================================= */
+              <div class="news-date">
+                ${formatDate(item.published_at)}
+              </div>
 
-function closeWelcome(){
+              <h3>
+                ${escapeHtml(item.title)}
+              </h3>
 
-document.getElementById(
-"welcomeFloat"
-).style.display="none";
+              <p>
+                ${escapeHtml(item.summary || "")}
+              </p>
+
+              <a
+                class="read-more"
+                href="news.html?id=${encodeURIComponent(item.id)}">
+                Read Full Story →
+              </a>
+
+            </div>
+
+          </article>
+
+        `;
+
+      }).join("");
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    container.innerHTML = `
+      <div class="no-news">
+        Unable to load news at the moment.
+      </div>
+    `;
+
+  }
 
 }
 
 
-/* =========================================
-START
-========================================= */
+/* =========================
+   START
+========================= */
 
-loadHomepageNews();
+loadLatestNews();
 
 </script>
 
