@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Polling Unit Results | Idah Federal Constituency</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  background:#f5f7f6;
+  color:#222;
+  line-height:1.6;
+}
+
+header{
+  background:#006b3f;
+  border-bottom:4px solid #e30613;
+  color:white;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.adc{
+  width:48px;
+  height:48px;
+  background:#e30613;
+  border:3px solid white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.brand h1{
+  font-size:18px;
+}
+
+.brand small{
+  font-size:12px;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:7px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  padding:7px 9px;
+  border-radius:5px;
+  font-size:13px;
+}
+
+nav a:hover{
+  background:#e30613;
+}
+
+.welcome-bar{
+  width:100%;
+  overflow:hidden;
+  background:#006b3f;
+  border-bottom:3px solid #e30613;
+  white-space:nowrap;
+  padding:12px 0;
+}
+
+.welcome-track{
+  display:inline-flex;
+  align-items:center;
+  gap:25px;
+  padding-left:100%;
+  animation:moveWelcome 24s linear infinite;
+}
+
+.welcome-track span{
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.gold{
+  color:#ffd700 !important;
+  font-size:21px !important;
+}
+
+.red{
+  color:#e30613 !important;
+  background:white;
+  padding:3px 8px;
+  border-radius:4px;
+}
+
+@keyframes moveWelcome{
+  from{transform:translateX(0);}
+  to{transform:translateX(-100%);}
+}
+
+.hero{
+  background:linear-gradient(135deg,#006b3f,#003d25);
+  color:white;
+  text-align:center;
+  padding:70px 5%;
+}
+
+.hero h2{
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  max-width:850px;
+  margin:auto;
+  font-size:18px;
+}
+
+.section{
+  max-width:1150px;
+  margin:auto;
+  padding:55px 5%;
+}
+
+.filters{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  margin-bottom:30px;
+}
+
+.filters h3{
+  color:#006b3f;
+  margin-bottom:18px;
+}
+
+.filter-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+select,
+input{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  font-size:15px;
+  background:white;
+}
+
+.result-box{
+  background:white;
+  padding:28px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  overflow-x:auto;
+}
+
+.result-box h3{
+  color:#006b3f;
+  margin-bottom:8px;
+}
+
+.status{
+  display:inline-block;
+  background:#fff3cd;
+  color:#856404;
+  padding:7px 12px;
+  border-radius:5px;
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:850px;
+}
+
+th{
+  background:#006b3f;
+  color:white;
+  padding:13px;
+  text-align:left;
+}
+
+td{
+  padding:13px;
+  border-bottom:1px solid #ddd;
+}
+
+tr:nth-child(even){
+  background:#f8f8f8;
+}
+
+.empty{
+  text-align:center;
+  padding:45px 20px;
+  color:#666;
+}
+
+.empty-icon{
+  font-size:50px;
+  margin-bottom:10px;
+}
+
+.notice{
+  margin-top:25px;
+  background:#f1f8f4;
+  border-left:5px solid #006b3f;
+  padding:20px;
+  border-radius:6px;
+}
+
+.notice strong{
+  color:#006b3f;
+}
+
+.back{
+  display:inline-block;
+  margin-top:25px;
+  background:#e30613;
+  color:white;
+  text-decoration:none;
+  padding:11px 18px;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+footer{
+  background:#003d25;
+  color:white;
+  text-align:center;
+  padding:30px 5%;
+  margin-top:30px;
+}
+
+footer strong{
+  color:#ffd700;
+}
+
+footer a{
+  color:#ffd700;
+  text-decoration:none;
+}
+
+@media(max-width:900px){
+
+  header{
+    flex-direction:column;
+  }
+
+  nav{
+    width:100%;
+  }
+
+  .filter-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h2{
+    font-size:33px;
+  }
+}
+
+@media(max-width:600px){
+
+  nav a{
+    font-size:12px;
+  }
+
+  .hero h2{
+    font-size:28px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .result-box{
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="brand">
+
+<div class="adc">
+ADC
+</div>
+
+<div>
+<h1>PHARM. PETER YAKUBU IDUH</h1>
+
+<small>
+House of Representatives Candidate • Idah Federal Constituency
+</small>
+</div>
+
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="priorities.html">Priorities</a>
+<a href="constituency.html">Constituency</a>
+<a href="vision.html">Vision</a>
+<a href="gallery.html">Gallery</a>
+<a href="news.html">News</a>
+<a href="events.html">Events</a>
+<a href="press.html">Press</a>
+<a href="faq.html">FAQ</a>
+<a href="election-results.html">Results</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</header>
+
+
+<div class="welcome-bar">
+
+<div class="welcome-track">
+
+<span>
+POLLING UNIT ELECTION RESULTS
+</span>
+
+<span class="gold">•</span>
+
+<span>
+IDAH FEDERAL CONSTITUENCY
+</span>
+
+<span class="gold">•</span>
+
+<span>
+IDAH • IBAJI • IGALAMELA-ODOLU • OFU
+</span>
+
+<span class="gold">•</span>
+
+<span class="red">
+PUBLIC RESULTS INFORMATION
+</span>
+
+</div>
+
+</div>
+
+
+<section class="hero">
+
+<h2>Polling Unit Results</h2>
+
+<p>
+Public display of verified election results organized by polling unit.
+</p>
+
+</section>
+
+
+<section class="section">
+
+
+<div class="filters">
+
+<h3>Find a Polling Unit</h3>
+
+<div class="filter-grid">
+
+<div>
+
+<label>LGA</label>
+
+<select>
+<option>Select LGA</option>
+<option>Idah</option>
+<option>Ibaji</option>
+<option>Igalamela-Odolu</option>
+<option>Ofu</option>
+</select>
+
+</div>
+
+
+<div>
+
+<label>Ward</label>
+
+<select>
+<option>Select Ward</option>
+<option>All Wards</option>
+</select>
+
+</div>
+
+
+<div>
+
+<label>Polling Unit</label>
+
+<input
+type="text"
+placeholder="Search polling unit">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="result-box">
+
+<h3>Polling Unit Results</h3>
+
+<span class="status">
+AWAITING VERIFIED RESULT DATA
+</span>
+
+
+<div class="empty">
+
+<div class="empty-icon">
+🗳️
+</div>
+
+<h3>
+No polling-unit results have been published here yet.
+</h3>
+
+<p>
+Verified result records will appear in this section when they
+are available.
+</p>
+
+</div>
+
+
+<table>
+
+<thead>
+
+<tr>
+<th>LGA</th>
+<th>Ward</th>
+<th>Polling Unit</th>
+<th>Registered</th>
+<th>Accredited</th>
+<th>Votes Cast</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Awaiting data</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="notice">
+
+<strong>Verification Notice</strong>
+
+<p style="margin-top:8px;">
+Results displayed on this page should come from verified public
+records. This page is an information display and does not replace
+official declarations by the relevant electoral authority.
+</p>
+
+</div>
+
+
+<a
+href="election-results.html"
+class="back">
+← Back to Election Results
+</a>
+
+
+</section>
+
+
+<footer>
+
+<p>
+<strong>PHARM. PETER YAKUBU IDUH</strong>
+</p>
+
+<p>
+House of Representatives Candidate • Idah Federal Constituency
+</p>
+
+<p>
+African Democratic Congress (ADC)
+</p>
+
+<br>
+
+<p>
+
+<a href="privacy-policy.html">
+Privacy Policy
+</a>
+
+&nbsp; | &nbsp;
+
+<a href="terms.html">
+Terms & Conditions
+</a>
+
+</p>
+
+<br>
+
+<p>
+Powered by <strong>IBAJI TV CHANNEL 📺</strong>
+</p>
+
+</footer>
+
+</body>
+</html>
