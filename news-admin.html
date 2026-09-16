@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>News Admin Dashboard - Pharm. Peter Yakubu Iduh</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f4f6f5;
+color:#222;
+}
+
+/* HEADER */
+
+header{
+background:#006b3f;
+color:white;
+padding:15px;
+}
+
+.header-inner{
+max-width:1100px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+
+header h1{
+font-size:20px;
+margin:0;
+}
+
+header p{
+margin:4px 0 0;
+font-size:12px;
+}
+
+.logout-btn{
+background:#e30613;
+border:0;
+color:white;
+padding:10px 15px;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* LOGIN */
+
+.login-container{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:#006b3f;
+}
+
+.login-box{
+background:white;
+width:100%;
+max-width:400px;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.login-box h2{
+color:#006b3f;
+text-align:center;
+margin-top:0;
+}
+
+.login-box p{
+text-align:center;
+color:#666;
+font-size:14px;
+}
+
+input,
+textarea,
+select{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:7px;
+font-size:15px;
+margin-top:6px;
+margin-bottom:15px;
+font-family:Arial,sans-serif;
+}
+
+textarea{
+min-height:160px;
+resize:vertical;
+}
+
+label{
+font-weight:bold;
+font-size:14px;
+color:#333;
+}
+
+.main-btn{
+width:100%;
+background:#006b3f;
+color:white;
+border:0;
+padding:13px;
+border-radius:7px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.main-btn:hover{
+background:#004d2d;
+}
+
+.message{
+margin-top:15px;
+text-align:center;
+font-weight:bold;
+}
+
+/* DASHBOARD */
+
+#dashboard{
+display:none;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+border-radius:12px;
+padding:20px;
+margin-bottom:20px;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+margin-top:0;
+color:#006b3f;
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.full{
+grid-column:1 / -1;
+}
+
+.publish-row{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:15px;
+}
+
+.publish-row input{
+width:auto;
+margin:0;
+}
+
+.action-buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.save-btn{
+background:#006b3f;
+color:white;
+border:0;
+padding:12px 18px;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.cancel-btn{
+background:#777;
+color:white;
+border:0;
+padding:12px 18px;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer;
+display:none;
+}
+
+/* NEWS LIST */
+
+.news-item{
+border:1px solid #ddd;
+border-radius:10px;
+padding:15px;
+margin-bottom:15px;
+background:#fff;
+}
+
+.news-item img{
+width:100%;
+max-width:250px;
+height:150px;
+object-fit:cover;
+border-radius:8px;
+display:block;
+margin-bottom:12px;
+}
+
+.news-item h3{
+margin:5px 0;
+color:#006b3f;
+}
+
+.news-meta{
+font-size:12px;
+color:#666;
+margin-bottom:8px;
+}
+
+.status{
+display:inline-block;
+padding:5px 9px;
+border-radius:5px;
+font-size:12px;
+font-weight:bold;
+}
+
+.published{
+background:#d9f5e6;
+color:#006b3f;
+}
+
+.unpublished{
+background:#ffe0e0;
+color:#b00000;
+}
+
+.item-buttons{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-top:12px;
+}
+
+.edit-btn,
+.delete-btn,
+.toggle-btn{
+border:0;
+padding:9px 12px;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.edit-btn{
+background:#006b3f;
+color:white;
+}
+
+.delete-btn{
+background:#e30613;
+color:white;
+}
+
+.toggle-btn{
+background:#f2bd24;
+color:#222;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+.header-inner{
+align-items:flex-start;
+}
+
+header h1{
+font-size:16px;
+}
+
+.form-grid{
+grid-template-columns:1fr;
+}
+
+.full{
+grid-column:auto;
+}
+
+.container{
+padding:12px;
+}
+
+.card{
+padding:15px;
+}
+
+.login-box{
+padding:25px 20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ============================= -->
+<!-- LOGIN PAGE -->
+<!-- ============================= -->
+
+<div id="loginPage" class="login-container">
+
+<div class="login-box">
+
+<h2>News Admin Login</h2>
+
+<p>
+Pharm. Peter Yakubu Iduh<br>
+Official Website
+</p>
+
+<form id="loginForm">
+
+<label>Email Address</label>
+
+<input
+type="email"
+id="loginEmail"
+placeholder="Enter admin email"
+required
+>
+
+<label>Password</label>
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Enter password"
+required
+>
+
+<button
+type="submit"
+class="main-btn"
+>
+LOGIN
+</button>
+
+</form>
+
+<div
+id="loginMessage"
+class="message"
+></div>
+
+</div>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- DASHBOARD -->
+<!-- ============================= -->
+
+<div id="dashboard">
+
+<header>
+
+<div class="header-inner">
+
+<div>
+
+<h1>News Admin Dashboard</h1>
+
+<p>
+Pharm. Peter Yakubu Iduh
+</p>
+
+</div>
+
+<button
+class="logout-btn"
+onclick="logoutAdmin()"
+>
+Logout
+</button>
+
+</div>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- ADD / EDIT NEWS -->
+
+<div class="card">
+
+<h2 id="formTitle">
+Add New News
+</h2>
+
+<form id="newsForm">
+
+<input
+type="hidden"
+id="newsId"
+>
+
+
+<div class="form-grid">
+
+
+<div class="full">
+
+<label>
+News Title
+</label>
+
+<input
+type="text"
+id="newsTitle"
+placeholder="Enter news title"
+required
+>
+
+</div>
+
+
+<div>
+
+<label>
+Publication Date
+</label>
+
+<input
+type="datetime-local"
+id="publishedAt"
+required
+>
+
+</div>
+
+
+<div>
+
+<label>
+News Image URL
+</label>
+
+<input
+type="url"
+id="imageUrl"
+placeholder="https://example.com/image.jpg"
+>
+
+</div>
+
+
+<div class="full">
+
+<label>
+Short Summary
+</label>
+
+<textarea
+id="newsSummary"
+placeholder="Enter a short summary of the news"
+required
+></textarea>
+
+</div>
+
+
+<div class="full">
+
+<label>
+Full News Article
+</label>
+
+<textarea
+id="newsContent"
+placeholder="Enter the complete news article here"
+required
+></textarea>
+
+</div>
+
+
+</div>
+
+
+<div class="publish-row">
+
+<input
+type="checkbox"
+id="published"
+checked
+>
+
+<label for="published">
+Publish this news
+</label>
+
+</div>
+
+
+<div class="action-buttons">
+
+<button
+type="submit"
+class="save-btn"
+id="saveButton"
+>
+Publish News
+</button>
+
+<button
+type="button"
+class="cancel-btn"
+id="cancelButton"
+onclick="cancelEdit()"
+>
+Cancel Edit
+</button>
+
+</div>
+
+
+<div
+id="formMessage"
+class="message"
+></div>
+
+
+</form>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- NEWS LIST -->
+<!-- ============================= -->
+
+<div class="card">
+
+<h2>
+All News
+</h2>
+
+<div id="newsList">
+
+<p>
+Loading news...
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   SUPABASE CONNECTION
+========================================= */
+
+const SUPABASE_URL =
+"https://oltrdzkqumldpfmygmfi.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_FtdISn_NfDQWnhVxPegaeg_B-RzNdUA";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY
+);
+
+
+/* =========================================
+   HTML ESCAPE
+========================================= */
+
+function escapeHtml(value){
+
+if(value === null || value === undefined){
+return "";
+}
+
+return String(value).replace(/[&<>"']/g, function(char){
+
+return {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[char];
+
+});
+
+}
+
+
+/* =========================================
+   CHECK LOGIN
+========================================= */
+
+async function checkSession(){
+
+const {
+data,
+error
+} = await supabaseClient.auth.getSession();
+
+if(data.session){
+
+showDashboard();
+
+}else{
+
+showLogin();
+
+}
+
+}
+
+
+/* =========================================
+   SHOW LOGIN
+========================================= */
+
+function showLogin(){
+
+document.getElementById("loginPage")
+.style.display="flex";
+
+document.getElementById("dashboard")
+.style.display="none";
+
+}
+
+
+/* =========================================
+   SHOW DASHBOARD
+========================================= */
+
+function showDashboard(){
+
+document.getElementById("loginPage")
+.style.display="none";
+
+document.getElementById("dashboard")
+.style.display="block";
+
+loadNews();
+
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+document.getElementById("loginForm")
+.addEventListener("submit", async function(event){
+
+event.preventDefault();
+
+const email =
+document.getElementById("loginEmail")
+.value
+.trim();
+
+const password =
+document.getElementById("loginPassword")
+.value;
+
+const message =
+document.getElementById("loginMessage");
+
+message.style.color="#555";
+
+message.innerHTML="Logging in...";
+
+
+const {
+data,
+error
+} = await supabaseClient.auth.signInWithPassword({
+
+email:email,
+
+password:password
+
+});
+
+
+if(error){
+
+message.style.color="red";
+
+message.innerHTML =
+"Login failed: " +
+escapeHtml(error.message);
+
+return;
+
+}
+
+
+message.innerHTML="";
+
+showDashboard();
+
+});
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+async function logoutAdmin(){
+
+await supabaseClient.auth.signOut();
+
+location.reload();
+
+}
+
+
+/* =========================================
+   LOAD NEWS
+========================================= */
+
+async function loadNews(){
+
+const list =
+document.getElementById("newsList");
+
+list.innerHTML =
+"<p>Loading news...</p>";
+
+
+const {
+data,
+error
+} = await supabaseClient
+.from("news")
+.select("*")
+.order(
+"published_at",
+{
+ascending:false
+}
+);
+
+
+if(error){
+
+list.innerHTML =
+"<p style='color:red;'>Unable to load news: "
++
+escapeHtml(error.message)
++
+"</p>";
+
+return;
+
+}
+
+
+if(!data || data.length === 0){
+
+list.innerHTML =
+"<p>No news has been added yet.</p>";
+
+return;
+
+}
+
+
+list.innerHTML = "";
+
+
+data.forEach(function(item){
+
+const article =
+document.createElement("div");
+
+article.className="news-item";
+
+
+const image =
+item.image_url
+?
+`
+<img
+src="${escapeHtml(item.image_url)}"
+alt="${escapeHtml(item.title)}"
+onerror="this.style.display='none'"
+>
+`
+:
+"";
+
+
+const status =
+item.published
+?
+`
+<span class="status published">
+PUBLISHED
+</span>
+`
+:
+`
+<span class="status unpublished">
+NOT PUBLISHED
+</span>
+`;
+
+
+const date =
+item.published_at
+?
+new Date(item.published_at)
+.toLocaleString()
+:
+"";
+
+
+article.innerHTML = `
+
+${image}
+
+<h3>
+${escapeHtml(item.title)}
+</h3>
+
+<div class="news-meta">
+${escapeHtml(date)}
+</div>
+
+<div>
+${status}
+</div>
+
+<p>
+${escapeHtml(item.summary || "")}
+</p>
+
+<div class="item-buttons">
+
+<button
+class="edit-btn"
+onclick="editNews(${item.id})"
+>
+Edit
+</button>
+
+<button
+class="toggle-btn"
+onclick="togglePublished(${item.id}, ${item.published})"
+>
+${item.published ? "Unpublish" : "Publish"}
+</button>
+
+<button
+class="delete-btn"
+onclick="deleteNews(${item.id})"
+>
+Delete
+</button>
+
+</div>
+
+`;
+
+
+list.appendChild(article);
+
+});
+
+}
+
+
+/* =========================================
+   ADD / UPDATE NEWS
+========================================= */
+
+document.getElementById("newsForm")
+.addEventListener("submit", async function(event){
+
+event.preventDefault();
+
+
+const newsId =
+document.getElementById("newsId")
+.value;
+
+
+const title =
+document.getElementById("newsTitle")
+.value
+.trim();
+
+
+const summary =
+document.getElementById("newsSummary")
+.value
+.trim();
+
+
+const content =
+document.getElementById("newsContent")
+.value
+.trim();
+
+
+const imageUrl =
+document.getElementById("imageUrl")
+.value
+.trim();
+
+
+const published =
+document.getElementById("published")
+.checked;
+
+
+const dateInput =
+document.getElementById("publishedAt")
+.value;
+
+
+const formMessage =
+document.getElementById("formMessage");
+
+
+if(!dateInput){
+
+formMessage.style.color="red";
+
+formMessage.innerHTML=
+"Please select a publication date.";
+
+return;
+
+}
+
+
+const publishedAt =
+new Date(dateInput)
+.toISOString();
+
+
+const newsData = {
+
+title:title,
+
+summary:summary,
+
+content:content,
+
+image_url:imageUrl || null,
+
+published:published,
+
+published_at:publishedAt,
+
+updated_at:new Date().toISOString()
+
+};
+
+
+formMessage.style.color="#555";
+
+formMessage.innerHTML=
+"Saving news...";
+
+
+let result;
+
+
+if(newsId){
+
+result =
+await supabaseClient
+.from("news")
+.update(newsData)
+.eq("id",newsId);
+
+}else{
+
+result =
+await supabaseClient
+.from("news")
+.insert([newsData]);
+
+}
+
+
+if(result.error){
+
+formMessage.style.color="red";
+
+formMessage.innerHTML=
+"Error: "
++
+escapeHtml(result.error.message);
+
+return;
+
+}
+
+
+formMessage.style.color="#006b3f";
+
+formMessage.innerHTML=
+newsId
+?
+"News updated successfully."
+:
+"News published successfully.";
+
+
+resetForm();
+
+loadNews();
+
+});
+
+
+/* =========================================
+   EDIT NEWS
+========================================= */
+
+async function editNews(id){
+
+const {
+data,
+error
+} = await supabaseClient
+.from("news")
+.select("*")
+.eq("id",id)
+.single();
+
+
+if(error){
+
+alert(
+"Unable to load news: "
++
+error.message
+);
+
+return;
+
+}
+
+
+document.getElementById("newsId")
+.value=data.id;
+
+
+document.getElementById("newsTitle")
+.value=data.title || "";
+
+
+document.getElementById("newsSummary")
+.value=data.summary || "";
+
+
+document.getElementById("newsContent")
+.value=data.content || "";
+
+
+document.getElementById("imageUrl")
+.value=data.image_url || "";
+
+
+document.getElementById("published")
+.checked=data.published;
+
+
+if(data.published_at){
+
+const localDate =
+new Date(data.published_at);
+
+const year =
+localDate.getFullYear();
+
+const month =
+String(
+localDate.getMonth()+1
+)
+.padStart(2,"0");
+
+const day =
+String(
+localDate.getDate()
+)
+.padStart(2,"0");
+
+const hours =
+String(
+localDate.getHours()
+)
+.padStart(2,"0");
+
+const minutes =
+String(
+localDate.getMinutes()
+)
+.padStart(2,"0");
+
+
+document.getElementById("publishedAt")
+.value =
+`${year}-${month}-${day}T${hours}:${minutes}`;
+
+}
+
+
+document.getElementById("formTitle")
+.innerHTML=
+"Edit News";
+
+
+document.getElementById("saveButton")
+.innerHTML=
+"Update News";
+
+
+document.getElementById("cancelButton")
+.style.display="inline-block";
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================================
+   CANCEL EDIT
+========================================= */
+
+function cancelEdit(){
+
+resetForm();
+
+}
+
+
+/* =========================================
+   RESET FORM
+========================================= */
+
+function resetForm(){
+
+document.getElementById("newsForm")
+.reset();
+
+
+document.getElementById("newsId")
+.value="";
+
+
+document.getElementById("published")
+.checked=true;
+
+
+document.getElementById("formTitle")
+.innerHTML=
+"Add New News";
+
+
+document.getElementById("saveButton")
+.innerHTML=
+"Publish News";
+
+
+document.getElementById("cancelButton")
+.style.display="none";
+
+
+document.getElementById("formMessage")
+.innerHTML="";
+
+}
+
+
+/* =========================================
+   DELETE NEWS
+========================================= */
+
+async function deleteNews(id){
+
+const confirmDelete =
+confirm(
+"Are you sure you want to delete this news?"
+);
+
+
+if(!confirmDelete){
+
+return;
+
+}
+
+
+const {
+error
+} = await supabaseClient
+.from("news")
+.delete()
+.eq("id",id);
+
+
+if(error){
+
+alert(
+"Unable to delete news: "
++
+error.message
+);
+
+return;
+
+}
+
+
+alert("News deleted successfully.");
+
+loadNews();
+
+}
+
+
+/* =========================================
+   PUBLISH / UNPUBLISH
+========================================= */
+
+async function togglePublished(
+id,
+currentStatus
+){
+
+const {
+error
+} = await supabaseClient
+.from("news")
+.update({
+
+published:!currentStatus,
+
+updated_at:
+new Date().toISOString()
+
+})
+.eq("id",id);
+
+
+if(error){
+
+alert(
+"Unable to update status: "
++
+error.message
+);
+
+return;
+
+}
+
+
+loadNews();
+
+}
+
+
+/* =========================================
+   AUTH STATE
+========================================= */
+
+supabaseClient.auth
+.onAuthStateChange(
+function(event, session){
+
+if(session){
+
+showDashboard();
+
+}else{
+
+showLogin();
+
+}
+
+});
+
+
+/* =========================================
+   START
+========================================= */
+
+checkSession();
+
+</script>
+
+</body>
+</html>
