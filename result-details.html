@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Result Details | Pharm. Peter Yakubu Iduh</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7f6;
+  color:#222;
+  line-height:1.6;
+}
+
+/* HEADER */
+
+header{
+  background:#006b3f;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  border-bottom:4px solid #e30613;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.adc{
+  background:white;
+  color:#006b3f;
+  font-weight:bold;
+  padding:8px 12px;
+  border-radius:6px;
+}
+
+.logo h1{
+  font-size:20px;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:10px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:5px;
+  font-weight:bold;
+}
+
+nav a:hover{
+  background:#e30613;
+}
+
+/* MOVING BAR */
+
+.welcome-bar{
+  width:100%;
+  overflow:hidden;
+  background:#006b3f;
+  border-bottom:3px solid #e30613;
+  white-space:nowrap;
+  padding:12px 0;
+}
+
+.welcome-track{
+  display:inline-flex;
+  align-items:center;
+  gap:25px;
+  padding-left:100%;
+  animation:moveWelcome 24s linear infinite;
+}
+
+.welcome-track span{
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.welcome-track .gold{
+  color:#ffd700;
+  font-size:21px;
+}
+
+.welcome-track .red{
+  color:#e30613;
+  background:white;
+  padding:3px 8px;
+  border-radius:4px;
+}
+
+@keyframes moveWelcome{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-100%);
+  }
+
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(135deg,#006b3f,#003d25);
+  color:white;
+  padding:65px 6%;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  max-width:850px;
+  margin:auto;
+  font-size:18px;
+}
+
+/* CONTAINER */
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:40px auto;
+}
+
+/* NOTICE */
+
+.notice{
+  background:white;
+  border-left:6px solid #006b3f;
+  padding:22px;
+  margin-bottom:30px;
+  border-radius:8px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.notice h3{
+  color:#006b3f;
+  margin-bottom:8px;
+}
+
+/* RESULT CARD */
+
+.result-card{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 4px 18px rgba(0,0,0,.09);
+}
+
+/* RESULT HEADER */
+
+.result-header{
+  text-align:center;
+  border-bottom:2px solid #eee;
+  padding-bottom:25px;
+  margin-bottom:25px;
+}
+
+.result-header h2{
+  color:#006b3f;
+  margin-bottom:8px;
+}
+
+.result-header p{
+  color:#555;
+}
+
+/* DETAILS GRID */
+
+.details-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-bottom:30px;
+}
+
+.detail-box{
+  background:#f4f8f6;
+  padding:18px;
+  border-radius:7px;
+  border-left:4px solid #006b3f;
+}
+
+.detail-box span{
+  display:block;
+  color:#666;
+  font-size:13px;
+  margin-bottom:4px;
+}
+
+.detail-box strong{
+  color:#222;
+}
+
+/* TABLE */
+
+.table-wrapper{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:700px;
+}
+
+th{
+  background:#006b3f;
+  color:white;
+  padding:14px;
+  text-align:left;
+}
+
+td{
+  padding:14px;
+  border-bottom:1px solid #ddd;
+}
+
+.status{
+  display:inline-block;
+  background:#eaf7ef;
+  color:#006b3f;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.pending{
+  background:#fff4df;
+  color:#9a6500;
+}
+
+/* TOTALS */
+
+.total-box{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.total{
+  background:#006b3f;
+  color:white;
+  padding:22px;
+  text-align:center;
+  border-radius:8px;
+}
+
+.total h3{
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.total p{
+  font-size:25px;
+  font-weight:bold;
+}
+
+/* SOURCE */
+
+.source{
+  margin-top:30px;
+  background:#f7f7f7;
+  padding:20px;
+  border-radius:8px;
+}
+
+.source h3{
+  color:#006b3f;
+  margin-bottom:8px;
+}
+
+/* BUTTONS */
+
+.buttons{
+  text-align:center;
+  margin:35px 0;
+}
+
+.buttons a{
+  display:inline-block;
+  text-decoration:none;
+  padding:12px 20px;
+  border-radius:5px;
+  font-weight:bold;
+  margin:5px;
+}
+
+.back{
+  background:#e30613;
+  color:white;
+}
+
+.results{
+  background:#006b3f;
+  color:white;
+}
+
+.buttons a:hover{
+  opacity:.85;
+}
+
+/* FOOTER */
+
+footer{
+  background:#003d25;
+  color:white;
+  text-align:center;
+  padding:30px 5%;
+  margin-top:50px;
+}
+
+footer a{
+  color:#ffd700;
+  text-decoration:none;
+  margin:0 8px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  nav a{
+    font-size:13px;
+  }
+
+  .hero h2{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .details-grid{
+    grid-template-columns:1fr;
+  }
+
+  .total-box{
+    grid-template-columns:1fr;
+  }
+
+  .result-card{
+    padding:20px 12px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="logo">
+
+    <div class="adc">
+      ADC
+    </div>
+
+    <h1>
+      PHARM. PETER YAKUBU IDUH
+    </h1>
+
+  </div>
+
+
+  <nav>
+
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="priorities.html">Priorities</a>
+    <a href="constituency.html">Constituency</a>
+    <a href="vision.html">Vision</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="events.html">Events</a>
+    <a href="press.html">Press</a>
+    <a href="faq.html">FAQ</a>
+    <a href="election-results.html">Results</a>
+    <a href="contact.html">Contact</a>
+
+  </nav>
+
+</header>
+
+
+<!-- MOVING BAR -->
+
+<div class="welcome-bar">
+
+  <div class="welcome-track">
+
+    <span>DETAILED ELECTION RESULT</span>
+
+    <span class="gold">•</span>
+
+    <span>PUBLIC RESULTS INFORMATION</span>
+
+    <span class="gold">•</span>
+
+    <span>IDAH FEDERAL CONSTITUENCY</span>
+
+    <span class="gold">•</span>
+
+    <span>IDAH • IBAJI • IGALAMELA-ODOLU • OFU</span>
+
+    <span class="gold">•</span>
+
+    <span class="red">VERIFIED RECORDS ONLY</span>
+
+  </div>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <h2>Result Details</h2>
+
+  <p>
+    Detailed public election-result information and
+    result-sheet reference.
+  </p>
+
+</section>
+
+
+<div class="container">
+
+
+  <!-- NOTICE -->
+
+  <div class="notice">
+
+    <h3>Important Verification Notice</h3>
+
+    <p>
+      The information on this page is intended for public
+      display of election-result records. Results should be
+      entered only after verification against the relevant
+      official electoral records.
+    </p>
+
+    <p style="margin-top:10px;">
+
+      This page does not collect voter names, VINs,
+      voter preferences or individual voter records.
+
+    </p>
+
+  </div>
+
+
+  <!-- RESULT CARD -->
+
+  <section class="result-card">
+
+
+    <div class="result-header">
+
+      <h2>
+        House of Representatives
+      </h2>
+
+      <p>
+        Idah Federal Constituency
+      </p>
+
+    </div>
+
+
+    <!-- RESULT INFORMATION -->
+
+    <div class="details-grid">
+
+
+      <div class="detail-box">
+
+        <span>
+          Election
+        </span>
+
+        <strong>
+          House of Representatives
+        </strong>
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <span>
+          Constituency
+        </span>
+
+        <strong>
+          Idah Federal Constituency
+        </strong>
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <span>
+          Local Government Area
+        </span>
+
+        <strong id="lga">
+          Awaiting result
+        </strong>
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <span>
+          Ward
+        </span>
+
+        <strong id="ward">
+          Awaiting result
+        </strong>
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <span>
+          Polling Unit
+        </span>
+
+        <strong id="pollingUnit">
+          Awaiting result
+        </strong>
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <span>
+          Result Status
+        </span>
+
+        <strong>
+          <span class="status pending">
+            Awaiting Verified Data
+          </span>
+        </strong>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- CANDIDATE RESULTS -->
+
+    <h3 style="color:#006b3f;margin-bottom:12px;">
+      Candidate Results
+    </h3>
+
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Candidate
+            </th>
+
+            <th>
+              Party
+            </th>
+
+            <th>
+              Votes
+            </th>
+
+            <th>
+              Status
+            </th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+          <tr>
+
+            <td>
+              Pharm. Peter Yakubu Iduh
+            </td>
+
+            <td>
+              ADC
+            </td>
+
+            <td>
+              —
+            </td>
+
+            <td>
+              <span class="status pending">
+                Awaiting verified data
+              </span>
+            </td>
+
+          </tr>
+
+
+          <tr>
+
+            <td>
+              Other candidates
+            </td>
+
+            <td>
+              —
+            </td>
+
+            <td>
+              —
+            </td>
+
+            <td>
+              <span class="status pending">
+                Awaiting verified data
+              </span>
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- TOTALS -->
+
+    <div class="total-box">
+
+
+      <div class="total">
+
+        <h3>
+          Registered
+        </h3>
+
+        <p>
+          —
+        </p>
+
+      </div>
+
+
+      <div class="total">
+
+        <h3>
+          Accredited
+        </h3>
+
+        <p>
+          —
+        </p>
+
+      </div>
+
+
+      <div class="total">
+
+        <h3>
+          Votes Cast
+        </h3>
+
+        <p>
+          —
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- SOURCE -->
+
+    <div class="source">
+
+      <h3>
+        Result Source
+      </h3>
+
+      <p>
+        No verified source record has been attached
+        to this result yet.
+      </p>
+
+      <p style="margin-top:8px;">
+
+        When results are added, this section can contain
+        the relevant public result-sheet reference,
+        publication date and verification status.
+
+      </p>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- BUTTONS -->
+
+  <div class="buttons">
+
+    <a
+      href="election-results.html"
+      class="back"
+    >
+      ← Back to Results
+    </a>
+
+
+    <a
+      href="candidate-results.html"
+      class="results"
+    >
+      Candidate Results
+    </a>
+
+
+    <a
+      href="lga-results.html"
+      class="results"
+    >
+      LGA Results
+    </a>
+
+  </div>
+
+
+  <!-- PUBLIC INFORMATION -->
+
+  <div class="notice">
+
+    <h3>
+      Public Result Information
+    </h3>
+
+    <p>
+      This website is designed to present election-result
+      information for public viewing. It should not be used
+      as a substitute for the official declaration or
+      official electoral records.
+    </p>
+
+  </div>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+    © 2026 Pharm. Peter Yakubu Iduh
+  </p>
+
+  <p>
+    House of Representatives Candidate • Idah Federal Constituency
+  </p>
+
+  <p style="margin-top:10px;">
+
+    <a href="privacy-policy.html">
+      Privacy Policy
+    </a>
+
+    |
+
+    <a href="terms.html">
+      Terms
+    </a>
+
+    |
+
+    <a href="election-results.html">
+      Election Results
+    </a>
+
+  </p>
+
+  <p style="margin-top:15px;">
+    Powered by IBAJI TV CHANNEL 📺
+  </p>
+
+</footer>
+
+
+</body>
+</html>
